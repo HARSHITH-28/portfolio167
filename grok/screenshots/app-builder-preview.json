@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "Ranjitha S — Computer Science",
+      "hasCanvas": false,
+      "bodyTextLen": 6389,
+      "bodyTextHash": "32a90f6a05f4af6d33b386413ae031bd18e8fab58be33aad70333eceb6d73968",
+      "bodyTextPrefix": "Skip to content Ranjitha S Work Studio Toolkit Path Note B.E. CO",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "Ranjitha S — Computer Science",
+      "hasCanvas": false,
+      "bodyTextLen": 6369,
+      "bodyTextHash": "240855612670698e179c70537a853412af73ed5c775550c6817a0250fc35c5cc",
+      "bodyTextPrefix": "Skip to content Ranjitha S Open menu B.E. COMPUTER SCIENCE & ENG",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-preview.json"
+}

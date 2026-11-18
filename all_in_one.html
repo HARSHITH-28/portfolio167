@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>All-in-One AI Portfolio Hub — Ranjitha S (portfolio167)</title>
+  <meta name="description" content="Central showcase hub comparing all AI-generated portfolios for Ranjitha S across Antigravity, ChatGPT, Claude, Gemini, Grok, Meta AI, Framer, and Lovable." />
+  <meta name="theme-color" content="#060911" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Geist+Mono:wght@400;500;600&family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #060911;
+      --bg-elev: rgba(13, 19, 31, 0.78);
+      --bg-card: rgba(15, 22, 36, 0.72);
+      --bg-card-hover: rgba(20, 29, 47, 0.92);
+      --border: rgba(232, 236, 242, 0.11);
+      --border-strong: rgba(52, 245, 197, 0.45);
+      --text: #EEF2F8;
+      --text-sec: #B8C2D4;
+      --text-muted: #7D899E;
+      --acc: #34F5C5;
+      --acc-2: #A78BFA;
+      --acc-3: #38BDF8;
+      --acc-4: #FF8A4C;
+      --font-display: 'Bricolage Grotesque', system-ui, sans-serif;
+      --font-sans: 'Geist', system-ui, sans-serif;
+      --font-mono: 'Geist Mono', monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      min-height: 100vh;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::selection { background: #38BDF8; color: #050912; }
+    ::-moz-selection { background: #38BDF8; color: #050912; }
+
+    /* Background Ambient Canvas & Grid */
+    #bg-canvas {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .bg-grid {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(to right, rgba(232, 236, 242, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(232, 236, 242, 0.03) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: radial-gradient(ellipse 80% 70% at 50% 25%, #000 40%, transparent 100%);
+      -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 25%, #000 40%, transparent 100%);
+    }
+
+    /* Layout Container */
+    .wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 24px 36px 96px;
+    }
+
+    /* Sticky Glass Topbar */
+    .topbar {
+      position: sticky;
+      top: 16px;
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 12px 20px;
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(20, 28, 44, 0.82), rgba(10, 15, 25, 0.78));
+      backdrop-filter: blur(18px) saturate(1.4);
+      -webkit-backdrop-filter: blur(18px) saturate(1.4);
+      border: 1px solid var(--border);
+      box-shadow: 0 24px 60px -20px rgba(0, 0, 0, 0.75), inset 0 1px 0 rgba(255, 255, 255, 0.07);
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: var(--text);
+    }
+    .brand-cube {
+      width: 40px;
+      height: 40px;
+      border-radius: 11px;
+      background: linear-gradient(135deg, var(--acc), var(--acc-3));
+      color: #060911;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 16px;
+      display: grid;
+      place-items: center;
+      box-shadow: 0 0 24px rgba(52, 245, 197, 0.35);
+    }
+    .brand-text { display: flex; flex-direction: column; gap: 2px; }
+    .brand-title { font-family: var(--font-display); font-weight: 700; font-size: 16px; letter-spacing: -0.02em; }
+    .brand-sub { font-size: 12px; color: var(--text-muted); font-family: var(--font-mono); }
+
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .pill-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      height: 38px;
+      padding: 0 14px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: rgba(9, 13, 22, 0.6);
+      color: var(--text-sec);
+      font-size: 13px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.22s ease;
+    }
+    .pill-link:hover {
+      border-color: var(--acc);
+      color: var(--text);
+      transform: translateY(-1px);
+    }
+    .pill-link.primary {
+      background: var(--acc);
+      color: #060911;
+      border-color: transparent;
+      font-weight: 700;
+    }
+    .pill-link.primary:hover {
+      background: #EEF2F8;
+      color: #060911;
+    }
+
+    /* Hero Header */
+    .hero {
+      padding: 64px 0 44px;
+      display: grid;
+      grid-template-columns: 1.35fr 0.65fr;
+      gap: 32px;
+      align-items: end;
+      border-bottom: 1px solid var(--border);
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 7px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(52, 245, 197, 0.3);
+      background: rgba(52, 245, 197, 0.07);
+      color: var(--acc);
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 22px;
+    }
+    .live-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--acc);
+      box-shadow: 0 0 12px var(--acc);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.3); opacity: 0.55; }
+    }
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(44px, 6.2vw, 84px);
+      font-weight: 800;
+      letter-spacing: -0.045em;
+      line-height: 0.94;
+      margin-bottom: 20px;
+    }
+    .grad-text {
+      background: linear-gradient(120deg, var(--acc) 0%, var(--acc-3) 50%, var(--acc-2) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .hero-lead {
+      font-size: 18px;
+      line-height: 1.6;
+      color: var(--text-sec);
+      max-width: 680px;
+      font-weight: 300;
+    }
+
+    /* Profile Summary Card in Hero */
+    .profile-card {
+      padding: 22px;
+      border-radius: 20px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      backdrop-filter: blur(14px);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .profile-top {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .profile-top img {
+      width: 64px;
+      height: 64px;
+      border-radius: 16px;
+      object-fit: cover;
+      object-position: 50% 25%;
+      border: 1px solid rgba(52, 245, 197, 0.4);
+    }
+    .profile-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+    }
+    .p-stat {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .p-stat b {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--acc);
+    }
+    .p-stat span {
+      font-size: 11.5px;
+      color: var(--text-muted);
+    }
+
+    /* Controls Toolbar */
+    .toolbar {
+      margin: 32px 0 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .filters {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .filter-btn {
+      height: 40px;
+      padding: 0 16px;
+      border-radius: 11px;
+      border: 1px solid var(--border);
+      background: rgba(13, 19, 31, 0.7);
+      color: var(--text-sec);
+      font-family: var(--font-sans);
+      font-size: 13.5px;
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+    .filter-btn:hover {
+      border-color: rgba(232, 236, 242, 0.3);
+      color: var(--text);
+    }
+    .filter-btn.active {
+      background: var(--acc);
+      color: #060911;
+      border-color: var(--acc);
+      font-weight: 700;
+      box-shadow: 0 10px 28px -10px rgba(52, 245, 197, 0.55);
+    }
+    .filter-count {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      padding: 2px 7px;
+      border-radius: 99px;
+      background: rgba(255, 255, 255, 0.1);
+    }
+    .filter-btn.active .filter-count {
+      background: rgba(6, 9, 17, 0.2);
+      color: #060911;
+    }
+
+    .search-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-grow: 1;
+      max-width: 400px;
+    }
+    .search-box {
+      position: relative;
+      flex-grow: 1;
+    }
+    .search-box input {
+      width: 100%;
+      height: 40px;
+      padding: 0 14px 0 38px;
+      border-radius: 11px;
+      border: 1px solid var(--border);
+      background: rgba(10, 15, 25, 0.85);
+      color: var(--text);
+      font-family: var(--font-sans);
+      font-size: 13.5px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .search-box input:focus {
+      border-color: var(--acc);
+    }
+    .search-box svg {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      pointer-events: none;
+    }
+    .view-toggle {
+      display: inline-flex;
+      padding: 3px;
+      border-radius: 10px;
+      background: rgba(10, 15, 25, 0.85);
+      border: 1px solid var(--border);
+    }
+    .view-btn {
+      height: 32px;
+      padding: 0 11px;
+      border-radius: 7px;
+      border: 0;
+      background: transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 12.5px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .view-btn.active {
+      background: rgba(232, 236, 242, 0.12);
+      color: var(--text);
+    }
+
+    /* Portfolio Grid */
+    .grid-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+      gap: 22px;
+    }
+    .grid-cards.list-mode {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    .p-card {
+      position: relative;
+      border-radius: 22px;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      backdrop-filter: blur(12px);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.25s, box-shadow 0.35s;
+    }
+    .p-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--card-acc, var(--acc));
+      box-shadow: 0 28px 70px -24px rgba(0, 0, 0, 0.85), 0 0 36px -12px var(--card-acc, rgba(52, 245, 197, 0.35));
+    }
+    .p-card.featured {
+      grid-column: span 2;
+      background: linear-gradient(135deg, rgba(16, 28, 42, 0.9), rgba(11, 17, 29, 0.85));
+      border-color: rgba(52, 245, 197, 0.35);
+    }
+    @media (max-width: 920px) {
+      .p-card.featured { grid-column: span 1; }
+      .hero { grid-template-columns: 1fr; }
+      .grid-cards { grid-template-columns: 1fr; }
+      .wrap { padding: 16px 18px 72px; }
+    }
+
+    /* Card Visual Header Banner */
+    .card-banner {
+      position: relative;
+      height: 148px;
+      padding: 20px 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(232, 236, 242, 0.08);
+      overflow: hidden;
+    }
+    .p-card.featured .card-banner {
+      height: 170px;
+    }
+    .banner-glow {
+      position: absolute;
+      inset: 0;
+      opacity: 0.28;
+      background: radial-gradient(120% 120% at 90% 10%, var(--card-acc, #34F5C5), transparent 65%);
+      pointer-events: none;
+    }
+    .banner-top {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .folder-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 5px 11px;
+      border-radius: 8px;
+      background: rgba(6, 9, 17, 0.72);
+      border: 1px solid rgba(232, 236, 242, 0.14);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--text);
+    }
+    .round-badge {
+      padding: 4px 10px;
+      border-radius: 99px;
+      font-size: 11.5px;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      background: rgba(232, 236, 242, 0.09);
+      color: var(--text-sec);
+      border: 1px solid rgba(232, 236, 242, 0.12);
+    }
+    .banner-bottom {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .ai-vendor {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .ai-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 17px;
+      color: #060911;
+      background: var(--card-acc, var(--acc));
+      box-shadow: 0 8px 20px -6px var(--card-acc, var(--acc));
+    }
+    .ai-name {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+    }
+    .ai-sub {
+      font-size: 12.5px;
+      color: var(--text-sec);
+    }
+
+    /* Palette Swatches */
+    .swatches {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 5px 8px;
+      border-radius: 99px;
+      background: rgba(6, 9, 17, 0.65);
+      border: 1px solid rgba(232, 236, 242, 0.12);
+    }
+    .swatch {
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+
+    /* Card Body */
+    .card-body {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      flex-grow: 1;
+    }
+    .card-desc {
+      font-size: 14.5px;
+      line-height: 1.6;
+      color: var(--text-sec);
+    }
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: auto;
+    }
+    .tag {
+      padding: 5px 10px;
+      border-radius: 7px;
+      background: rgba(232, 236, 242, 0.06);
+      border: 1px solid rgba(232, 236, 242, 0.08);
+      font-size: 12px;
+      color: var(--text-sec);
+      font-weight: 500;
+    }
+
+    /* Card Footer Actions */
+    .card-footer {
+      padding: 16px 22px;
+      border-top: 1px solid rgba(232, 236, 242, 0.08);
+      background: rgba(8, 12, 20, 0.55);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .btn-open {
+      flex-grow: 1;
+      height: 44px;
+      padding: 0 18px;
+      border-radius: 11px;
+      background: var(--card-acc, var(--acc));
+      color: #060911;
+      font-family: var(--font-sans);
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      transition: transform 0.2s, filter 0.2s;
+    }
+    .btn-open:hover {
+      filter: brightness(1.1);
+      transform: translateY(-1px);
+    }
+    .btn-preview {
+      height: 44px;
+      padding: 0 15px;
+      border-radius: 11px;
+      border: 1px solid rgba(232, 236, 242, 0.18);
+      background: rgba(15, 22, 36, 0.8);
+      color: var(--text);
+      font-family: var(--font-sans);
+      font-size: 13.5px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .btn-preview:hover {
+      border-color: var(--card-acc, var(--acc));
+      color: var(--card-acc, var(--acc));
+    }
+
+    /* List Mode Overrides */
+    .grid-cards.list-mode .p-card {
+      grid-column: span 1;
+      flex-direction: row;
+      align-items: center;
+    }
+    .grid-cards.list-mode .card-banner {
+      width: 320px;
+      height: auto;
+      align-self: stretch;
+      border-bottom: 0;
+      border-right: 1px solid rgba(232, 236, 242, 0.08);
+      flex-shrink: 0;
+    }
+    .grid-cards.list-mode .card-footer {
+      border-top: 0;
+      border-left: 1px solid rgba(232, 236, 242, 0.08);
+      align-self: stretch;
+      flex-direction: column;
+      justify-content: center;
+      width: 220px;
+      flex-shrink: 0;
+    }
+    @media (max-width: 900px) {
+      .grid-cards.list-mode .p-card { flex-direction: column; }
+      .grid-cards.list-mode .card-banner,
+      .grid-cards.list-mode .card-footer { width: 100%; }
+    }
+
+    /* Live Preview Modal */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: rgba(4, 6, 12, 0.86);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      display: none;
+      flex-direction: column;
+      padding: 20px;
+    }
+    .modal-backdrop.open {
+      display: flex;
+    }
+    .modal-box {
+      width: 100%;
+      max-width: 1440px;
+      height: 100%;
+      margin: 0 auto;
+      border-radius: 20px;
+      border: 1px solid rgba(232, 236, 242, 0.16);
+      background: #080C14;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      box-shadow: 0 40px 120px rgba(0, 0, 0, 0.9);
+    }
+    .modal-bar {
+      padding: 12px 20px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      background: #0C121E;
+    }
+    .modal-title-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .modal-frame-wrap {
+      flex-grow: 1;
+      display: flex;
+      justify-content: center;
+      background: #04070C;
+      overflow: hidden;
+    }
+    .modal-frame {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      background: #070B12;
+      transition: width 0.3s ease;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 72px;
+      padding-top: 28px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 13.5px;
+      color: var(--text-muted);
+    }
+    footer a {
+      color: var(--text-sec);
+      text-decoration: none;
+    }
+    footer a:hover {
+      color: var(--acc);
+    }
+  </style>
+</head>
+<body>
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <div class="wrap">
+    <!-- Top Sticky Bar -->
+    <header class="topbar">
+      <a href="#top" class="brand">
+        <span class="brand-cube">RS</span>
+        <span class="brand-text">
+          <span class="brand-title">Ranjitha S — AI Portfolio Hub</span>
+          <span class="brand-sub">portfolio167 · All-in-One Launcher</span>
+        </span>
+      </a>
+      <div class="top-actions">
+        <a class="pill-link" href="assets/Ranjitha-S-Resume.pdf" download="Ranjitha-S-Resume.pdf" target="_blank">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 19h16"/></svg>
+          Résumé PDF
+        </a>
+        <a class="pill-link" href="https://www.linkedin.com/in/ranjitha-sridhar-a5b711311/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a class="pill-link" href="https://github.com/HARSHITH-28/portfolio167" target="_blank" rel="noopener">GitHub Repo ↗</a>
+        <a class="pill-link primary" href="antigravity/index.html">
+          Open Featured 3D Mirror ↗
+        </a>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="top" class="hero">
+      <div>
+        <div class="eyebrow">
+          <span class="live-dot"></span>
+          <span>13 AI Portfolios · 12 Project Folders · 1 Unified Hub</span>
+        </div>
+        <h1>Every AI Portfolio,<br><span class="grad-text">One Command Center.</span></h1>
+        <p class="hero-lead">
+          Explore and compare every generated portfolio for <strong style="color: #EEF2F8; font-weight: 600">Ranjitha S</strong> (B.E. CSE @ RNSIT, 9.49 CGPA) built across
+          <strong style="color: #EEF2F8; font-weight: 500">Antigravity, ChatGPT, Claude, Gemini, Grok, Meta AI, Framer, and Lovable</strong>. Click any card below to redirect directly to its generated portfolio or inspect it in live preview.
+        </p>
+      </div>
+
+      <aside class="profile-card">
+        <div class="profile-top">
+          <img src="assets/portrait.jpg" alt="Ranjitha S" />
+          <div>
+            <div style="font-family: var(--font-display); font-size: 20px; font-weight: 800">Ranjitha S</div>
+            <div style="font-size: 13px; color: var(--text-sec)">B.E. / B.Tech CSE · RNSIT Bengaluru</div>
+            <div style="font-size: 12px; color: var(--acc); margin-top: 3px">Full-Stack · Computer Vision · AI/ML</div>
+          </div>
+        </div>
+        <div class="profile-stats">
+          <div class="p-stat"><b>9.49</b><span>B.E. CSE CGPA</span></div>
+          <div class="p-stat"><b>13</b><span>AI Builds</span></div>
+          <div class="p-stat"><b>8</b><span>AI Platforms</span></div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- Filter & Search Controls -->
+    <div class="toolbar">
+      <div class="filters" role="tablist" aria-label="Filter portfolios">
+        <button class="filter-btn active" data-filter="all">All Portfolios <span class="filter-count">13</span></button>
+        <button class="filter-btn" data-filter="round2">Round 2 · Navisto Mirrors <span class="filter-count">6</span></button>
+        <button class="filter-btn" data-filter="round1">Round 1 · Resume Builds <span class="filter-count">5</span></button>
+        <button class="filter-btn" data-filter="cloud">Cloud Deployed <span class="filter-count">2</span></button>
+      </div>
+
+      <div class="search-group">
+        <div class="search-box">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+          <input type="text" id="search-input" placeholder="Search AI, folder, stack, or theme…" autocomplete="off" />
+        </div>
+        <div class="view-toggle" aria-label="View mode">
+          <button type="button" class="view-btn active" id="btn-grid">Grid</button>
+          <button type="button" class="view-btn" id="btn-list">List</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cards Container -->
+    <main id="cards-grid" class="grid-cards"></main>
+
+    <footer>
+      <span>© 2026 Ranjitha S · Portfolio167 Multi-AI Showcase Hub</span>
+      <span style="display: flex; gap: 18px; flex-wrap: wrap">
+        <a href="mailto:ranjithasgowda245@gmail.com">ranjithasgowda245@gmail.com</a>
+        <a href="tel:+919449045855">+91 94490 45855</a>
+        <a href="https://www.linkedin.com/in/ranjitha-sridhar-a5b711311/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/HARSHITH-28/portfolio167" target="_blank" rel="noopener">GitHub Repo</a>
+      </span>
+    </footer>
+  </div>
+
+  <!-- Live Preview Modal -->
+  <div id="preview-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-label="Live Portfolio Preview">
+    <div class="modal-box">
+      <div class="modal-bar">
+        <div class="modal-title-group">
+          <span id="modal-badge" class="folder-badge">./antigravity/index.html</span>
+          <strong id="modal-title" style="font-family: var(--font-display); font-size: 18px">Antigravity (3D WebGL Mirror)</strong>
+        </div>
+        <div style="display: flex; align-items: center; gap: 10px">
+          <button type="button" class="pill-link" onclick="setFrameWidth('100%')">Desktop</button>
+          <button type="button" class="pill-link" onclick="setFrameWidth('768px')">Tablet</button>
+          <button type="button" class="pill-link" onclick="setFrameWidth('390px')">Mobile</button>
+          <a id="modal-open-link" href="#" class="pill-link primary">Redirect to Full Page ↗</a>
+          <button type="button" class="pill-link" onclick="closePreview()" aria-label="Close preview">✕ Close</button>
+        </div>
+      </div>
+      <div class="modal-frame-wrap">
+        <iframe id="modal-iframe" class="modal-frame" title="Portfolio Live Preview"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const PORTFOLIOS = [
+      {
+        id: 'antigravity',
+        name: 'Google Antigravity (v2)',
+        subtitle: 'Complete 1:1 3D WebGL & Three.js Mirror',
+        folder: './antigravity/index.html',
+        href: 'antigravity/index.html',
+        cat: 'round2',
+        roundLabel: 'Featured · 1:1 3D WebGL Mirror',
+        icon: 'AG',
+        accent: '#34F5C5',
+        featured: true,
+        palette: ['#070B12', '#34F5C5', '#38BDF8', '#A78BFA'],
+        desc: 'Complete 1:1 architectural mirror of mangalam.navisto.cloud adapted for Ranjitha S with a shifted Electric Mint-Cyan (#34F5C5) & Sky-Cyan selection theme. Features the raymarched 3D WebGL Earth globe & airliner flight path, interactive 3D floating island world, 7,000-particle morphing point cloud ("RS"), custom 48-frame neon scroll-scrubbed background film, 3D draggable skill sphere, animated Nova 3D robot, 5 project case study modals, and AI assistant.',
+        tags: ['Three.js & WebGL Shaders', 'Raymarched 3D Globe', '3D Floating Island', '3D Nova Robot', '7,000-Particle Morph', 'Case Study Modals']
+      },
+      {
+        id: 'chatgpt2',
+        name: 'ChatGPT 2',
+        subtitle: 'OpenAI · Navisto-Inspired Interactive Mirror',
+        folder: './chatgpt2/index.html',
+        href: 'chatgpt2/index.html',
+        cat: 'round2',
+        roundLabel: 'Round 2 · Navisto Mirror',
+        icon: 'G2',
+        accent: '#38BDF8',
+        palette: ['#080C14', '#38BDF8', '#22D3EE', '#F472B6'],
+        desc: 'ChatGPT’s Round 2 dark-mode portfolio mirroring the section flow, interactive agent pipeline visualizer, tabbed work showcase, skill matrix, and offline preview support (also includes preview-offline.html).',
+        tags: ['Vanilla JS & CSS', 'Interactive Pipeline', 'Project Tabs', 'Dark Glass UI', 'Offline Preview']
+      },
+      {
+        id: 'claude2',
+        name: 'Claude 2',
+        subtitle: 'Anthropic · Deep Violet-Obsidian Mirror',
+        folder: './claude2/Ranjitha S — Portfolio.html',
+        href: 'claude2/Ranjitha%20S%20%E2%80%94%20Portfolio.html',
+        cat: 'round2',
+        roundLabel: 'Round 2 · Navisto Mirror',
+        icon: 'C2',
+        accent: '#B69CFF',
+        palette: ['#0D0B17', '#B69CFF', '#FF8FB3', '#62E6C6'],
+        desc: 'Claude’s Round 2 single-file mirror styled in deep violet-obsidian (#0D0B17) with lavender-pink gradients (#B69CFF / #FF8FB3), interactive HTML5 canvas globe, dual marquee, pipeline steps, and Q&A chatbot.',
+        tags: ['Sora & Manrope', 'Canvas Globe', 'Violet-Pink Theme', 'Dual Marquee', 'Interactive Chat']
+      },
+      {
+        id: 'gemini2',
+        name: 'Gemini 2',
+        subtitle: 'Google Gemini · Emerald-Slate Mirror',
+        folder: './gemini2/gemini-code-1795023601805.html',
+        href: 'gemini2/gemini-code-1795023601805.html',
+        cat: 'round2',
+        roundLabel: 'Round 2 · Navisto Mirror',
+        icon: 'Gm2',
+        accent: '#10B981',
+        palette: ['#070B12', '#10B981', '#38BDF8', '#0D131F'],
+        desc: 'Gemini’s Round 2 portfolio built with Bricolage Grotesque, Geist, and Geist Mono typography, emerald-green (#10B981) accents, interactive canvas animations, and detailed project architecture cards.',
+        tags: ['Bricolage & Geist', 'Emerald Accent', 'Interactive Canvas', 'Single-File HTML']
+      },
+      {
+        id: 'meta2',
+        name: 'Meta AI 2',
+        subtitle: 'Meta Llama · Forest & Amber React Mirror',
+        folder: './meta2/index.html',
+        href: 'meta2/index.html',
+        cat: 'round2',
+        roundLabel: 'Round 2 · React Mirror',
+        icon: 'M2',
+        accent: '#4BB98E',
+        palette: ['#12211C', '#4BB98E', '#FFB627', '#FFFBF2'],
+        desc: 'Meta AI’s Round 2 React + Tailwind application featuring a live MoodSync-AI emotion simulator with confidence meters, 5-stage vision pipeline stepper, filterable project gallery, and AI portfolio assistant.',
+        tags: ['React 18 & TSX', 'MoodSync Simulator', 'Forest & Amber Theme', 'Custom WebP Assets']
+      },
+      {
+        id: 'grok',
+        name: 'Grok (xAI Studio)',
+        subtitle: 'xAI · Editorial Paper & Lacquer + 21-Point ASL Hand Canvas',
+        folder: './grok/index.html',
+        href: 'grok/index.html',
+        cat: 'round2',
+        roundLabel: 'xAI Studio · Interactive React',
+        icon: 'Gk',
+        accent: '#E05A44',
+        palette: ['#1C1915', '#F3EEE6', '#B8432F', '#E3D6C6'],
+        desc: 'Grok’s bespoke editorial portfolio pairing warm paper (#F3EEE6) and ink (#1C1915) with lacquer red (#B8432F). Features an animated 21-landmark MediaPipe ASL hand skeleton canvas, interactive 5-stage ASL Studio walkthrough, and dedicated project case study views.',
+        tags: ['21-Landmark HandCanvas', 'Interactive ASL Studio', 'Fraunces & Outfit', 'Case Study Router']
+      },
+      {
+        id: 'chatgpt1',
+        name: 'ChatGPT 1',
+        subtitle: 'OpenAI · Round 1 Modular Portfolio',
+        folder: './chatgpt1/index.html',
+        href: 'chatgpt1/index.html',
+        cat: 'round1',
+        roundLabel: 'Round 1 · Resume Portfolio',
+        icon: 'G1',
+        accent: '#60A5FA',
+        palette: ['#0F172A', '#60A5FA', '#38BDF8', '#E2E8F0'],
+        desc: 'ChatGPT’s Round 1 multi-file portfolio (index.html, styles.css, script.js, data.js) driven by structured resume JSON data with project filtering, skill breakdowns, and academic timeline.',
+        tags: ['Modular JS (data.js)', 'Resume Driven', 'Responsive Layout', 'Project Filters']
+      },
+      {
+        id: 'claude1',
+        name: 'Claude 1',
+        subtitle: 'Anthropic · Round 1 Engineering Portfolio',
+        folder: './claude1/Ranjitha S — Portfolio.html',
+        href: 'claude1/Ranjitha%20S%20%E2%80%94%20Portfolio.html',
+        cat: 'round1',
+        roundLabel: 'Round 1 · Resume Portfolio',
+        icon: 'C1',
+        accent: '#F59E0B',
+        palette: ['#111318', '#F59E0B', '#FBBF24', '#F3F4F6'],
+        desc: 'Claude’s Round 1 single-file HTML portfolio showcasing Ranjitha S’s dual-resume synthesis: MoodSync-AI, CampusAR, ASL Gesture Interpreter, Events Management System, and Samsung Innovation Campus training.',
+        tags: ['Single-File HTML', 'Editorial Typography', 'Skill Matrix', 'Academic Timeline']
+      },
+      {
+        id: 'gemini1',
+        name: 'Gemini 1',
+        subtitle: 'Google Gemini · Round 1 Software & AI Portfolio',
+        folder: './gemini1/ranjitha_s_software_ai_engineering_portfolio.html',
+        href: 'gemini1/ranjitha_s_software_ai_engineering_portfolio.html',
+        cat: 'round1',
+        roundLabel: 'Round 1 · Resume Portfolio',
+        icon: 'Gm1',
+        accent: '#818CF8',
+        palette: ['#090D16', '#818CF8', '#38BDF8', '#F8FAFC'],
+        desc: 'Gemini’s Round 1 software and AI engineering portfolio highlighting Ranjitha’s full-stack web architecture, computer vision pipelines, database engineering, and academic achievements.',
+        tags: ['Modern Dark UI', 'Full-Stack & AI Focus', 'Single-File Build', 'Interactive Cards']
+      },
+      {
+        id: 'meta1',
+        name: 'Meta AI 1',
+        subtitle: 'Meta Llama · Round 1 Violet-Coral React Portfolio',
+        folder: './meta1/index.html',
+        href: 'meta1/index.html',
+        cat: 'round1',
+        roundLabel: 'Round 1 · React Portfolio',
+        icon: 'M1',
+        accent: '#A894FF',
+        palette: ['#17131F', '#6C4DFF', '#FF6A55', '#0EA5A0'],
+        desc: 'Meta AI’s Round 1 React application with custom WebP project illustrations, interactive MoodSync playlist tester, animated skill marquees, and embedded portfolio Q&A assistant.',
+        tags: ['React 18 & Tailwind', 'Custom WebP Artwork', 'Violet & Coral Palette', 'Interactive Q&A']
+      },
+      {
+        id: 'antigravity1',
+        name: 'Google Antigravity (v1)',
+        subtitle: 'Round 1 · Clean Indigo Tailwind & AOS Portfolio',
+        folder: './antigravity1/index.html',
+        href: 'antigravity1/index.html',
+        cat: 'round1',
+        roundLabel: 'Round 1 · Resume Portfolio',
+        icon: 'AG1',
+        accent: '#6366F1',
+        palette: ['#F9FAFB', '#4F46E5', '#818CF8', '#1F2937'],
+        desc: 'The initial Round 1 lightweight portfolio generated from Ranjitha S’s resumes using Tailwind CSS and Animate-On-Scroll (AOS) transitions.',
+        tags: ['Tailwind CSS', 'AOS Scroll Animations', 'Light Indigo Theme', 'Fast & Minimal']
+      },
+      {
+        id: 'framer',
+        name: 'Framer AI',
+        subtitle: 'Cloud Deployed · ranjitha-s.framer.website',
+        folder: './framer/deployed_link.txt',
+        href: 'https://ranjitha-s.framer.website/',
+        external: true,
+        cat: 'cloud',
+        roundLabel: 'Cloud Deployed · Framer',
+        icon: 'Fr',
+        accent: '#0099FF',
+        palette: ['#050505', '#0099FF', '#66B2FF', '#FFFFFF'],
+        desc: 'Live cloud-hosted portfolio generated and published on Framer (referenced in framer/deployed_link.txt). Click to redirect directly to the live Framer deployment.',
+        tags: ['Framer Cloud', 'Live Deployment', 'Smooth Motion', 'External URL ↗']
+      },
+      {
+        id: 'lovable',
+        name: 'Lovable AI',
+        subtitle: 'Cloud Deployed · ranjitha-s.lovable.app',
+        folder: './lovable/deployed_link.txt',
+        href: 'https://ranjitha-s.lovable.app',
+        external: true,
+        cat: 'cloud',
+        roundLabel: 'Cloud Deployed · Lovable',
+        icon: 'Lv',
+        accent: '#FF5E8E',
+        palette: ['#0D0E15', '#FF5E8E', '#A855F7', '#F8FAFC'],
+        desc: 'Live cloud-hosted full-stack portfolio generated and deployed via Lovable (referenced in lovable/deployed_link.txt). Click to redirect directly to the live Lovable web application.',
+        tags: ['Lovable Cloud', 'Live Deployment', 'React & Tailwind', 'External URL ↗']
+      }
+    ];
+
+    const gridEl = document.getElementById('cards-grid');
+    const searchInput = document.getElementById('search-input');
+    let activeFilter = 'all';
+
+    function renderCards() {
+      const q = (searchInput.value || '').trim().toLowerCase();
+      const filtered = PORTFOLIOS.filter((p) => {
+        const matchCat = activeFilter === 'all' || p.cat === activeFilter;
+        const matchQ = !q || [p.name, p.subtitle, p.folder, p.desc, p.tags.join(' ')].join(' ').toLowerCase().includes(q);
+        return matchCat && matchQ;
+      });
+
+      gridEl.innerHTML = filtered.map((p) => {
+        const swatchesHtml = p.palette.map((c) => `<span class="swatch" style="background:${c}" title="${c}"></span>`).join('');
+        const tagsHtml = p.tags.map((t) => `<span class="tag">${t}</span>`).join('');
+        const targetAttr = p.external ? 'target="_blank" rel="noopener"' : '';
+        return `
+          <article class="p-card ${p.featured ? 'featured' : ''}" style="--card-acc: ${p.accent}">
+            <div class="card-banner">
+              <div class="banner-glow"></div>
+              <div class="banner-top">
+                <span class="folder-badge">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+                  ${p.folder}
+                </span>
+                <span class="round-badge">${p.roundLabel}</span>
+              </div>
+              <div class="banner-bottom">
+                <div class="ai-vendor">
+                  <div class="ai-icon">${p.icon}</div>
+                  <div>
+                    <h2 class="ai-name">${p.name}</h2>
+                    <div class="ai-sub">${p.subtitle}</div>
+                  </div>
+                </div>
+                <div class="swatches" title="Portfolio Color Palette">${swatchesHtml}</div>
+              </div>
+            </div>
+            <div class="card-body">
+              <p class="card-desc">${p.desc}</p>
+              <div class="tag-list">${tagsHtml}</div>
+            </div>
+            <div class="card-footer">
+              <a class="btn-open" href="${p.href}" ${targetAttr}>
+                <span>Open Portfolio</span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M7 17L17 7M7 7h10v10"/></svg>
+              </a>
+              <button type="button" class="btn-preview" onclick="openPreview('${p.id}')">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                <span>Preview</span>
+              </button>
+            </div>
+          </article>
+        `;
+      }).join('');
+    }
+
+    document.querySelectorAll('.filter-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach((b) => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeFilter = btn.getAttribute('data-filter');
+        renderCards();
+      });
+    });
+
+    searchInput.addEventListener('input', renderCards);
+
+    document.getElementById('btn-grid').addEventListener('click', () => {
+      document.getElementById('btn-grid').classList.add('active');
+      document.getElementById('btn-list').classList.remove('active');
+      gridEl.classList.remove('list-mode');
+    });
+    document.getElementById('btn-list').addEventListener('click', () => {
+      document.getElementById('btn-list').classList.add('active');
+      document.getElementById('btn-grid').classList.remove('active');
+      gridEl.classList.add('list-mode');
+    });
+
+    function openPreview(id) {
+      const p = PORTFOLIOS.find((x) => x.id === id);
+      if (!p) return;
+      document.getElementById('modal-badge').textContent = p.folder;
+      document.getElementById('modal-title').textContent = p.name + ' — ' + p.subtitle;
+      const openLink = document.getElementById('modal-open-link');
+      openLink.href = p.href;
+      if (p.external) openLink.setAttribute('target', '_blank');
+      else openLink.removeAttribute('target');
+      const iframe = document.getElementById('modal-iframe');
+      iframe.style.width = '100%';
+      iframe.src = p.href;
+      document.getElementById('preview-modal').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closePreview() {
+      const modal = document.getElementById('preview-modal');
+      modal.classList.remove('open');
+      document.getElementById('modal-iframe').src = 'about:blank';
+      document.body.style.overflow = '';
+    }
+
+    function setFrameWidth(w) {
+      document.getElementById('modal-iframe').style.width = w;
+    }
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closePreview();
+    });
+
+    renderCards();
+
+    // Ambient Constellation Particle Canvas
+    (function initCanvas() {
+      const cv = document.getElementById('bg-canvas');
+      const ctx = cv.getContext('2d');
+      let W = 0, H = 0;
+      const resize = () => {
+        W = window.innerWidth;
+        H = window.innerHeight;
+        cv.width = W;
+        cv.height = H;
+      };
+      resize();
+      window.addEventListener('resize', resize);
+      const pts = Array.from({ length: 55 }, (_, i) => ({
+        x: Math.random() * W,
+        y: Math.random() * H,
+        vx: (Math.random() - 0.5) * 0.35,
+        vy: (Math.random() - 0.5) * 0.35,
+        r: 1.2 + Math.random() * 1.5,
+        c: ['#34F5C5', '#38BDF8', '#A78BFA'][i % 3]
+      }));
+      function tick() {
+        ctx.clearRect(0, 0, W, H);
+        for (let i = 0; i < pts.length; i++) {
+          const a = pts[i];
+          a.x = (a.x + a.vx + W) % W;
+          a.y = (a.y + a.vy + H) % H;
+          ctx.fillStyle = a.c;
+          ctx.globalAlpha = 0.45;
+          ctx.beginPath();
+          ctx.arc(a.x, a.y, a.r, 0, Math.PI * 2);
+          ctx.fill();
+          for (let j = i + 1; j < pts.length; j++) {
+            const b = pts[j];
+            const dx = a.x - b.x, dy = a.y - b.y;
+            const d = Math.hypot(dx, dy);
+            if (d < 140) {
+              ctx.strokeStyle = '#34F5C5';
+              ctx.globalAlpha = (1 - d / 140) * 0.11;
+              ctx.beginPath();
+              ctx.moveTo(a.x, a.y);
+              ctx.lineTo(b.x, b.y);
+              ctx.stroke();
+            }
+          }
+        }
+        requestAnimationFrame(tick);
+      }
+      tick();
+    })();
+  </script>
+</body>
+</html>

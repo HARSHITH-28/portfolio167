@@ -1,0 +1,1441 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ranjitha S — Computer Science (Grok Portfolio)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            paper: '#f3eee6',
+            ink: '#1c1915',
+            muted: '#6e675f',
+            lacquer: '#b8432f',
+            line: '#e3d6c6'
+          },
+          fontFamily: {
+            sans: ['Outfit', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            display: ['Fraunces', 'Georgia', 'serif']
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { background: #f3eee6; color: #1c1915; font-family: 'Outfit', sans-serif; line-height: 1.55; overflow-x: hidden; margin: 0; }
+    ::selection { background: #b8432f; color: #f3eee6; }
+    h1, h2 { font-family: 'Fraunces', Georgia, serif; font-weight: 500; letter-spacing: -0.03em; line-height: 0.96; }
+    .nav-link { background-image: linear-gradient(currentColor, currentColor); background-position: 0 100%; background-repeat: no-repeat; background-size: 0 1px; transition: background-size 200ms ease-out; cursor: pointer; }
+    .nav-link:hover { background-size: 100% 1px; }
+    .frame-glow { background: radial-gradient(circle at 50% 45%, #f3eee6, transparent 42%); opacity: 0.85; }
+    .rank-bar { transition: width 700ms cubic-bezier(0.2, 0, 0, 1); }
+    .scan-line { animation: scan 3.2s ease-in-out infinite alternate; }
+    .feature-cell { opacity: 0; transform: translateY(6px); animation: cell-in 480ms cubic-bezier(0.2, 0, 0, 1) forwards; }
+    .stage-in { animation: stage-in 450ms cubic-bezier(0.2, 0, 0, 1); }
+    @keyframes scan { from { transform: translateY(0); } to { transform: translateY(18rem); } }
+    @keyframes cell-in { to { opacity: 1; transform: none; } }
+    @keyframes stage-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+  </style>
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel" data-presets="react,typescript">
+    const { useState, useEffect, useRef } = React;
+    const cn = (...args) => args.filter(Boolean).join(' ');
+    const makeIcon = (d) => ({ className='', ...p }) => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} {...p}><path d={d} /></svg>;
+    const Menu = makeIcon('M4 6h16M4 12h16M4 18h16');
+    const X = makeIcon('M18 6L6 18M6 6l12 12');
+    const Play = makeIcon('M5 3l14 9-14 9V3z');
+    const Pause = makeIcon('M6 4h4v16H6zM14 4h4v16h-4z');
+    const ArrowUpRight = makeIcon('M7 17L17 7M7 7h10v10');
+
+    const buttonVariants = ({ tone = 'lacquer', size = 'md' } = {}) => {
+      const base = 'tap inline-flex items-center justify-center gap-2 font-medium whitespace-nowrap transition-colors duration-200 h-11 px-5 text-sm';
+      const tones = {
+        lacquer: 'bg-lacquer text-paper hover:opacity-90',
+        ghost: 'border border-line bg-transparent text-ink hover:border-ink',
+        ghostInk: 'border border-paper/30 bg-transparent text-paper hover:border-paper',
+      };
+      return cn(base, tones[tone] || tones.lacquer);
+    };
+
+    const Reveal = ({ children, className }) => <div className={className}>{children}</div>;
+    const OutLink = ({ href, children, placeholder = false }) => (
+      <a href={href} target="_blank" rel="noreferrer" className="tap inline-flex h-11 items-center gap-2 text-sm">
+        <span className="border-b border-current pb-px">{children}</span>
+        {placeholder ? <span className="text-xs tracking-widest text-lacquer uppercase">Placeholder</span> : null}
+        <ArrowUpRight className="size-4" aria-hidden="true" />
+      </a>
+    );
+
+    const RouterCtx = React.createContext({ slug: null, setSlug: () => {} });
+    const Link = ({ to, params, hash, className, onClick, children }) => {
+      const { setSlug } = React.useContext(RouterCtx);
+      return (
+        <a
+          href={hash ? `#${hash}` : '#'}
+          className={className}
+          onClick={(e) => {
+            e.preventDefault();
+            if (onClick) onClick(e);
+            if (to === '/work/$slug' && params && params.slug) {
+              setSlug(params.slug);
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+              setSlug(null);
+              if (hash) setTimeout(() => document.getElementById(hash)?.scrollIntoView({ behavior: 'smooth' }), 50);
+              else window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+          }}
+        >
+          {children}
+        </a>
+      );
+    };
+
+type Pt = [number, number];
+
+/** MediaPipe Hands topology: 21 landmarks, wrist at index 0. */
+const HAND_EDGES: ReadonlyArray<readonly [number, number]> = [
+  [0, 1], [1, 2], [2, 3], [3, 4],
+  [0, 5], [5, 6], [6, 7], [7, 8],
+  [0, 9], [9, 10], [10, 11], [11, 12],
+  [0, 13], [13, 14], [14, 15], [15, 16],
+  [0, 17], [17, 18], [18, 19], [19, 20],
+  [5, 9], [9, 13], [13, 17],
+];
+
+/** Open palm — closest to ASL “B”. Coordinates are viewBox 0–100. */
+const POSE_OPEN: Pt[] = [
+  [48, 78],
+  [36, 70], [28, 58], [24, 46], [22, 34],
+  [40, 46], [39, 32], [38, 20], [37, 10],
+  [50, 44], [50, 28], [50, 16], [50, 6],
+  [60, 46], [62, 32], [63, 20], [64, 10],
+  [68, 52], [72, 40], [74, 30], [75, 22],
+];
+
+/** Closed fist, thumb alongside — closest to ASL “A”. */
+const POSE_FIST: Pt[] = [
+  [50, 74],
+  [38, 68], [32, 58], [36, 50], [44, 48],
+  [44, 52], [46, 60], [48, 66], [50, 70],
+  [54, 50], [55, 58], [56, 66], [56, 72],
+  [62, 52], [63, 60], [64, 68], [64, 74],
+  [70, 56], [72, 64], [73, 70], [73, 76],
+];
+
+/** Thumb and index extended — closest to ASL “L”. */
+const POSE_L: Pt[] = [
+  [50, 78],
+  [38, 70], [28, 62], [22, 50], [18, 38],
+  [46, 48], [46, 32], [46, 20], [46, 10],
+  [56, 52], [57, 60], [58, 68], [58, 74],
+  [64, 54], [66, 62], [67, 70], [67, 76],
+  [72, 58], [74, 66], [75, 72], [75, 78],
+];
+
+/** Index and middle extended — closest to ASL “V”. */
+const POSE_V: Pt[] = [
+  [50, 80],
+  [38, 72], [32, 64], [36, 56], [42, 52],
+  [42, 48], [38, 32], [36, 20], [34, 10],
+  [54, 46], [58, 30], [60, 18], [62, 8],
+  [64, 54], [65, 62], [66, 70], [66, 76],
+  [72, 58], [74, 66], [75, 72], [75, 78],
+];
+
+type SampleSign = {
+  letter: string;
+  note: string;
+  pose: Pt[];
+  /** Relative bar weights for an illustrative ranking. Not a measured score. */
+  ranking: { letter: string; weight: number }[];
+};
+
+const SAMPLE_SIGNS: SampleSign[] = [
+  {
+    letter: "A",
+    note: "Fist closed, thumb resting alongside the fingers.",
+    pose: POSE_FIST,
+    ranking: [
+      { letter: "A", weight: 0.84 },
+      { letter: "S", weight: 0.09 },
+      { letter: "T", weight: 0.05 },
+    ],
+  },
+  {
+    letter: "B",
+    note: "Palm open, fingers together and thumb tucked.",
+    pose: POSE_OPEN,
+    ranking: [
+      { letter: "B", weight: 0.8 },
+      { letter: "C", weight: 0.11 },
+      { letter: "L", weight: 0.06 },
+    ],
+  },
+  {
+    letter: "L",
+    note: "Thumb and index make a right angle; the rest stay folded.",
+    pose: POSE_L,
+    ranking: [
+      { letter: "L", weight: 0.82 },
+      { letter: "D", weight: 0.1 },
+      { letter: "G", weight: 0.05 },
+    ],
+  },
+  {
+    letter: "V",
+    note: "Index and middle split; ring and pinky stay down.",
+    pose: POSE_V,
+    ranking: [
+      { letter: "V", weight: 0.78 },
+      { letter: "U", weight: 0.13 },
+      { letter: "K", weight: 0.06 },
+    ],
+  },
+];
+
+
+
+type ProjectLink = {
+  label: string;
+  href: string;
+  placeholder: boolean;
+};
+
+type Project = {
+  slug: string;
+  index: string;
+  title: string;
+  dates: string;
+  role: string;
+  team?: string;
+  mentor?: string;
+  summary: string;
+  problem: string;
+  approach: string;
+  distinct: string;
+  owned: string;
+  stack: string[];
+  flow: string[];
+  links: ProjectLink[];
+  pose: Pt[];
+};
+
+/**
+ * Deployed URLs and missing repositories are placeholders.
+ * Replace the `placeholder: true` hrefs when the real links exist.
+ * Known repository: the ASL project on GitHub.
+ */
+const projects: Project[] = [
+  {
+    slug: "moodsync",
+    index: "01",
+    title: "MoodSync-AI",
+    dates: "May 2026 — Present",
+    role: "Full stack",
+    summary:
+      "A desk that reads a facial expression from the webcam and recommends music to match.",
+    problem:
+      "A mood is awkward to type, and a playlist that ignores it is just a list. The question was whether a camera and a small model could make the first suggestion.",
+    approach:
+      "The React page captures webcam frames and sends them over HTTP. FastAPI runs a TensorFlow/Keras model on images prepared with OpenCV, then returns an emotion and a music recommendation. The two services deploy separately.",
+    distinct:
+      "The product is the round trip — frame in, mood out, music next — not a notebook that stops once the model has a score.",
+    owned:
+      "Detection, prediction, and recommendation endpoints; the React capture loop; and the split frontend and backend deployment.",
+    stack: ["Python", "FastAPI", "React.js", "TensorFlow/Keras", "OpenCV"],
+    flow: ["Webcam frame", "React client", "FastAPI", "Keras model + OpenCV", "Music recommendation"],
+    links: [
+      { label: "Live demo", href: "https://example.com/moodsync", placeholder: true },
+      { label: "Repository", href: "https://github.com/PLACEHOLDER/moodsync", placeholder: true },
+    ],
+    pose: POSE_OPEN,
+  },
+  {
+    slug: "campusar",
+    index: "02",
+    title: "CampusAR",
+    dates: "2026",
+    role: "Full stack",
+    summary:
+      "Indoor and outdoor navigation for a campus: a route on a graph, then a direction you can follow.",
+    problem:
+      "A campus map fails at the door. GPS drifts indoors, and a building is a stack of corridors rather than a single pin.",
+    approach:
+      "Routes run on a navigation graph with shortest-path search between buildings, entrances, and indoor nodes. Node.js APIs store spatial data in PostgreSQL and PostGIS. The backend is split into API, application, domain, and data-access layers. Live pieces include GPS updates, QR codes that relocalize you indoors, WebSockets, and AR directional guidance.",
+    distinct:
+      "Outdoor GPS and an indoor QR share one graph, so the route does not pretend the building is empty.",
+    owned:
+      "Graph routing, the spatial APIs, the layered backend, and the real-time loop from position update to guidance.",
+    stack: ["React", "TypeScript", "Node.js", "PostgreSQL", "PostGIS", "WebSocket"],
+    flow: ["Position or QR", "Navigation graph", "Shortest path", "Node.js API", "AR guidance"],
+    links: [
+      { label: "Live demo", href: "https://example.com/campusar", placeholder: true },
+      { label: "Repository", href: "https://github.com/PLACEHOLDER/campusar", placeholder: true },
+    ],
+    pose: POSE_L,
+  },
+  {
+    slug: "sign-language",
+    index: "03",
+    title: "Sign Language Interpreter",
+    dates: "2025",
+    role: "Data, model, and live inference",
+    team: "Team of 4",
+    mentor: "Ms. Chethana H R",
+    summary:
+      "American Sign Language letters from a live webcam, named while the hand is still in frame.",
+    problem:
+      "Alphabet signs are quick. An interpreter that needs a finished recording is already late for the conversation it is meant to help.",
+    approach:
+      "MediaPipe finds the hand and its landmarks. A convolutional network built in TensorFlow and Keras classifies the gesture. Each frame is preprocessed, reduced to the features the model expects, and predicted immediately. The letter is drawn back on the screen.",
+    distinct:
+      "It runs the whole path — collected images, a trained network, a camera loop — as assistive software, not a clip played back later.",
+    owned:
+      "Dataset preparation, preprocessing, training and evaluation, the webcam inference path, and work on accuracy and speed.",
+    stack: ["Python", "OpenCV", "MediaPipe", "TensorFlow", "Keras", "NumPy", "CNN"],
+    flow: ["Webcam frame", "MediaPipe landmarks", "Preprocess", "CNN classifier", "Letter on screen"],
+    links: [
+      { label: "Live demo", href: "https://example.com/sign-language", placeholder: true },
+      { label: "Repository", href: "https://github.com/PraveenKumarM17/Gesture", placeholder: false },
+    ],
+    pose: POSE_V,
+  },
+  {
+    slug: "events",
+    index: "04",
+    title: "Events Management System",
+    dates: "March 2025 — July 2025",
+    role: "Frontend developer",
+    team: "Team of 4",
+    summary:
+      "A campus events desk: responsive pages for students and organizers, fed by the team’s APIs.",
+    problem:
+      "Event information was scattered. Students needed one clear place to look; organizers needed the same system to hold the data.",
+    approach:
+      "I built the interface in HTML, CSS, JavaScript, and React — responsive pages, event data from APIs, and a flow that still makes sense on a phone. Version control and integration with the backend went through GitHub.",
+    distinct:
+      "The constraint was shared ownership. The UI had to meet a backend other people were still moving.",
+    owned:
+      "Layout, responsive behavior, and the client side of the event APIs. Backend integration was a team effort on GitHub.",
+    stack: ["HTML", "CSS", "JavaScript", "React.js"],
+    flow: ["Organizer data", "REST API", "React interface", "Student"],
+    links: [
+      { label: "Live demo", href: "https://example.com/events", placeholder: true },
+      {
+        label: "Repository",
+        href: "https://github.com/ssarveshr/DBMS-project-",
+        placeholder: true,
+      },
+    ],
+    pose: POSE_FIST,
+  },
+];
+
+function getProject(slug: string) {
+  return projects.find((project) => project.slug === slug);
+}
+
+const profile = {
+  name: "Ranjitha S",
+  location: "Bengaluru, India",
+  college: "RNS Institute of Technology",
+  degree: "B.E. Computer Science & Engineering",
+  batch: "2023 — 2027",
+  email: "ranjithasgowda245@gmail.com",
+  collegeEmail: "ranjithas23cs@rnsit.ac.in",
+  phoneDisplay: "+91 94490 45855",
+  phoneHref: "tel:+919449045855",
+  whatsapp: "https://wa.me/919449045855",
+  linkedin: "https://www.linkedin.com/in/ranjitha-sridhar-a5b711311/",
+  github: "https://github.com/PLACEHOLDER-RANJITHA",
+  githubPlaceholder: true,
+  languages: ["English", "Kannada", "Hindi", "German"],
+  interests: ["Badminton", "Drawing", "Reading"],
+};
+
+const stats = [
+  { value: "9.49", label: "CGPA at RNSIT" },
+  { value: "98", label: "ICSE, class 10" },
+  { value: "93.5", label: "PUC, class 12" },
+  { value: "78", label: "NPTEL networking" },
+];
+
+const toolkit = [
+  {
+    title: "Languages",
+    items: ["Python", "C", "C++", "Java", "C#", "JavaScript"],
+  },
+  {
+    title: "Web & APIs",
+    items: ["HTML", "CSS", "React.js", "TypeScript", "Node.js", "FastAPI", "ASP.NET Core", "REST"],
+  },
+  {
+    title: "Data",
+    items: ["MySQL", "SQL", "PostgreSQL", "PostGIS"],
+  },
+  {
+    title: "Vision & learning",
+    items: ["OpenCV", "MediaPipe", "TensorFlow", "Keras", "NumPy", "Pandas", "Matplotlib"],
+  },
+  {
+    title: "Tools",
+    items: ["Git", "GitHub", "VS Code", "Google Colab", "LeetCode", "CodeChef"],
+  },
+  {
+    title: "Foundations",
+    items: [
+      "Data structures",
+      "Algorithms",
+      "OOP",
+      "DBMS",
+      "API design",
+      "Microservices fundamentals",
+      "Event-driven fundamentals",
+    ],
+  },
+];
+
+const experience = [
+  {
+    when: "Nov 2024 — Feb 2025",
+    title: "Student trainee",
+    place: "Samsung Innovation Campus, Bengaluru",
+    body: "Industry training in Python, problem solving, and core computer science. I practiced competitive programming on LeetCode and CodeChef — algorithms and data structures, written under a clock — and worked through structured assignments and small datasets with mentorship.",
+  },
+];
+
+const education = [
+  {
+    when: "2023 — 2027",
+    title: "B.E. Computer Science & Engineering",
+    place: "RNS Institute of Technology, Rajarajeshwari Nagar",
+    detail: "CGPA 9.49 / 10",
+  },
+  {
+    when: "2023",
+    title: "Class 12 · PUE Karnataka",
+    place: "Deeksha Centre for Learning, Kanakapura Road",
+    detail: "93.50%",
+  },
+  {
+    when: "2021",
+    title: "Class 10 · ICSE",
+    place: "Swargarani School, Rajarajeshwari Nagar",
+    detail: "98%",
+  },
+];
+
+const alongside = [
+  {
+    title: "IEEE Consumer Technology Society",
+    detail: "Secretary",
+  },
+  {
+    title: "Google Developer Student Clubs",
+    detail: "Member",
+  },
+  {
+    title: "NPTEL · Demystifying Networking",
+    detail: "IIT Madras · 78 / 100. Architecture, TCP/IP, routing, switching, and how data actually moves.",
+  },
+];
+
+const studioSteps = [
+  {
+    id: "capture",
+    kicker: "01",
+    title: "Capture",
+    body: "A webcam frame. The letter only counts if it can be named while the hand is still up.",
+  },
+  {
+    id: "landmarks",
+    kicker: "02",
+    title: "Landmarks",
+    body: "MediaPipe detects the hand and returns landmarks — wrist, knuckles, fingertips — instead of a raw crop.",
+  },
+  {
+    id: "prepare",
+    kicker: "03",
+    title: "Prepare",
+    body: "The frame is preprocessed and reduced to the features the network was trained on. NumPy does the unglamorous work.",
+  },
+  {
+    id: "classify",
+    kicker: "04",
+    title: "Classify",
+    body: "A convolutional network in TensorFlow and Keras scores the alphabet. I trained it, then judged it on held-out signs.",
+  },
+  {
+    id: "show",
+    kicker: "05",
+    title: "Show",
+    body: "The predicted letter is drawn back onto the screen. That last step is the product.",
+  },
+];
+
+
+
+
+type Variant = "onInk" | "onPaper";
+
+function lerpPose(from: Pt[], to: Pt[], t: number): Pt[] {
+  return from.map((point, index) => {
+    const target = to[index] ?? point;
+    return [point[0] + (target[0] - point[0]) * t, point[1] + (target[1] - point[1]) * t];
+  });
+}
+
+function breathePose(pose: Pt[], amount: number): Pt[] {
+  const wrist = pose[0] ?? [50, 70];
+  return pose.map((point, index) => {
+    if (index === 0) return point;
+    return [wrist[0] + (point[0] - wrist[0]) * amount, wrist[1] + (point[1] - wrist[1]) * amount];
+  });
+}
+
+const TIPS = new Set([4, 8, 12, 16, 20]);
+
+function HandCanvas({
+  pose,
+  breathe = false,
+  variant = "onInk",
+  className,
+}: {
+  pose: Pt[];
+  breathe?: boolean;
+  variant?: Variant;
+  className?: string;
+}) {
+  const svgRef = useRef<SVGSVGElement>(null);
+  const poseRef = useRef(pose);
+  poseRef.current = pose;
+
+  useEffect(() => {
+    const svg = svgRef.current;
+    if (!svg) return;
+    const lines = Array.from(svg.querySelectorAll("line"));
+    const dots = Array.from(svg.querySelectorAll("circle"));
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let frame = 0;
+    let visible = true;
+    let current = poseRef.current.map((point) => [...point] as Pt);
+
+    const paint = (time: number) => {
+      const target = poseRef.current;
+      current = reduce ? target.map((point) => [...point] as Pt) : lerpPose(current, target, 0.16);
+      const drawn = breathe && !reduce ? breathePose(current, 0.94 + Math.sin(time / 900) * 0.06) : current;
+
+      lines.forEach((line, index) => {
+        const edge = HAND_EDGES[index];
+        if (!edge) return;
+        const a = drawn[edge[0]];
+        const b = drawn[edge[1]];
+        if (!a || !b) return;
+        line.setAttribute("x1", String(a[0]));
+        line.setAttribute("y1", String(a[1]));
+        line.setAttribute("x2", String(b[0]));
+        line.setAttribute("y2", String(b[1]));
+      });
+      dots.forEach((dot, index) => {
+        const point = drawn[index];
+        if (!point) return;
+        dot.setAttribute("cx", String(point[0]));
+        dot.setAttribute("cy", String(point[1]));
+      });
+
+      if (visible && !reduce) frame = requestAnimationFrame(paint);
+    };
+
+    frame = requestAnimationFrame(paint);
+    const observer = new IntersectionObserver(([entry]) => {
+      visible = entry?.isIntersecting ?? true;
+      if (visible && !reduce) {
+        cancelAnimationFrame(frame);
+        frame = requestAnimationFrame(paint);
+      }
+    });
+    observer.observe(svg);
+
+    return () => {
+      cancelAnimationFrame(frame);
+      observer.disconnect();
+    };
+  }, [breathe]);
+
+  const lineClass = variant === "onInk" ? "stroke-paper/70" : "stroke-ink/50";
+  const dotClass = variant === "onInk" ? "fill-paper" : "fill-ink";
+
+  return (
+    <svg
+      ref={svgRef}
+      viewBox="8 0 84 100"
+      className={cn("h-full w-full", className)}
+      aria-hidden="true"
+    >
+      {HAND_EDGES.map((edge, index) => {
+        const a = pose[edge[0]] ?? [0, 0];
+        const b = pose[edge[1]] ?? [0, 0];
+        return (
+          <line
+            key={index}
+            x1={a[0]}
+            y1={a[1]}
+            x2={b[0]}
+            y2={b[1]}
+            className={lineClass}
+            strokeWidth="1.1"
+            strokeLinecap="round"
+          />
+        );
+      })}
+      {pose.map((point, index) => (
+        <circle
+          key={index}
+          cx={point[0]}
+          cy={point[1]}
+          r={index === 0 ? 2.1 : TIPS.has(index) ? 1.7 : 1.25}
+          className={TIPS.has(index) ? "fill-lacquer" : dotClass}
+        />
+      ))}
+    </svg>
+  );
+}
+
+
+
+
+
+
+
+function Studio() {
+  const [step, setStep] = useState(0);
+  const [signIndex, setSignIndex] = useState(1);
+  const [playing, setPlaying] = useState(false);
+  const sign = SAMPLE_SIGNS[signIndex] ?? SAMPLE_SIGNS[0];
+  const current = studioSteps[step] ?? studioSteps[0];
+
+  useEffect(() => {
+    if (!playing) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const timer = window.setInterval(() => {
+      setStep((value) => (value + 1) % studioSteps.length);
+    }, 1600);
+    return () => window.clearInterval(timer);
+  }, [playing]);
+
+  return (
+    <div className="grid gap-8 lg:grid-cols-12 lg:gap-10">
+      <div className="lg:col-span-4">
+        <ol className="grid gap-2">
+          {studioSteps.map((item, index) => {
+            const active = index === step;
+            return (
+              <li key={item.id}>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setPlaying(false);
+                    setStep(index);
+                  }}
+                  className={cn(
+                    "tap flex w-full items-baseline gap-4 border px-4 py-3 text-left transition-colors duration-200",
+                    active
+                      ? "border-lacquer bg-paper/5 text-paper"
+                      : "border-paper/15 text-paper/70 hover:border-paper/40 hover:text-paper",
+                  )}
+                  aria-current={active ? "step" : undefined}
+                >
+                  <span className="font-display text-lg text-lacquer">{item.kicker}</span>
+                  <span className="text-sm font-medium tracking-wide">{item.title}</span>
+                </button>
+              </li>
+            );
+          })}
+        </ol>
+        <button
+          type="button"
+          onClick={() => setPlaying((value) => !value)}
+          className="tap mt-4 inline-flex h-11 items-center gap-3 border border-paper/30 px-4 text-sm text-paper hover:border-paper"
+          aria-pressed={playing}
+        >
+          <span className="relative grid size-4 place-items-center">
+            <Play
+              className={cn(
+                "col-start-1 row-start-1 size-4 transition-[opacity,filter,scale] duration-300 ease-[cubic-bezier(0.2,0,0,1)]",
+                playing ? "scale-[0.25] opacity-0 blur-[4px]" : "scale-100 opacity-100 blur-none",
+              )}
+              aria-hidden
+            />
+            <Pause
+              className={cn(
+                "col-start-1 row-start-1 size-4 transition-[opacity,filter,scale] duration-300 ease-[cubic-bezier(0.2,0,0,1)]",
+                playing ? "scale-100 opacity-100 blur-none" : "scale-[0.25] opacity-0 blur-[4px]",
+              )}
+              aria-hidden
+            />
+          </span>
+          {playing ? "Pause the walkthrough" : "Play the walkthrough"}
+        </button>
+      </div>
+
+      <div className="lg:col-span-8">
+        <div className="flex min-h-80 flex-col border border-paper/15 bg-ink">
+          <div className="flex items-center justify-between border-b border-paper/15 px-4 py-3 text-xs tracking-widest text-paper/60 uppercase">
+            <span>Stage · {current.title}</span>
+            <span>Illustration, not a live model</span>
+          </div>
+          <div key={current.id} className="stage-in relative flex flex-1 flex-col justify-center px-4 py-6 md:px-8">
+            {current.id === "capture" ? <CaptureStage /> : null}
+            {current.id === "landmarks" ? (
+              <div className="mx-auto aspect-square w-full max-w-sm">
+                <HandCanvas pose={sign.pose} variant="onInk" className="h-full w-full" />
+              </div>
+            ) : null}
+            {current.id === "prepare" ? <PrepareStage /> : null}
+            {current.id === "classify" ? <ClassifyStage weights={sign.ranking} /> : null}
+            {current.id === "show" ? <ShowStage letter={sign.letter} note={sign.note} /> : null}
+          </div>
+          <p className="border-t border-paper/15 px-4 py-4 text-sm text-paper/80 md:px-8">{current.body}</p>
+        </div>
+
+        <div className="mt-4 flex flex-wrap gap-2" role="group" aria-label="Sample letters">
+          {SAMPLE_SIGNS.map((item, index) => (
+            <button
+              key={item.letter}
+              type="button"
+              onClick={() => setSignIndex(index)}
+              className={cn(
+                "tap h-11 w-11 border text-sm transition-colors duration-200",
+                index === signIndex
+                  ? "border-lacquer bg-lacquer text-paper"
+                  : "border-paper/25 text-paper hover:border-paper",
+              )}
+              aria-pressed={index === signIndex}
+            >
+              {item.letter}
+            </button>
+          ))}
+          <p className="basis-full pt-1 text-sm text-paper/60">
+            Sample poses for the interface. Rankings on the classify step are illustrative — this page does not run the trained network.
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function CaptureStage() {
+  return (
+    <div className="mx-auto w-full max-w-sm">
+      <div className="relative aspect-video overflow-hidden border border-paper/30">
+        <div className="frame-glow absolute inset-0" />
+        <div className="scan-line absolute inset-x-0 top-0 h-px bg-lacquer" />
+        <span className="absolute bottom-3 left-3 text-xs tracking-widest text-paper/70 uppercase">Frame</span>
+      </div>
+    </div>
+  );
+}
+
+function PrepareStage() {
+  return (
+    <div className="mx-auto grid w-full max-w-sm grid-cols-6 gap-2">
+      {Array.from({ length: 24 }, (_, index) => (
+        <span
+          key={index}
+          className="feature-cell aspect-square border border-paper/20 bg-lacquer/80"
+          style={{ animationDelay: `${index * 35}ms` }}
+        />
+      ))}
+    </div>
+  );
+}
+
+function ClassifyStage({ weights }: { weights: { letter: string; weight: number }[] }) {
+  const [ready, setReady] = useState(false);
+  useEffect(() => {
+    const frame = requestAnimationFrame(() => setReady(true));
+    return () => cancelAnimationFrame(frame);
+  }, []);
+
+  return (
+    <div className="mx-auto grid w-full max-w-md gap-4">
+      {weights.map((item) => (
+        <div key={item.letter} className="grid grid-cols-[2rem_1fr] items-center gap-3">
+          <span className="font-display text-2xl text-paper">{item.letter}</span>
+          <span className="block h-2 bg-paper/15">
+            <span
+              className="rank-bar block h-full bg-lacquer"
+              style={{ width: ready ? `${Math.round(item.weight * 100)}%` : "0%" }}
+            />
+          </span>
+        </div>
+      ))}
+      <p className="text-xs tracking-widest text-paper/50 uppercase">Sample ranking, not a measured score</p>
+    </div>
+  );
+}
+
+function ShowStage({ letter, note }: { letter: string; note: string }) {
+  return (
+    <div className="px-2 text-center">
+      <p className="font-display text-8xl text-lacquer italic md:text-9xl">{letter}</p>
+      <p className="mx-auto mt-3 max-w-sm text-sm text-paper/75">{note}</p>
+    </div>
+  );
+}
+
+
+
+
+
+
+function CaseStudy({ project }: { project: Project }) {
+  const index = projects.findIndex((item) => item.slug === project.slug);
+  const next = projects[(index + 1) % projects.length];
+
+  return (
+    <article className="bg-paper pt-16">
+      <header className="border-b border-line">
+        <div className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-24">
+          <Link to="/" hash="work" className="text-sm text-muted nav-link">
+            All work
+          </Link>
+          <p className="mt-8 text-xs tracking-widest text-lacquer uppercase">
+            {project.index} · {project.dates}
+          </p>
+          <h1 className="mt-3 max-w-3xl text-5xl sm:text-6xl lg:text-7xl">{project.title}</h1>
+          <p className="mt-6 max-w-2xl text-xl">{project.summary}</p>
+          <p className="mt-4 text-sm text-muted">
+            {project.role}
+            {project.team ? ` · ${project.team}` : ""}
+            {project.mentor ? ` · Mentor ${project.mentor}` : ""}
+          </p>
+          <div className="mt-6 flex flex-wrap gap-x-6">
+            {project.links.map((link) => (
+              <OutLink key={link.label} href={link.href} placeholder={link.placeholder}>
+                {link.label}
+              </OutLink>
+            ))}
+          </div>
+        </div>
+      </header>
+
+      <div className="mx-auto grid max-w-6xl gap-12 px-5 py-16 md:px-8 lg:grid-cols-12">
+        <div className="lg:col-span-7">
+          <Reveal>
+            <Section title="Problem" body={project.problem} />
+            <Section title="Approach" body={project.approach} />
+            <Section title="What I owned" body={project.owned} />
+            <Section title="What’s distinct" body={project.distinct} />
+          </Reveal>
+        </div>
+        <aside className="lg:col-span-5">
+          <p className="text-xs tracking-widest text-lacquer uppercase">Through the system</p>
+          <ol className="mt-4 border border-line">
+            {project.flow.map((step, stepIndex) => (
+              <li key={step} className="flex items-baseline gap-4 border-b border-line px-4 py-4 last:border-b-0">
+                <span className="font-display text-lacquer">0{stepIndex + 1}</span>
+                <span>{step}</span>
+              </li>
+            ))}
+          </ol>
+          <ul className="mt-6 flex flex-wrap gap-2">
+            {project.stack.map((item) => (
+              <li key={item} className="border border-line px-3 py-1 text-sm text-muted">
+                {item}
+              </li>
+            ))}
+          </ul>
+        </aside>
+      </div>
+
+      {project.slug === "sign-language" ? (
+        <section className="bg-ink py-20 text-paper">
+          <div className="mx-auto max-w-6xl px-5 md:px-8">
+            <h2 className="max-w-xl text-4xl">Walk the same pipeline.</h2>
+            <p className="mt-3 max-w-xl text-paper/75">
+              An illustration of the stages above. It does not call the model.
+            </p>
+            <div className="mt-10">
+              <Studio />
+            </div>
+          </div>
+        </section>
+      ) : null}
+
+      {next ? (
+        <div className="border-t border-line">
+          <div className="mx-auto flex max-w-6xl flex-col gap-3 px-5 py-12 md:flex-row md:items-end md:justify-between md:px-8">
+            <p className="text-sm text-muted">Next</p>
+            <Link to="/work/$slug" params={{ slug: next.slug }} className="font-display text-4xl nav-link">
+              {next.title}
+            </Link>
+          </div>
+        </div>
+      ) : null}
+    </article>
+  );
+}
+
+function Section({ title, body }: { title: string; body: string }) {
+  return (
+    <section className="mb-10">
+      <h2 className="font-sans text-xs tracking-widest text-lacquer uppercase">{title}</h2>
+      <p className="mt-3 text-lg">{body}</p>
+    </section>
+  );
+}
+
+
+
+
+
+
+const NAV = [
+  { href: "/#work", label: "Work" },
+  { href: "/#studio", label: "Studio" },
+  { href: "/#toolkit", label: "Toolkit" },
+  { href: "/#path", label: "Path" },
+  { href: "/#contact", label: "Note" },
+];
+
+function Chrome({ children }: { children: ReactNode }) {
+  return (
+    <>
+      <a href="#content" className="skip">
+        Skip to content
+      </a>
+      <Progress />
+      <Nav />
+      <div id="content">{children}</div>
+      <Footer />
+    </>
+  );
+}
+
+function Progress() {
+  const bar = useRef<HTMLSpanElement>(null);
+
+  useEffect(() => {
+    const node = bar.current;
+    if (!node) return;
+    let frame = 0;
+    const paint = () => {
+      const root = document.documentElement;
+      const max = root.scrollHeight - root.clientHeight;
+      const progress = max > 0 ? root.scrollTop / max : 0;
+      node.style.transform = `scaleX(${progress})`;
+    };
+    const onScroll = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(paint);
+    };
+    paint();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, []);
+
+  return (
+    <span className="pointer-events-none fixed inset-x-0 top-0 z-50 h-0.5" aria-hidden>
+      <span ref={bar} className="block h-full origin-left scale-x-0 bg-lacquer" />
+    </span>
+  );
+}
+
+function Nav() {
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setOpen(false);
+    };
+    const previous = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", onKey);
+    return () => {
+      document.body.style.overflow = previous;
+      window.removeEventListener("keydown", onKey);
+    };
+  }, [open]);
+
+  return (
+    <header className="fixed inset-x-0 top-0 z-40 border-b border-paper/10 bg-ink/90 text-paper backdrop-blur-md">
+      <div className="relative z-50 mx-auto flex h-16 max-w-6xl items-center justify-between px-5 md:px-8">
+        <Link to="/" className="font-display text-xl" onClick={() => setOpen(false)}>
+          Ranjitha S
+        </Link>
+        <nav className="hidden items-center gap-7 md:flex" aria-label="Sections">
+          {NAV.map((item) => (
+            <a key={item.href} href={item.href} className="nav-link text-sm">
+              {item.label}
+            </a>
+          ))}
+        </nav>
+        <button
+          type="button"
+          className="tap grid size-11 place-items-center md:hidden"
+          aria-expanded={open}
+          aria-controls="mobile-nav"
+          onClick={() => setOpen((value) => !value)}
+        >
+          <span className="sr-only">{open ? "Close menu" : "Open menu"}</span>
+          {open ? <X className="size-5" /> : <Menu className="size-5" />}
+        </button>
+      </div>
+      <div
+        id="mobile-nav"
+        inert={!open}
+        className={cn(
+          "fixed inset-0 z-40 flex flex-col bg-ink px-6 pt-24 transition-opacity duration-200 md:hidden",
+          open ? "visible opacity-100" : "invisible pointer-events-none opacity-0",
+        )}
+      >
+        <nav className="grid gap-2" aria-label="Sections">
+          {NAV.map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              onClick={() => setOpen(false)}
+              className="border-b border-paper/15 py-4 font-display text-4xl"
+            >
+              {item.label}
+            </a>
+          ))}
+        </nav>
+      </div>
+    </header>
+  );
+}
+
+function Footer() {
+  return (
+    <footer className="border-t border-line bg-paper">
+      <div className="mx-auto flex max-w-6xl flex-col gap-3 px-5 py-8 text-sm text-muted md:flex-row md:items-center md:justify-between md:px-8">
+        <p>
+          © {new Date().getFullYear()} {profile.name}
+        </p>
+        <p>
+          {profile.degree} · {profile.location}
+        </p>
+      </div>
+    </footer>
+  );
+}
+
+
+
+
+
+  alongside,
+  education,
+  experience,
+  profile,
+  projects,
+  stats,
+  toolkit,
+} from "@/data/portfolio";
+
+
+
+
+
+function HomePage() {
+  return (
+    <>
+      <Hero />
+      <Work />
+      <StudioSection />
+      <Toolkit />
+      <Path />
+      <Contact />
+    </>
+  );
+}
+
+function Hero() {
+  return (
+    <section className="flex min-h-svh flex-col bg-ink pt-16 text-paper">
+      <div className="mx-auto grid w-full max-w-6xl flex-1 items-center gap-8 px-5 py-8 md:grid-cols-2 md:px-8">
+        <div>
+          <p className="text-xs tracking-widest text-lacquer uppercase">
+            {profile.degree} · RNSIT · {profile.location}
+          </p>
+          <h1 className="mt-4 text-6xl sm:text-7xl lg:text-8xl">
+            Ranjitha
+            <span className="mt-1 block text-lacquer italic">S.</span>
+          </h1>
+          <p className="mt-5 max-w-md font-display text-2xl leading-snug text-paper sm:text-3xl">
+            I build the piece between a model and a person.
+          </p>
+          <p className="mt-3 max-w-md text-paper/75">
+            Sign letters from a webcam, a route that continues indoors, music chosen from a face. I study in
+            Bengaluru, and I like the work that has to run while someone is watching.
+          </p>
+          <dl className="mt-6 grid grid-cols-2 gap-x-4 gap-y-3 sm:grid-cols-4">
+            {stats.map((item) => (
+              <div key={item.label}>
+                <dt className="font-display text-2xl text-paper">{item.value}</dt>
+                <dd className="text-xs tracking-wide text-paper/55 uppercase">{item.label}</dd>
+              </div>
+            ))}
+          </dl>
+          <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+            <a href="#work" className={buttonVariants({ tone: "lacquer" })}>
+              Selected work
+            </a>
+            <a href="#contact" className={buttonVariants({ tone: "ghostInk" })}>
+              Write to me
+            </a>
+          </div>
+        </div>
+        <figure className="mx-auto w-40 md:w-full md:max-w-sm">
+          <div className="aspect-square border border-paper/15">
+            <HandCanvas pose={POSE_OPEN} breathe variant="onInk" className="h-full w-full" />
+          </div>
+          <figcaption className="mt-3 text-sm text-paper/60">
+            Twenty-one landmarks — the skeleton the sign-language model reads. The drawing breathes; it is not your camera.
+          </figcaption>
+        </figure>
+      </div>
+      <div className="border-t border-paper/15">
+        <p className="mx-auto max-w-6xl px-5 py-4 text-sm text-paper/75 md:px-8">
+          Now ·{" "}
+          <Link to="/work/$slug" params={{ slug: "moodsync" }} className="nav-link">
+            MoodSync-AI
+          </Link>{" "}
+          and{" "}
+          <Link to="/work/$slug" params={{ slug: "campusar" }} className="nav-link">
+            CampusAR
+          </Link>
+        </p>
+      </div>
+    </section>
+  );
+}
+
+function Work() {
+  return (
+    <section id="work" className="scroll-mt-20 bg-paper py-20 md:py-28">
+      <div className="mx-auto max-w-6xl px-5 md:px-8">
+        <Reveal>
+          <p className="text-xs tracking-widest text-lacquer uppercase">Selected work</p>
+          <h2 className="mt-3 max-w-xl text-4xl sm:text-5xl">Four systems, each with a person at the end of it.</h2>
+        </Reveal>
+        <div className="mt-14 divide-y divide-line border-y border-line">
+          {projects.map((project, index) => (
+            <article key={project.slug} className="group relative py-10 md:py-14">
+              <span className="absolute top-0 left-0 h-full w-px origin-top scale-y-0 bg-lacquer transition-transform duration-300 group-hover:scale-y-100" />
+              <Reveal delay={index * 40}>
+                <div className="grid gap-6 md:grid-cols-12">
+                  <p className="font-display text-lacquer md:col-span-2">{project.index}</p>
+                  <div className="md:col-span-10">
+                    <div className="flex flex-wrap items-baseline justify-between gap-3">
+                      <h3 className="font-display text-3xl leading-none sm:text-4xl">
+                        <Link
+                          to="/work/$slug"
+                          params={{ slug: project.slug }}
+                          className="nav-link decoration-transparent"
+                        >
+                          {project.title}
+                        </Link>
+                      </h3>
+                      <p className="text-sm text-muted">{project.dates}</p>
+                    </div>
+                    <p className="mt-3 max-w-2xl text-lg">{project.summary}</p>
+                    <p className="mt-2 text-sm text-muted">
+                      {project.role}
+                      {project.team ? ` · ${project.team}` : ""}
+                      {project.mentor ? ` · Mentor ${project.mentor}` : ""}
+                    </p>
+                    <div className="mt-8 grid gap-6 md:grid-cols-3">
+                      <Beat title="Problem" body={project.problem} />
+                      <Beat title="Approach" body={project.approach} />
+                      <Beat title="What’s distinct" body={project.distinct} />
+                    </div>
+                    <ul className="mt-6 flex flex-wrap gap-2">
+                      {project.stack.map((item) => (
+                        <li key={item} className="border border-line px-3 py-1 text-sm text-muted">
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                    <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-1">
+                      {project.links.map((link) => (
+                        <OutLink key={link.label} href={link.href} placeholder={link.placeholder}>
+                          {link.label}
+                        </OutLink>
+                      ))}
+                      <Link
+                        to="/work/$slug"
+                        params={{ slug: project.slug }}
+                        className="tap inline-flex h-11 items-center text-sm"
+                      >
+                        <span className="border-b border-current pb-px">Read the case study</span>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </Reveal>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Beat({ title, body }: { title: string; body: string }) {
+  return (
+    <div>
+      <h4 className="text-xs tracking-widest text-lacquer uppercase">{title}</h4>
+      <p className="mt-2 text-sm text-ink/80">{body}</p>
+    </div>
+  );
+}
+
+function StudioSection() {
+  return (
+    <section id="studio" className="scroll-mt-20 bg-ink py-20 text-paper md:py-28">
+      <div className="mx-auto max-w-6xl px-5 md:px-8">
+        <Reveal>
+          <p className="text-xs tracking-widest text-lacquer uppercase">Studio</p>
+          <h2 className="mt-3 max-w-2xl text-4xl sm:text-5xl">From a frame to a letter.</h2>
+          <p className="mt-4 max-w-xl text-paper/75">
+            The sign-language interpreter, walked one stage at a time. I prepared the dataset, trained the
+            network, and wired the webcam. Press play, or pick a step. Pick a letter to change the pose.
+          </p>
+        </Reveal>
+        <div className="mt-12">
+          <Studio />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Toolkit() {
+  return (
+    <section id="toolkit" className="scroll-mt-20 bg-paper py-20 md:py-28">
+      <div className="mx-auto max-w-6xl px-5 md:px-8">
+        <Reveal>
+          <p className="text-xs tracking-widest text-lacquer uppercase">Toolkit</p>
+          <h2 className="mt-3 max-w-xl text-4xl sm:text-5xl">What I actually use.</h2>
+          <p className="mt-4 max-w-xl text-muted">
+            Languages from coursework and projects, the web stack I ship interfaces with, and the vision tools
+            behind the camera work. Soft skills stay in the work: I coordinate a team, present it, and keep the deadline.
+          </p>
+        </Reveal>
+        <div className="mt-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+          {toolkit.map((group, index) => (
+            <Reveal key={group.title} delay={index * 50}>
+              <h3 className="font-sans text-sm tracking-widest text-lacquer uppercase">{group.title}</h3>
+              <ul className="mt-4 flex flex-wrap gap-2">
+                {group.items.map((item) => (
+                  <li
+                    key={item}
+                    className="border border-line px-3 py-2 text-sm transition-colors duration-200 hover:border-lacquer"
+                  >
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Path() {
+  return (
+    <section id="path" className="scroll-mt-20 border-t border-line bg-paper py-20 md:py-28">
+      <div className="mx-auto max-w-6xl px-5 md:px-8">
+        <Reveal>
+          <p className="text-xs tracking-widest text-lacquer uppercase">Path</p>
+          <h2 className="mt-3 text-4xl sm:text-5xl">Study, a semester inside Samsung, and the rooms I show up in.</h2>
+        </Reveal>
+        <div className="mt-14 grid gap-16 lg:grid-cols-2">
+          <div>
+            <h3 className="font-sans text-sm tracking-widest text-muted uppercase">Experience</h3>
+            <ol className="mt-6 border-l border-line">
+              {experience.map((item) => (
+                <li key={item.title} className="relative pb-10 pl-8">
+                  <span className="absolute top-1.5 -left-1.5 size-3 rounded-full bg-lacquer" />
+                  <p className="text-sm text-muted">{item.when}</p>
+                  <p className="mt-1 font-display text-2xl">{item.title}</p>
+                  <p className="text-sm">{item.place}</p>
+                  <p className="mt-3 text-sm text-ink/80">{item.body}</p>
+                </li>
+              ))}
+            </ol>
+          </div>
+          <div>
+            <h3 className="font-sans text-sm tracking-widest text-muted uppercase">Education</h3>
+            <ol className="mt-6 border-l border-line">
+              {education.map((item) => (
+                <li key={item.title} className="relative pb-10 pl-8">
+                  <span className="absolute top-1.5 -left-1.5 size-3 rounded-full bg-ink" />
+                  <p className="text-sm text-muted">{item.when}</p>
+                  <p className="mt-1 font-display text-2xl">{item.title}</p>
+                  <p className="text-sm">{item.place}</p>
+                  <p className="mt-2 text-sm text-lacquer">{item.detail}</p>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </div>
+        <div className="mt-4 grid gap-6 border-t border-line pt-10 md:grid-cols-3">
+          {alongside.map((item) => (
+            <Reveal key={item.title}>
+              <h3 className="font-display text-2xl">{item.title}</h3>
+              <p className="mt-2 text-sm text-muted">{item.detail}</p>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Contact() {
+  const [note, setNote] = useState("");
+
+  function onSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    const name = String(data.get("name") ?? "").trim();
+    const email = String(data.get("email") ?? "").trim();
+    const message = String(data.get("message") ?? "").trim();
+    const subject = encodeURIComponent(`Note from ${name}`);
+    const body = encodeURIComponent(`${message}\n\n— ${name}\n${email}`);
+    window.location.href = `mailto:${profile.email}?subject=${subject}&body=${body}`;
+    setNote("Your mail app should open with the note filled in. If it doesn’t, use the address below.");
+  }
+
+  return (
+    <section id="contact" className="scroll-mt-20 bg-ink py-20 text-paper md:py-28">
+      <div className="mx-auto grid max-w-6xl gap-12 px-5 md:px-8 lg:grid-cols-12">
+        <div className="lg:col-span-5">
+          <p className="text-xs tracking-widest text-lacquer uppercase">A note</p>
+          <h2 className="mt-3 text-4xl sm:text-5xl">Send a note.</h2>
+          <p className="mt-4 text-paper/75">
+            Internships, a project, or a question about the work. I read English, Kannada, Hindi, and German —
+            write in whichever is easiest.
+          </p>
+          <ul className="mt-8 grid gap-3 text-sm">
+            <li>
+              <a className="nav-link" href={`mailto:${profile.email}`}>
+                {profile.email}
+              </a>
+            </li>
+            <li>
+              <a className="nav-link text-paper/70" href={`mailto:${profile.collegeEmail}`}>
+                {profile.collegeEmail}
+              </a>
+            </li>
+            <li>
+              <a className="nav-link" href={profile.phoneHref}>
+                {profile.phoneDisplay}
+              </a>
+            </li>
+            <li>
+              <a className="nav-link" href={profile.whatsapp} target="_blank" rel="noreferrer">
+                WhatsApp
+              </a>
+            </li>
+            <li>
+              <a className="nav-link" href={profile.linkedin} target="_blank" rel="noreferrer">
+                LinkedIn
+              </a>
+            </li>
+            <li>
+              <OutLink href={profile.github} placeholder={profile.githubPlaceholder}>
+                GitHub
+              </OutLink>
+            </li>
+          </ul>
+          <p className="mt-8 text-sm text-paper/55">
+            {profile.interests.join(" · ")} · {profile.location}
+          </p>
+        </div>
+        <form onSubmit={onSubmit} className="grid gap-6 lg:col-span-7">
+          <label className="grid gap-2 text-sm">
+            Name
+            <input
+              name="name"
+              required
+              autoComplete="name"
+              className="h-12 border-b border-paper/25 bg-transparent text-paper outline-none focus:border-lacquer"
+            />
+          </label>
+          <label className="grid gap-2 text-sm">
+            Email
+            <input
+              name="email"
+              type="email"
+              required
+              autoComplete="email"
+              className="h-12 border-b border-paper/25 bg-transparent text-paper outline-none focus:border-lacquer"
+            />
+          </label>
+          <label className="grid gap-2 text-sm">
+            Message
+            <textarea
+              name="message"
+              required
+              rows={5}
+              className="border-b border-paper/25 bg-transparent py-3 text-paper outline-none focus:border-lacquer"
+            />
+          </label>
+          <div className="flex flex-wrap items-center gap-4">
+            <button type="submit" className={buttonVariants({ tone: "lacquer" })}>
+              Send the note
+            </button>
+            {note ? (
+              <p className="text-sm text-paper/75" role="status">
+                {note}
+              </p>
+            ) : null}
+          </div>
+        </form>
+      </div>
+    </section>
+  );
+}
+
+
+    function GrokApp() {
+      const [slug, setSlug] = useState(null);
+      const proj = slug ? getProject(slug) : null;
+      return (
+        <RouterCtx.Provider value={{ slug, setSlug }}>
+          <Chrome>
+            {proj ? <CaseStudy project={proj} /> : <HomePage />}
+          </Chrome>
+        </RouterCtx.Provider>
+      );
+    }
+    ReactDOM.createRoot(document.getElementById('root')).render(<GrokApp />);
+  </script>
+</body>
+</html>

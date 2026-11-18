@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0D0B17">
+<title>Ranjitha S — Software & AI Engineer</title>
+<meta name="description" content="Ranjitha S — computer science student building AI, computer vision and full-stack systems, from Bengaluru to production.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#0D0B17;--card:#151228;--line:#2A2645;--tx:#EEEBFA;--mu:#A29EC4;--ac:#B69CFF;--ac2:#FF8FB3;--ac3:#62E6C6;
+--fd:'Sora',system-ui,sans-serif;--fb:'Manrope',system-ui,sans-serif}
+html{scroll-behavior:smooth;scroll-padding-top:calc(76px + env(safe-area-inset-top,0px))}
+*,*:before,*:after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.65 var(--fb);overflow-x:hidden}
+::selection{background:var(--ac2);color:#1A0B14}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--ac3);outline-offset:3px}
+h1,h2,h3{font-family:var(--fd);line-height:1.1;margin:0}
+h2{font-size:clamp(28px,4.4vw,48px);margin:.35em 0 .4em}
+section{padding:96px 6vw;max-width:1200px;margin:0 auto}
+.kick{color:var(--ac3);font-size:14px;font-weight:700}
+.lead{color:var(--mu);max-width:60ch}
+.btn{display:inline-block;padding:11px 20px;border-radius:999px;border:1px solid var(--line);font-weight:700;cursor:pointer;background:none;color:var(--tx);font-family:inherit;font-size:15px;transition:.2s}
+.btn:hover{border-color:var(--ac)}
+.btn.p{background:linear-gradient(120deg,var(--ac),var(--ac2));color:#16101F;border:0}
+.row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px}
+.chip{display:inline-block;padding:5px 13px;margin:4px 6px 4px 0;border-radius:999px;background:#1E1A38;border:1px solid var(--line);font-size:14px}
+/* intro */
+#intro{position:fixed;inset:0;z-index:100;background:var(--bg);display:grid;place-items:center;transition:opacity .6s,visibility .6s}
+#intro.off{opacity:0;visibility:hidden}
+#intro b{font:700 clamp(48px,12vw,120px)/1 var(--fd);background:linear-gradient(120deg,var(--ac),var(--ac2));-webkit-background-clip:text;background-clip:text;color:transparent}
+#intro small{display:block;text-align:center;color:var(--mu)}
+/* header */
+header{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;gap:18px;padding:calc(12px + env(safe-area-inset-top,0px)) 5vw 12px;background:rgba(13,11,23,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700}
+.logo i{font:700 15px var(--fd);font-style:normal;width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,var(--ac),var(--ac2));color:#16101F}
+.logo span small{display:block;color:var(--mu);font-weight:500;font-size:12px;line-height:1.2}
+nav{margin-left:auto;display:flex;gap:20px;font-size:14px;color:var(--mu)}
+nav a:hover{color:var(--tx)}
+.clock{font-size:13px;color:var(--mu);white-space:nowrap}
+@media(max-width:980px){nav,.clock{display:none}header .btn{margin-left:auto}}
+/* hero */
+#earth{min-height:100svh;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:20px;padding-top:120px}
+#earth h1{font-size:clamp(46px,8vw,104px);letter-spacing:-.03em}
+.role{font:600 clamp(18px,2.4vw,26px) var(--fd);color:var(--ac);min-height:1.5em;margin:18px 0 8px}
+#globe{width:100%;aspect-ratio:1;max-width:520px;justify-self:center}
+@media(max-width:800px){#earth{grid-template-columns:1fr}}
+/* about */
+.about{display:grid;grid-template-columns:1.3fr .7fr;gap:40px;align-items:center}
+.avatar{aspect-ratio:4/5;border-radius:24px;border:1px solid var(--line);background:radial-gradient(circle at 30% 20%,#3a2b6e,#151228 70%);display:grid;place-items:center;position:relative}
+.avatar b{font:700 96px var(--fd);background:linear-gradient(120deg,var(--ac),var(--ac2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.badge{position:absolute;left:14px;bottom:14px;background:rgba(13,11,23,.85);border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:13px}
+.badge:before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--ac3);margin-right:8px}
+@media(max-width:800px){.about{grid-template-columns:1fr}}
+.mq{overflow:hidden;border-block:1px solid var(--line);padding:14px 0;white-space:nowrap;font:700 22px var(--fd);color:var(--mu)}
+.mq div{display:inline-block;animation:mq 28s linear infinite}
+.mq.r div{animation-direction:reverse;font:500 16px var(--fb);animation-duration:40s}
+@keyframes mq{to{transform:translateX(-50%)}}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin:48px 0 28px}
+.facts div{border-left:2px solid var(--ac);padding-left:14px}.facts small{display:block;color:var(--mu)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px}
+.stats b{display:block;font:700 44px var(--fd);color:var(--ac3)}
+.trio{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-top:20px}
+.trio a{color:var(--ac);font-weight:700}
+/* reel */
+.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:26px 0}
+.flow div{padding:16px;border-radius:14px;border:1px solid var(--line);background:var(--card);opacity:.45;transition:.35s}
+.flow div.on{opacity:1;border-color:var(--ac3);transform:translateY(-4px)}
+.flow b{display:block;font-family:var(--fd)}.flow small{color:var(--mu)}
+@media(max-width:800px){.flow{grid-template-columns:1fr}}
+#play{min-height:3em;color:var(--ac3);font-weight:600}
+/* work */
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0}
+.tabs button.on{background:var(--ac);color:#16101F;border-color:var(--ac)}
+.work{display:grid;grid-template-columns:.8fr 1.2fr;gap:26px}
+.work h3{font-size:30px;margin:6px 0 14px}
+.big{font:700 54px var(--fd);color:var(--ac2)}
+.work h4{margin:16px 0 4px;color:var(--ac3);font-size:14px}.work p{margin:0;color:var(--mu)}
+@media(max-width:800px){.work{grid-template-columns:1fr}}
+.grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin-top:18px}
+.grid4 small{color:var(--ac2);font-weight:700}.grid4 p{color:var(--mu);margin:.4em 0 0}
+/* chat */
+.chat{max-width:760px;margin-top:20px}
+.chat .hd{display:flex;gap:12px;align-items:center;margin-bottom:14px}
+.dot{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--ac),var(--ac2));display:grid;place-items:center;color:#16101F;font:700 14px var(--fd)}
+#msgs{display:flex;flex-direction:column;gap:10px;min-height:120px;max-height:340px;overflow-y:auto}
+.m{padding:10px 15px;border-radius:16px;max-width:85%;background:#1E1A38}
+.m.u{align-self:flex-end;background:var(--ac);color:#16101F}
+.sug{margin:14px 0}
+.chat form{display:flex;gap:8px}
+input,textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:#100E1E;color:var(--tx);font:inherit}
+/* model + timeline */
+.three{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin:22px 0}
+.bar{display:flex;height:16px;border-radius:99px;overflow:hidden;margin:14px 0 8px}
+.tl{border-left:2px solid var(--line);margin-top:26px;padding-left:26px}
+.tl .it{position:relative;padding-bottom:30px}
+.tl .it:before{content:"";position:absolute;left:-33px;top:7px;width:12px;height:12px;border-radius:50%;background:var(--ac)}
+.tl small{color:var(--ac3);font-weight:700}.tl h3{font-size:22px;margin:2px 0 6px}.tl p{margin:0;color:var(--mu)}
+/* contact + modal */
+.links a{color:var(--ac)}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:600px){.f2{grid-template-columns:1fr}}
+#toast{color:var(--ac3);margin-left:12px}
+footer{border-top:1px solid var(--line);padding:26px 6vw;display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;color:var(--mu);font-size:14px}
+#cs{position:fixed;inset:0;z-index:90;background:rgba(8,6,16,.9);overflow-y:auto;display:none;padding:calc(30px + env(safe-area-inset-top,0px)) 5vw 40px}
+#cs.on{display:block}
+#cs .in{max-width:860px;margin:0 auto}
+#cs ol{padding-left:20px;color:var(--mu)}#cs li{margin:6px 0}
+@media(prefers-reduced-motion:reduce){.mq div{animation:none}html{scroll-behavior:auto}*{transition:none!important}}
+</style></head><body>
+<div id="intro"><div><b id="ip">0%</b><small>Ranjitha S · loading portfolio</small></div></div>
+<header>
+ <a class="logo" href="#earth"><i>RS</i><span>Ranjitha S<small>Software &amp; AI Engineer</small></span></a>
+ <nav id="nav"></nav><span class="clock" id="clock"></span>
+ <a class="btn p" href="#contact">Let’s talk</a>
+</header>
+
+<section id="earth">
+ <div>
+  <span class="kick">Bengaluru, Karnataka</span>
+  <h1>Ranjitha S.</h1>
+  <div class="role" id="role"></div>
+  <p class="lead">Computer science student building AI, computer vision and full-stack systems — from Bengaluru to production.</p>
+  <div class="row" style="margin-top:22px"><a class="btn p" href="#work">View selected work</a><a class="btn" href="#reel">See a pipeline</a></div>
+ </div>
+ <canvas id="globe" aria-label="Rotating globe centred on Bengaluru"></canvas>
+</section>
+
+<section id="about">
+ <div class="about">
+  <div>
+   <span class="kick">About</span>
+   <h2>Software that sees, learns and ships.</h2>
+   <p class="lead">I build <b style="color:var(--tx)">AI-powered and full-stack applications</b> that go past the notebook — computer vision models behind real-time interfaces, REST APIs, and databases that hold up in use.</p>
+   <div class="row" style="margin-top:20px"><a class="btn p" href="#work">View selected work</a><a class="btn" href="#reel">See how a project works</a><a class="btn" href="mailto:ranjithasgowda245@gmail.com?subject=R%C3%A9sum%C3%A9%20request">Résumé</a></div>
+  </div>
+  <div class="avatar"><b>RS</b><span class="badge">Open to internships</span></div>
+ </div>
+</section>
+
+<div class="mq"><div id="tick1"></div></div>
+<section style="padding-top:60px">
+ <div class="facts">
+  <div><small>Currently</small>B.E. CSE, RNS Institute of Technology</div>
+  <div><small>Focus</small>AI · Computer vision · Full-stack</div>
+  <div><small>Batch</small>2027</div>
+  <div><small>Education</small>Computer Science &amp; Engineering</div>
+ </div>
+ <div class="stats" id="stats"></div>
+ <div class="trio">
+  <div class="card">Hi, I’m Ranjitha — a computer science student building AI and full-stack systems.</div>
+  <div class="card">Four projects across emotion detection, campus AR navigation, sign language recognition and events management. <a href="#work">See the work →</a></div>
+  <div class="card">From Samsung Innovation Campus training to leading IEEE CTS as Secretary. <a href="#experience">My experience →</a></div>
+  <div class="card">Looking for a team that ships? Let’s talk. <a href="mailto:ranjithasgowda245@gmail.com">Get in touch →</a></div>
+ </div>
+</section>
+<div class="mq r"><div id="tick2"></div></div>
+
+<section id="reel">
+ <span class="kick">Pipeline</span>
+ <h2>Watch a pipeline think.</h2>
+ <p class="lead">How MoodSync-AI works: a webcam frame goes in, an emotion is read, and music comes back.</p>
+ <div class="row"><b>MoodSync-AI — example run</b></div>
+ <div class="flow" id="flow"></div>
+ <p id="play"></p>
+ <button class="btn p" id="pbtn">Play the pipeline</button>
+ <div style="margin-top:22px"><b>Every request carries</b>
+  <div><span class="chip">Webcam frame</span><span class="chip">Face region</span><span class="chip">Emotion label</span><span class="chip">Track suggestions</span></div></div>
+</section>
+
+<section id="work">
+ <span class="kick">Selected work</span>
+ <h2>Projects built to run, not to sit in a repo.</h2>
+ <p class="lead">Four projects across AI, computer vision, full-stack and web development.</p>
+ <div class="tabs" id="tabs"></div>
+ <div class="card work" id="wk"></div>
+ <h3 style="margin-top:60px;font-size:26px">Along the way</h3>
+ <p class="lead">Where the practice started, and what runs beside the projects.</p>
+ <div class="grid4" id="early"></div>
+</section>
+
+<section id="ask">
+ <span class="kick">Ask me</span>
+ <h2>Got a question? Just ask.</h2>
+ <p class="lead">Projects, skills, studies or how I work with teams — pick a question or type your own.</p>
+ <div class="card chat">
+  <div class="hd"><span class="dot">RS</span><div><b>Ranjitha’s assistant</b><br><small style="color:var(--ac3)">Online</small></div></div>
+  <div id="msgs" aria-live="polite"></div>
+  <div class="sug" id="sug"></div>
+  <form id="qf"><input id="q" placeholder="Ask a question" aria-label="Ask a question"><button class="btn p">Send</button></form>
+ </div>
+</section>
+
+<section id="model">
+ <span class="kick">Operating model</span>
+ <h2>I own the build from idea to working demo.</h2>
+ <div class="three">
+  <div class="card"><h3>Understand</h3><p class="lead">Find the real problem</p><p class="lead">Break the idea into users, data and constraints before writing code.</p></div>
+  <div class="card"><h3>Design</h3><p class="lead">Shape the system</p><p class="lead">Layered APIs, clean data models and a model or algorithm that fits the job.</p></div>
+  <div class="card"><h3>Build &amp; test</h3><p class="lead">Prove it works</p><p class="lead">Ship the frontend and backend, test them together, and iterate on accuracy and speed.</p></div>
+ </div>
+ <b>My four projects</b>
+ <div class="bar"><span style="width:50%;background:var(--ac)"></span><span style="width:50%;background:var(--ac2)"></span></div>
+ <div class="row" style="justify-content:space-between;color:var(--mu)"><span><b style="color:var(--ac)">50%</b> — AI &amp; computer vision</span><span><b style="color:var(--ac2)">50%</b> — Full-stack &amp; web</span></div>
+</section>
+
+<section id="experience">
+ <span class="kick">Experience</span>
+ <h2>Where the learning happened.</h2>
+ <div class="tl" id="tl"></div>
+</section>
+
+<section id="toolkit">
+ <span class="kick">Toolkit</span>
+ <h2>The stack behind the projects.</h2>
+ <div class="grid4" id="tk"></div>
+</section>
+
+<section id="contact">
+ <span class="kick">Contact</span>
+ <h2>Let’s build something that ships.</h2>
+ <div class="row links" style="margin-bottom:24px">
+  <a href="mailto:ranjithasgowda245@gmail.com">ranjithasgowda245@gmail.com</a>
+  <a class="btn p" href="mailto:ranjithasgowda245@gmail.com?subject=Let%E2%80%99s%20book%20a%20call&body=Hi%20Ranjitha%2C%0A%0AI%E2%80%99d%20like%20to%20book%20a%2030-minute%20call.%0A%0ATopic%3A%20%0ATimes%20that%20work%20for%20me%20(with%20time%20zone)%3A%0A1.%20%0A2.%20%0A%0AThanks!">Book a call</a>
+  <a href="tel:+919449045855">+91 94490 45855</a>
+  <a href="https://www.linkedin.com/in/ranjitha-sridhar-a5b711311/" target="_blank" rel="noopener">LinkedIn</a>
+  <a href="mailto:ranjithasgowda245@gmail.com?subject=R%C3%A9sum%C3%A9%20request">Résumé</a>
+ </div>
+ <form class="card" id="cf" style="max-width:720px">
+  <b>Send a note</b>
+  <div class="f2"><input id="cn" placeholder="Your name" required aria-label="Your name"><input id="ce" type="email" placeholder="Your email" required aria-label="Your email"></div>
+  <textarea id="cm" rows="4" placeholder="What are you building?" required aria-label="Message"></textarea>
+  <div style="margin-top:12px"><button class="btn p">Send note</button><span id="toast"></span></div>
+ </form>
+</section>
+<footer><span>© 2026 Ranjitha S</span><span class="links"><a href="mailto:ranjithasgowda245@gmail.com">Email</a> · <a href="tel:+919449045855">+91 94490 45855</a> · <a href="https://www.linkedin.com/in/ranjitha-sridhar-a5b711311/" target="_blank" rel="noopener">LinkedIn</a></span><a href="#earth">Back to top ↑</a></footer>
+
+<div id="cs" role="dialog" aria-modal="true"><div class="in" id="csb"></div></div>
+
+<script>
+const $=s=>document.querySelector(s),E=(t,h,c)=>{const e=document.createElement(t);e.innerHTML=h;if(c)e.className=c;return e};
+const P=[
+{tag:'AI · Web app',title:'MoodSync-AI',short:'Emotion to music',when:'May 2026 – present',metric:'2',ml:'services — React frontend and FastAPI backend deployed separately',
+ problem:'Picking music that fits how you feel takes effort, and most players ignore mood entirely.',
+ approach:'React captures webcam frames and sends them to FastAPI, where OpenCV preprocessing and a trained TensorFlow/Keras model predict the emotion, then a recommender returns tracks.',
+ inn:'Facial expression analysis drives personalised music recommendations in a single flow.',
+ steps:[['Capture','React grabs webcam frames'],['Send','HTTP request to the FastAPI service'],['Detect','OpenCV image processing'],['Classify','Keras emotion model predicts mood'],['Recommend','Tracks returned to the UI']],
+ gd:['REST APIs separate detection, prediction and recommendation','Frontend and backend deploy as independent services'],
+ role:'Built the FastAPI endpoints, integrated the trained model with OpenCV processing, and developed the React frontend.',stack:['Python','FastAPI','React.js','TensorFlow/Keras','OpenCV']},
+{tag:'Full-stack · AR',title:'CampusAR',short:'Indoor + outdoor navigation',when:'2026',metric:'In + out',ml:'navigation across buildings, entrances and indoor nodes',
+ problem:'Finding your way around a large campus, especially indoors, is hard with ordinary maps.',
+ approach:'A graph of the campus feeds shortest-path routing. GPS positions outdoors, QR codes relocalise indoors, and AR arrows guide the walk.',
+ inn:'One system covers outdoor GPS and indoor QR-based relocalisation with AR directions.',
+ steps:[['Locate','GPS outdoors, QR codes indoors'],['Route','Shortest path over the campus graph'],['Serve','Node.js REST APIs with PostgreSQL/PostGIS'],['Stream','WebSocket live position updates'],['Guide','AR directional guidance']],
+ gd:['Layered backend: API, application, domain and data-access','Spatial data managed in PostGIS'],
+ role:'Developed the full-stack navigation system, routing logic and real-time features.',stack:['React','TypeScript','Node.js','PostgreSQL','PostGIS','REST APIs','WebSocket']},
+{tag:'Computer vision',title:'Real-time Sign Language Interpreter',short:'ASL to text',when:'2025 · team of 4',metric:'Live',ml:'webcam recognition of ASL alphabet gestures',
+ problem:'Communication gaps between sign language users and people who don’t sign.',
+ approach:'MediaPipe finds hand landmarks in each frame, features go to a CNN built with TensorFlow/Keras, and the predicted letter appears on screen in real time.',
+ inn:'Landmark-based features keep recognition fast enough for live webcam input.',
+ steps:[['Capture','Live webcam frames'],['Detect','MediaPipe hand landmarks'],['Extract','Relevant features per frame'],['Classify','CNN predicts the letter'],['Display','Alphabet shown in real time']],
+ gd:['Model training and evaluation on a prepared dataset','Accuracy and speed tuned for real-time use'],
+ role:'Handled dataset preparation, preprocessing, model training, real-time inference integration and optimisation. Mentor: Ms Chethana H R.',stack:['Python','OpenCV','MediaPipe','TensorFlow','Keras','CNN','NumPy']},
+{tag:'Web · DBMS',title:'Events Management System',short:'Events for students and organisers',when:'Mar – Jul 2025 · team of 4',metric:'4',ml:'person team, frontend built with React.js',
+ problem:'Students and organisers need one place to publish, find and manage events.',
+ approach:'A React.js interface with responsive pages pulls event data through APIs from the backend team’s services.',
+ inn:'A smooth, responsive experience for both students and organisers on shared event data.',
+ steps:[['Design','Responsive pages in HTML and CSS'],['Build','Interactive UI with JavaScript and React.js'],['Integrate','APIs for event data'],['Collaborate','GitHub with the backend team'],['Ship','Single experience for students and organisers']],
+ gd:['Version control and integration through GitHub','Responsive across screen sizes'],
+ role:'Frontend Developer — built the user interface and integrated the event APIs.',stack:['HTML','CSS','JavaScript','React.js','GitHub']}];
+const nav=['About:about','Pipeline:reel','Work:work','Ask:ask','Experience:experience','Toolkit:toolkit','Contact:contact'];
+$('#nav').innerHTML=nav.map(n=>{const[a,b]=n.split(':');return`<a href="#${b}">${a}</a>`}).join('');
+const tk=['Python','C','C++','Java','JavaScript','FastAPI','React.js','OpenCV','TensorFlow','MediaPipe','PostgreSQL','Data Structures'];
+$('#tick1').innerHTML=Array(2).fill('BUILD · TEST · SHIP · LEARN · ').join('').repeat(4);
+$('#tick2').innerHTML=Array(2).fill(tk.join('   ·   ')+'   ·   ').join('');
+$('#stats').innerHTML=[['9.49','CGPA out of 10 at RNS Institute of Technology'],['4','projects across AI, computer vision and full-stack'],['4','languages spoken — English, Kannada, Hindi, German'],['78','out of 100 in NPTEL Demystifying Networking']].map(s=>`<div class="card"><b data-n="${s[0]}">0</b>${s[1]}</div>`).join('');
+const TK=[['Languages','Python · C · C++ · Java · JavaScript · C#'],['Web & backend','HTML5 · CSS3 · React.js · FastAPI · ASP.NET Core Web API · REST APIs'],['Databases','MySQL · SQL · PostgreSQL'],['AI / ML & data','OpenCV · TensorFlow/Keras · Pandas · NumPy · Matplotlib · EDA'],['Tools','Git · GitHub · VS Code · Google Colab'],['Engineering','OOP · Data Structures & Algorithms · DBMS · API development · Microservices & event-driven fundamentals']];
+$('#tk').innerHTML=TK.map(([h,t])=>`<div class="card"><b>${h}</b><div style="margin-top:8px">${t.split(' · ').map(x=>`<span class="chip">${x}</span>`).join('')}</div></div>`).join('');
+$('#early').innerHTML=[['Training · Samsung','Samsung Innovation Campus','Student trainee, Nov 2024 – Feb 2025: Python, competitive programming, algorithms and data structures on LeetCode and CodeChef.'],['Certification','Demystifying Networking','NPTEL course by IIT Madras covering TCP/IP, routing and switching. Scored 78/100.'],['Leadership','IEEE Consumer Technology Society','Serving as Secretary.'],['Community','Google Developer Student Clubs','Active member.']].map(c=>`<div class="card"><small>${c[0]}</small><h3 style="font-size:19px;margin-top:6px">${c[1]}</h3><p>${c[2]}</p></div>`).join('');
+$('#tl').innerHTML=[['2023 — 2027','RNS Institute of Technology','B.E. in Computer Science & Engineering · CGPA 9.49 / 10'],['Nov 2024 — Feb 2025','Samsung Innovation Campus','Student Trainee — Python, problem-solving and competitive programming'],['Now','IEEE Consumer Technology Society','Secretary'],['Now','Google Developer Student Clubs','Member'],['2023','Deeksha Centre for Learning','12th, Karnataka PUE board · 93.5%'],['2021','Swargarani School and PU College','10th, ICSE · 98%']].map(t=>`<div class="it"><small>${t[0]}</small><h3>${t[1]}</h3><p>${t[2]}</p></div>`).join('');
+// work
+let cur=0;
+$('#tabs').innerHTML=P.map((p,i)=>`<button class="btn" data-i="${i}">${p.title.split(' ').slice(0,2).join(' ')}</button>`).join('');
+function show(i){cur=i;const p=P[i];document.querySelectorAll('#tabs button').forEach((b,j)=>b.classList.toggle('on',j==i));
+$('#wk').innerHTML=`<div><span class="kick">${p.tag}</span><h3>${p.title}</h3><div class="big">${p.metric}</div><p>${p.ml}</p><p style="margin-top:10px"><small>${p.when}</small></p></div><div><h4>Problem</h4><p>${p.problem}</p><h4>Approach</h4><p>${p.approach}</p><h4>What’s new</h4><p>${p.inn}</p><div style="margin-top:20px"><button class="btn p" data-cs="${i}">Read the case study</button></div></div>`}
+$('#tabs').onclick=e=>{const b=e.target.closest('button');if(b)show(+b.dataset.i)};
+$('#wk').onclick=e=>{const b=e.target.closest('[data-cs]');if(b)openCS(+b.dataset.cs)};
+function openCS(i){cur=i;const p=P[i],n=P.length;$('#csb').innerHTML=`<button class="btn" id="x">Close ✕</button><p class="kick" style="margin-top:24px">Case study · ${p.tag}</p><h2>${p.title}</h2><p class="lead">${p.approach}</p><div class="row"><div class="card"><div class="big">${p.metric}</div>${p.ml}</div></div><h3 style="margin-top:30px">The problem</h3><p class="lead">${p.problem}</p><h3 style="margin-top:30px">How it works</h3><ol>${p.steps.map(s=>`<li><b style="color:var(--tx)">${s[0]}</b> — ${s[1]}</li>`).join('')}</ol><h3 style="margin-top:30px">What’s new</h3><p class="lead">${p.inn}</p><h3 style="margin-top:30px">Guardrails &amp; quality</h3><ul class="lead">${p.gd.map(g=>`<li>${g}</li>`).join('')}</ul><h3 style="margin-top:30px">My role</h3><p class="lead">${p.role}</p><h3 style="margin-top:30px">Stack</h3><div>${p.stack.map(s=>`<span class="chip">${s}</span>`).join('')}</div><div class="row" style="margin-top:34px;justify-content:space-between"><button class="btn" data-go="${(i+n-1)%n}">← ${P[(i+n-1)%n].title.split(' ')[0]}</button><a class="btn p" href="mailto:ranjithasgowda245@gmail.com?subject=About%20${encodeURIComponent(p.title)}">Talk about a project like this</a><button class="btn" data-go="${(i+1)%n}">${P[(i+1)%n].title.split(' ')[0]} →</button></div>`;
+$('#cs').classList.add('on');$('#cs').scrollTop=0;document.body.style.overflow='hidden'}
+function closeCS(){$('#cs').classList.remove('on');document.body.style.overflow=''}
+$('#cs').onclick=e=>{if(e.target.id=='x')closeCS();const g=e.target.closest('[data-go]');if(g)openCS(+g.dataset.go)};
+addEventListener('keydown',e=>{if(e.key=='Escape')closeCS()});
+show(0);
+// reel
+const S=P[0].steps;$('#flow').innerHTML=S.map(s=>`<div><b>${s[0]}</b><small>${s[1]}</small></div>`).join('');
+let timer;$('#pbtn').onclick=()=>{clearInterval(timer);let k=0;const f=[...document.querySelectorAll('#flow div')];
+const step=()=>{f.forEach((d,j)=>d.classList.toggle('on',j==k));$('#play').textContent=S[k][0]+': '+S[k][1]+'.';k++;if(k>S.length){clearInterval(timer);$('#play').textContent='Done: the emotion is read and the music is ready to play.'}};step();timer=setInterval(step,1400)};
+// chat
+const A=[['What have you built?','I’ve built four projects: MoodSync-AI (emotion-based music recommendations), CampusAR (indoor and outdoor campus navigation with AR), a real-time ASL sign language interpreter, and an Events Management System.'],
+['What’s your tech stack?','Python, C, C++, Java and JavaScript, with React.js, FastAPI and ASP.NET Core on the web side. For AI I use OpenCV, TensorFlow/Keras, Pandas and NumPy, and for data MySQL and PostgreSQL.'],
+['Where do you study?','I’m pursuing a B.E. in Computer Science & Engineering at RNS Institute of Technology, Bengaluru (2023 – 2027), with a CGPA of 9.49 / 10.'],
+['What are you looking for?','Opportunities in software development, especially backend systems, cloud-native applications and AI-driven products, where I can keep growing and ship real work.'],
+['How can I reach you?','Email ranjithasgowda245@gmail.com, call +91 94490 45855, or connect on LinkedIn. The contact form below also works.']];
+const say=(t,u)=>{const m=E('div',t,'m'+(u?' u':''));$('#msgs').append(m);$('#msgs').scrollTop=1e5};
+say('Hi, I’m Ranjitha’s assistant. Ask about her projects, skills or studies.');
+$('#sug').innerHTML=A.map((a,i)=>`<button class="btn chip" data-a="${i}">${a[0]}</button>`).join('');
+$('#sug').onclick=e=>{const b=e.target.closest('[data-a]');if(b){say(A[b.dataset.a][0],1);setTimeout(()=>say(A[b.dataset.a][1]),350)}};
+$('#qf').onsubmit=e=>{e.preventDefault();const v=$('#q').value.trim();if(!v)return;say(v,1);$('#q').value='';const l=v.toLowerCase();
+const k=[['project|built|build|work',0],['stack|skill|tech|language|python|react',1],['study|college|education|cgpa|degree',2],['looking|job|intern|hire|role',3],['contact|email|reach|phone',4]].find(r=>new RegExp(r[0]).test(l));
+setTimeout(()=>say(k?A[k[1]][1]:'I can answer questions about projects, skills, studies and how to reach Ranjitha. Try one of the suggestions above.'),350)};
+// contact
+$('#cf').onsubmit=e=>{e.preventDefault();const b=encodeURIComponent($('#cm').value+'\n\n— '+$('#cn').value+' ('+$('#ce').value+')');location.href='mailto:ranjithasgowda245@gmail.com?subject=Note%20from%20'+encodeURIComponent($('#cn').value)+'&body='+b;$('#toast').textContent='Opening your email app…'};
+// clock
+const ck=()=>$('#clock').textContent='Bengaluru '+new Date().toLocaleTimeString('en-IN',{timeZone:'Asia/Kolkata',hour:'2-digit',minute:'2-digit'});ck();setInterval(ck,3e4);
+// role typewriter
+const RM=matchMedia('(prefers-reduced-motion:reduce)').matches,R=['Software engineering student','AI & computer vision builder','Full-stack developer'];let ri=0,ci=0,del=0;
+(function ty(){const w=R[ri];if(RM){$('#role').textContent=w;return}ci+=del?-1:1;$('#role').textContent=w.slice(0,ci);let d=del?35:70;if(!del&&ci==w.length){del=1;d=1400}else if(del&&ci==0){del=0;ri=(ri+1)%R.length;d=300}setTimeout(ty,d)})();
+// intro + counters
+let ip=0;const it=setInterval(()=>{ip+=RM?100:4;if(ip>=100){ip=100;clearInterval(it);setTimeout(()=>$('#intro').classList.add('off'),250)}$('#ip').textContent=ip+'%'},40);
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;io.unobserve(e.target);const t=+e.target.dataset.n,dec=String(e.target.dataset.n).includes('.')?2:0;let s=0;const f=()=>{s+=.04;const v=t*Math.min(s,1);e.target.textContent=v.toFixed(dec);if(s<1)requestAnimationFrame(f)};f()}));
+document.querySelectorAll('[data-n]').forEach(n=>io.observe(n));
+// globe
+const cv=$('#globe'),cx=cv.getContext('2d'),pts=[];let W,H,Rd,rot=-77.59*Math.PI/180;
+for(let la=-80;la<=80;la+=8){const n=Math.round(44*Math.cos(la*Math.PI/180));for(let i=0;i<n;i++)pts.push([la*Math.PI/180,i/n*Math.PI*2])}
+const sz=()=>{const d=devicePixelRatio||1;W=cv.clientWidth;H=cv.clientHeight;cv.width=W*d;cv.height=H*d;cx.setTransform(d,0,0,d,0,0);Rd=Math.min(W,H)*.44};sz();addEventListener('resize',sz);
+const pj=(la,lo)=>{const l=lo+rot;return[W/2+Math.cos(la)*Math.sin(l)*Rd,H/2-Math.sin(la)*Rd,Math.cos(la)*Math.cos(l)]};
+(function dr(){cx.clearRect(0,0,W,H);for(const[a,b]of pts){const[x,y,z]=pj(a,b);if(z>0){cx.fillStyle=`rgba(182,156,255,${.12+z*.65})`;cx.fillRect(x,y,2,2)}}
+const[x,y,z]=pj(12.97*Math.PI/180,77.59*Math.PI/180);if(z>0){cx.fillStyle='#FF8FB3';cx.beginPath();cx.arc(x,y,6,0,7);cx.fill();cx.font='600 14px Manrope,sans-serif';cx.fillText('Bengaluru',x+12,y+5)}
+if(!RM)rot+=.003;requestAnimationFrame(dr)})();
+</script></body></html>

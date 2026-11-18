@@ -1,0 +1,176 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #f3eee6;
+  --color-ink: #1c1915;
+  --color-muted: #6e675f;
+  --color-lacquer: #b8432f;
+  --color-line: #e3d6c6;
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    line-height: 1.55;
+    overflow-x: hidden;
+    text-rendering: optimizeLegibility;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  ::selection {
+    background: var(--color-lacquer);
+    color: var(--color-paper);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-lacquer);
+    outline-offset: 3px;
+  }
+
+  h1,
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    line-height: 0.96;
+  }
+}
+
+@layer components {
+  .tap {
+    transition: scale 150ms ease-out;
+  }
+
+  .tap:active {
+    scale: 0.96;
+  }
+
+  .nav-link {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    background-size: 0 1px;
+    transition: background-size 200ms ease-out;
+  }
+
+  .nav-link:hover,
+  .nav-link:focus-visible {
+    background-size: 100% 1px;
+  }
+
+  .skip {
+    position: absolute;
+    top: -4rem;
+    left: 1rem;
+    z-index: 60;
+    background: var(--color-paper);
+    color: var(--color-ink);
+    padding: 0.5rem 0.75rem;
+  }
+
+  .skip:focus {
+    top: 1rem;
+  }
+
+  .frame-glow {
+    background: radial-gradient(circle at 50% 45%, var(--color-paper), transparent 42%);
+    opacity: 0.85;
+  }
+
+  .rank-bar {
+    transition: width 700ms cubic-bezier(0.2, 0, 0, 1);
+  }
+
+  .scan-line {
+    animation: scan 3.2s ease-in-out infinite alternate;
+  }
+
+  .feature-cell {
+    opacity: 0;
+    transform: translateY(6px);
+    animation: cell-in 480ms cubic-bezier(0.2, 0, 0, 1) forwards;
+  }
+
+  .stage-in {
+    animation: stage-in 450ms cubic-bezier(0.2, 0, 0, 1);
+  }
+}
+
+@layer utilities {
+  .reveal {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    opacity: 0;
+    transform: translateY(14px);
+    transition:
+      opacity 700ms cubic-bezier(0.2, 0, 0, 1),
+      transform 700ms cubic-bezier(0.2, 0, 0, 1);
+  }
+
+  .reveal.is-in {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes scan {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(18rem);
+  }
+}
+
+@keyframes cell-in {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes stage-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .scan-line,
+  .feature-cell,
+  .stage-in {
+    animation: none;
+  }
+
+  .feature-cell,
+  .stage-in,
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}

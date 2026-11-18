@@ -1,0 +1,1 @@
+import{m as e}from"./index-Du-_XUMZ.js";var t=e;export{t as notFoundComponent};

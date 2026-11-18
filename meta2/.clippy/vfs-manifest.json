@@ -1,0 +1,510 @@
+[
+  {
+    "path": "App.tsx",
+    "file": {
+      "file_name": "/mnt/data/src/App.tsx",
+      "storage_handle": "",
+      "storage_type": "BASE64"
+    }
+  },
+  {
+    "path": "assets/4d91f98b8067cc5c-image_20261118_143425.webp",
+    "file": {
+      "file_name": "/mnt/data/.krabby/agentic_web_artifacts/agentic_artifact_1/ee7a64fbfa84/assets/4d91f98b8067cc5c-image_20261118_143425.webp",
+      "storage_handle": "",
+      "storage_type": "EVERSTORE",
+      "fbid": 1384873911383637,
+      "mime": "image/webp",
+      "href": "https://scontent.xx.fbcdn.net/v/t39.105495-1/909704129_1439299564938531_6729728262291593353_n.webp?_nc_ht=scontent.xx.fbcdn.net&_nc_cat=103&_nc_ohc=7BMjGU3FGWoQ7kNvwELEZ1s&sdl=0&ccb=14-4&oh=00_AQQLZAB6jEnLUQJsDcpfMD3DfDouoD1epoCEKNEv5zPm-w&oe=6B035868&_nc_sid=a21977",
+      "width": 1920,
+      "height": 1280,
+      "source_identifiers": [
+        {
+          "type": "typed_fbid",
+          "value": {
+            "fbid": 1384873721383656,
+            "fbtype": 67656
+          }
+        },
+        {
+          "type": "typed_fbid",
+          "value": {
+            "fbid": 1384873738050321,
+            "fbtype": 67656
+          }
+        },
+        {
+          "type": "typed_fbid",
+          "value": {
+            "fbid": 1384873911383637,
+            "fbtype": 67656
+          }
+        },
+        {
+          "type": "typed_fbid",
+          "value": {
+            "fbid": 1384873968050298,
+            "fbtype": 67656
+          }
+        },
+        {
+          "type": "url",
+          "value": "https://mangalam.navisto.cloud/"
+        },
+        {
+          "type": "url",
+          "value": "https://mangalam.navisto.cloud/%7B%7BcsMail%7D%7D"
+        },
+        {
+          "type": "url",
+          "value": "https://mangalam.navisto.cloud/%7B%7Bit.href%7D%7D"
+        },
+        {
+          "type": "url",
+          "value": "https://mangalam.navisto.cloud/assets/Mangalam-Moondra-Resume.pdf"
+        },
+        {
+          "type": "url",
+          "value": "https://www.h.metaaiusercontent.com/app/maiwa-p-05a236dcceb675817c7d40a3a132ecb2acc1d7c2da561fd3/actions"
+        },
+        {
+          "type": "url",
+          "value": "https://www.linkedin.com/in/mangalam-moondra-10a9b2374/"
+        }
+      ],
+      "source_tools": [
+        "browser.open",
+        "container.build_react_artifact",
+        "container.create",
+        "container.create_web_artifact_agent_stateful",
+        "container.edit_file",
+        "container.image_gen",
+        "container.validate_react_artifact",
+        "container.view",
+        "media.generate_image"
+      ]
+    }
+  },
+  {
+    "path": "assets/6d1fe10d2df559a3-image_20261118_143417.webp",
+    "file": {
+      "file_name": "resource/image_20261118_143417.webp",
+      "storage_handle": "",
+      "storage_type": "EVERSTORE",
+      "fbid": 1384873721383656,
+      "mime": "image/webp",
+      "href": "https://scontent.xx.fbcdn.net/v/t39.105495-1/909705003_1646619423877828_7931249746640799509_n.webp?_nc_ht=scontent.xx.fbcdn.net&_nc_cat=104&_nc_ohc=YZjc2rfL_moQ7kNvwHwzXrs&sdl=0&ccb=14-4&oh=00_AQR_vGtGwge3DbrCoA1Ior_AENgZzOy5xF9y2BVF8SL5Ww&oe=6B0330CD&_nc_sid=a21977",
+      "source_identifiers": [
+        {
+          "type": "url",
+          "value": "https://mangalam.navisto.cloud/"
+        },
+        {
+          "type": "url",
+          "value": "https://mangalam.navisto.cloud/%7B%7BcsMail%7D%7D"
+        },
+        {
+          "type": "url",
+          "value": "https://mangalam.navisto.cloud/%7B%7Bit.href%7D%7D"
+        },
+        {
+          "type": "url",
+          "value": "https://mangalam.navisto.cloud/assets/Mangalam-Moondra-Resume.pdf"
+        },
+        {
+          "type": "url",
+          "value": "https://www.linkedin.com/in/mangalam-moondra-10a9b2374/"
+        },
+        {
+          "type": "typed_fbid",
+          "value": {
+            "fbid": 1384873721383656,
+            "fbtype": 67656
+          }
+        }
+      ],
+      "source_tools": [
+        "browser.open",
+        "container.image_gen",
+        "media.generate_image"
+      ]
+    }
+  },
+  {
+    "path": "assets/6ef9d7314d623add-image_20261118_143417_1.webp",
+    "file": {
+      "file_name": "resource/image_20261118_143417_1.webp",
+      "storage_handle": "",
+      "storage_type": "EVERSTORE",
+      "fbid": 1384873738050321,
+      "mime": "image/webp",
+      "href": "https://scontent.xx.fbcdn.net/v/t39.105495-1/914207772_1101511186235991_3171752486465128293_n.webp?_nc_ht=scontent.xx.fbcdn.net&_nc_cat=103&_nc_ohc=PWLd-pEtkmwQ7kNvwGti3WT&sdl=0&ccb=14-4&oh=00_AQRddCZAgb4pZtXcWPcE73vL_DmW4fo61t6kWXN_dPO5JQ&oe=6B032575&_nc_sid=a21977",
+      "source_identifiers": [
+        {
+          "type": "url",
+          "value": "https://mangalam.navisto.cloud/"
+        },
+        {
+          "type": "url",
+          "value": "https://mangalam.navisto.cloud/%7B%7BcsMail%7D%7D"
+        },
+        {
+          "type": "url",
+          "value": "https://mangalam.navisto.cloud/%7B%7Bit.href%7D%7D"
+        },
+        {
+          "type": "url",
+          "value": "https://mangalam.navisto.cloud/assets/Mangalam-Moondra-Resume.pdf"
+        },
+        {
+          "type": "url",
+          "value": "https://www.linkedin.com/in/mangalam-moondra-10a9b2374/"
+        },
+        {
+          "type": "typed_fbid",
+          "value": {
+            "fbid": 1384873738050321,
+            "fbtype": 67656
+          }
+        }
+      ],
+      "source_tools": [
+        "browser.open",
+        "container.image_gen",
+        "media.generate_image"
+      ]
+    }
+  },
+  {
+    "path": "assets/8e914cba07caf54b-image_20261118_143417.webp",
+    "file": {
+      "file_name": "/mnt/data/.krabby/agentic_web_artifacts/agentic_artifact_1/ee7a64fbfa84/assets/8e914cba07caf54b-image_20261118_143417.webp",
+      "storage_handle": "",
+      "storage_type": "EVERSTORE",
+      "fbid": 1384873721383656,
+      "mime": "image/webp",
+      "href": "https://scontent.xx.fbcdn.net/v/t39.105495-1/909705003_1646619423877828_7931249746640799509_n.webp?_nc_ht=scontent.xx.fbcdn.net&_nc_cat=104&_nc_ohc=YZjc2rfL_moQ7kNvwHwzXrs&sdl=0&ccb=14-4&oh=00_AQR_vGtGwge3DbrCoA1Ior_AENgZzOy5xF9y2BVF8SL5Ww&oe=6B0330CD&_nc_sid=a21977",
+      "width": 1920,
+      "height": 1280,
+      "source_identifiers": [
+        {
+          "type": "typed_fbid",
+          "value": {
+            "fbid": 1384873721383656,
+            "fbtype": 67656
+          }
+        },
+        {
+          "type": "typed_fbid",
+          "value": {
+            "fbid": 1384873738050321,
+            "fbtype": 67656
+          }
+        },
+        {
+          "type": "typed_fbid",
+          "value": {
+            "fbid": 1384873911383637,
+            "fbtype": 67656
+          }
+        },
+        {
+          "type": "typed_fbid",
+          "value": {
+            "fbid": 1384873968050298,
+            "fbtype": 67656
+          }
+        },
+        {
+          "type": "url",
+          "value": "https://mangalam.navisto.cloud/"
+        },
+        {
+          "type": "url",
+          "value": "https://mangalam.navisto.cloud/%7B%7BcsMail%7D%7D"
+        },
+        {
+          "type": "url",
+          "value": "https://mangalam.navisto.cloud/%7B%7Bit.href%7D%7D"
+        },
+        {
+          "type": "url",
+          "value": "https://mangalam.navisto.cloud/assets/Mangalam-Moondra-Resume.pdf"
+        },
+        {
+          "type": "url",
+          "value": "https://www.h.metaaiusercontent.com/app/maiwa-p-05a236dcceb675817c7d40a3a132ecb2acc1d7c2da561fd3/actions"
+        },
+        {
+          "type": "url",
+          "value": "https://www.linkedin.com/in/mangalam-moondra-10a9b2374/"
+        }
+      ],
+      "source_tools": [
+        "browser.open",
+        "container.build_react_artifact",
+        "container.create",
+        "container.create_web_artifact_agent_stateful",
+        "container.edit_file",
+        "container.image_gen",
+        "container.validate_react_artifact",
+        "container.view",
+        "media.generate_image"
+      ]
+    }
+  },
+  {
+    "path": "assets/ab2962761e368a1f-image_20261118_143426.webp",
+    "file": {
+      "file_name": "/mnt/data/.krabby/agentic_web_artifacts/agentic_artifact_1/ee7a64fbfa84/assets/ab2962761e368a1f-image_20261118_143426.webp",
+      "storage_handle": "",
+      "storage_type": "EVERSTORE",
+      "fbid": 1384873968050298,
+      "mime": "image/webp",
+      "href": "https://scontent.xx.fbcdn.net/v/t39.105495-1/914356792_1125140387171620_2423572041835343452_n.webp?_nc_ht=scontent.xx.fbcdn.net&_nc_cat=104&_nc_ohc=uCqsHJ-YB2IQ7kNvwF3Dwod&sdl=0&ccb=14-4&oh=00_AQS6wQG4UD5zBhAyrAU_Q-fCKo8ZvAwr_WsL0mylGeK11Q&oe=6B0323BC&_nc_sid=a21977",
+      "width": 1920,
+      "height": 1280,
+      "source_identifiers": [
+        {
+          "type": "typed_fbid",
+          "value": {
+            "fbid": 1384873721383656,
+            "fbtype": 67656
+          }
+        },
+        {
+          "type": "typed_fbid",
+          "value": {
+            "fbid": 1384873738050321,
+            "fbtype": 67656
+          }
+        },
+        {
+          "type": "typed_fbid",
+          "value": {
+            "fbid": 1384873911383637,
+            "fbtype": 67656
+          }
+        },
+        {
+          "type": "typed_fbid",
+          "value": {
+            "fbid": 1384873968050298,
+            "fbtype": 67656
+          }
+        },
+        {
+          "type": "url",
+          "value": "https://mangalam.navisto.cloud/"
+        },
+        {
+          "type": "url",
+          "value": "https://mangalam.navisto.cloud/%7B%7BcsMail%7D%7D"
+        },
+        {
+          "type": "url",
+          "value": "https://mangalam.navisto.cloud/%7B%7Bit.href%7D%7D"
+        },
+        {
+          "type": "url",
+          "value": "https://mangalam.navisto.cloud/assets/Mangalam-Moondra-Resume.pdf"
+        },
+        {
+          "type": "url",
+          "value": "https://www.h.metaaiusercontent.com/app/maiwa-p-05a236dcceb675817c7d40a3a132ecb2acc1d7c2da561fd3/actions"
+        },
+        {
+          "type": "url",
+          "value": "https://www.linkedin.com/in/mangalam-moondra-10a9b2374/"
+        }
+      ],
+      "source_tools": [
+        "browser.open",
+        "container.build_react_artifact",
+        "container.create",
+        "container.create_web_artifact_agent_stateful",
+        "container.edit_file",
+        "container.image_gen",
+        "container.validate_react_artifact",
+        "container.view",
+        "media.generate_image"
+      ]
+    }
+  },
+  {
+    "path": "assets/affb17b1a87aa136-image_20261118_143425.webp",
+    "file": {
+      "file_name": "resource/image_20261118_143425.webp",
+      "storage_handle": "",
+      "storage_type": "EVERSTORE",
+      "fbid": 1384873911383637,
+      "mime": "image/webp",
+      "href": "https://scontent.xx.fbcdn.net/v/t39.105495-1/909704129_1439299564938531_6729728262291593353_n.webp?_nc_ht=scontent.xx.fbcdn.net&_nc_cat=103&_nc_ohc=7BMjGU3FGWoQ7kNvwELEZ1s&sdl=0&ccb=14-4&oh=00_AQQLZAB6jEnLUQJsDcpfMD3DfDouoD1epoCEKNEv5zPm-w&oe=6B035868&_nc_sid=a21977",
+      "source_identifiers": [
+        {
+          "type": "url",
+          "value": "https://mangalam.navisto.cloud/"
+        },
+        {
+          "type": "url",
+          "value": "https://mangalam.navisto.cloud/%7B%7BcsMail%7D%7D"
+        },
+        {
+          "type": "url",
+          "value": "https://mangalam.navisto.cloud/%7B%7Bit.href%7D%7D"
+        },
+        {
+          "type": "url",
+          "value": "https://mangalam.navisto.cloud/assets/Mangalam-Moondra-Resume.pdf"
+        },
+        {
+          "type": "url",
+          "value": "https://www.linkedin.com/in/mangalam-moondra-10a9b2374/"
+        },
+        {
+          "type": "typed_fbid",
+          "value": {
+            "fbid": 1384873911383637,
+            "fbtype": 67656
+          }
+        }
+      ],
+      "source_tools": [
+        "browser.open",
+        "container.image_gen",
+        "media.generate_image"
+      ]
+    }
+  },
+  {
+    "path": "assets/b0aad9431e81e9ce-image_20261118_143426.webp",
+    "file": {
+      "file_name": "resource/image_20261118_143426.webp",
+      "storage_handle": "",
+      "storage_type": "EVERSTORE",
+      "fbid": 1384873968050298,
+      "mime": "image/webp",
+      "href": "https://scontent.xx.fbcdn.net/v/t39.105495-1/914356792_1125140387171620_2423572041835343452_n.webp?_nc_ht=scontent.xx.fbcdn.net&_nc_cat=104&_nc_ohc=uCqsHJ-YB2IQ7kNvwF3Dwod&sdl=0&ccb=14-4&oh=00_AQS6wQG4UD5zBhAyrAU_Q-fCKo8ZvAwr_WsL0mylGeK11Q&oe=6B0323BC&_nc_sid=a21977",
+      "source_identifiers": [
+        {
+          "type": "url",
+          "value": "https://mangalam.navisto.cloud/"
+        },
+        {
+          "type": "url",
+          "value": "https://mangalam.navisto.cloud/%7B%7BcsMail%7D%7D"
+        },
+        {
+          "type": "url",
+          "value": "https://mangalam.navisto.cloud/%7B%7Bit.href%7D%7D"
+        },
+        {
+          "type": "url",
+          "value": "https://mangalam.navisto.cloud/assets/Mangalam-Moondra-Resume.pdf"
+        },
+        {
+          "type": "url",
+          "value": "https://www.linkedin.com/in/mangalam-moondra-10a9b2374/"
+        },
+        {
+          "type": "typed_fbid",
+          "value": {
+            "fbid": 1384873968050298,
+            "fbtype": 67656
+          }
+        }
+      ],
+      "source_tools": [
+        "browser.open",
+        "container.image_gen",
+        "media.generate_image"
+      ]
+    }
+  },
+  {
+    "path": "assets/eb72c82cc210b502-image_20261118_143417_1.webp",
+    "file": {
+      "file_name": "/mnt/data/.krabby/agentic_web_artifacts/agentic_artifact_1/ee7a64fbfa84/assets/eb72c82cc210b502-image_20261118_143417_1.webp",
+      "storage_handle": "",
+      "storage_type": "EVERSTORE",
+      "fbid": 1384873738050321,
+      "mime": "image/webp",
+      "href": "https://scontent.xx.fbcdn.net/v/t39.105495-1/914207772_1101511186235991_3171752486465128293_n.webp?_nc_ht=scontent.xx.fbcdn.net&_nc_cat=103&_nc_ohc=PWLd-pEtkmwQ7kNvwGti3WT&sdl=0&ccb=14-4&oh=00_AQRddCZAgb4pZtXcWPcE73vL_DmW4fo61t6kWXN_dPO5JQ&oe=6B032575&_nc_sid=a21977",
+      "width": 1920,
+      "height": 1280,
+      "source_identifiers": [
+        {
+          "type": "typed_fbid",
+          "value": {
+            "fbid": 1384873721383656,
+            "fbtype": 67656
+          }
+        },
+        {
+          "type": "typed_fbid",
+          "value": {
+            "fbid": 1384873738050321,
+            "fbtype": 67656
+          }
+        },
+        {
+          "type": "typed_fbid",
+          "value": {
+            "fbid": 1384873911383637,
+            "fbtype": 67656
+          }
+        },
+        {
+          "type": "typed_fbid",
+          "value": {
+            "fbid": 1384873968050298,
+            "fbtype": 67656
+          }
+        },
+        {
+          "type": "url",
+          "value": "https://mangalam.navisto.cloud/"
+        },
+        {
+          "type": "url",
+          "value": "https://mangalam.navisto.cloud/%7B%7BcsMail%7D%7D"
+        },
+        {
+          "type": "url",
+          "value": "https://mangalam.navisto.cloud/%7B%7Bit.href%7D%7D"
+        },
+        {
+          "type": "url",
+          "value": "https://mangalam.navisto.cloud/assets/Mangalam-Moondra-Resume.pdf"
+        },
+        {
+          "type": "url",
+          "value": "https://www.h.metaaiusercontent.com/app/maiwa-p-05a236dcceb675817c7d40a3a132ecb2acc1d7c2da561fd3/actions"
+        },
+        {
+          "type": "url",
+          "value": "https://www.linkedin.com/in/mangalam-moondra-10a9b2374/"
+        }
+      ],
+      "source_tools": [
+        "browser.open",
+        "container.build_react_artifact",
+        "container.create",
+        "container.create_web_artifact_agent_stateful",
+        "container.edit_file",
+        "container.image_gen",
+        "container.validate_react_artifact",
+        "container.view",
+        "media.generate_image"
+      ]
+    }
+  },
+  {
+    "path": "index.css",
+    "file": {
+      "file_name": "/mnt/data/src/index.css",
+      "storage_handle": "",
+      "storage_type": "BASE64"
+    }
+  }
+]

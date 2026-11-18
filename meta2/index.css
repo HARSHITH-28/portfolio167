@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Outfit:wght@400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --cream:#FFFBF2;
+  --cream-2:#FFF3E2;
+  --paper:#FFFBF2;
+  --ink:#18201C;
+  --ink-soft:#47544E;
+  --muted:#77837C;
+  --forest:#0F5C46;
+  --forest-deep:#0A4635;
+  --amber:#FFB627;
+  --amber-soft:#FFF0C8;
+  --sage:#DCEFE6;
+  --sage-soft:#EAF6EF;
+  --peach:#FFE8D6;
+  --peach-soft:#FFF2E6;
+  --lilac:#E8E6FF;
+  --dark:#12211C;
+  --line:#E8DCC8;
+  --surface:#FFFFFF;
+  --surface-2:#FFF3E2;
+  --shadow:0 18px 45px rgba(18,33,28,.10);
+  --violet:#0F5C46;
+  --coral:#0F5C46;
+  --teal:#0F5C46;
+  --violet-soft:#DCEFE6;
+  --coral-soft:#FFE8D6;
+  --teal-soft:#DCEFE6;
+  --gold:#FFB627;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --cream:#12211C;
+    --cream-2:#182E27;
+    --paper:#12211C;
+    --ink:#FFFBF2;
+    --ink-soft:#D8E6DD;
+    --muted:#A9BCB2;
+    --forest:#4BB98E;
+    --forest-deep:#0F5C46;
+    --amber:#FFB627;
+    --amber-soft:#3A2E14;
+    --sage:#1E3A30;
+    --sage-soft:#1A332A;
+    --peach:#3A2E24;
+    --peach-soft:#2E2A22;
+    --lilac:#2B2A45;
+    --dark:#0B1813;
+    --line:#2E443A;
+    --surface:#16281F;
+    --surface-2:#1D332A;
+    --shadow:0 18px 45px rgba(0,0,0,.35);
+    --violet:#7ED6AF;
+    --coral:#FFB627;
+    --teal:#7ED6AF;
+    --violet-soft:#1E3A30;
+    --coral-soft:#3A2E14;
+    --teal-soft:#1E3A30;
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:'Outfit',system-ui,-apple-system,Segoe UI,sans-serif}
+.font-display{font-family:'Fraunces',Georgia,serif}
+::selection{background:var(--amber);color:#18201C}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--forest);outline-offset:2px;border-radius:8px}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.reveal.is-visible{opacity:1;transform:none}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes blob1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(28px,-18px) scale(1.08)}}
+@keyframes blob2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-24px,20px) scale(.94)}}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes marqueeRev{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+@keyframes typing{0%,60%,100%{transform:translateY(0);opacity:.35}30%{transform:translateY(-4px);opacity:1}}
+@keyframes caret{0%,100%{opacity:1}50%{opacity:0}}
+@keyframes spinSlow{to{transform:rotate(360deg)}}
+.animate-floaty{animation:floaty 5s ease-in-out infinite}
+.animate-spin-slow{animation:spinSlow 18s linear infinite}
+.blob-a{animation:blob1 9s ease-in-out infinite}
+.blob-b{animation:blob2 11s ease-in-out infinite}
+.marquee-track{display:flex;width:max-content;animation:marquee 32s linear infinite}
+.marquee-rev .marquee-track{animation:marqueeRev 36s linear infinite}
+.marquee-wrap:hover .marquee-track{animation-play-state:paused}
+.typing-dot{width:7px;height:7px;border-radius:999px;background:var(--forest);display:inline-block;animation:typing 1s infinite}
+.typing-dot:nth-child(2){animation-delay:.15s}.typing-dot:nth-child(3){animation-delay:.3s}
+.caret::after{content:"";display:inline-block;width:2px;height:1em;background:var(--amber);margin-left:3px;vertical-align:-2px;animation:caret 1s infinite}
+.tilt{transition:transform .25s ease,box-shadow .25s ease;transform-style:preserve-3d;will-change:transform}
+.no-scrollbar::-webkit-scrollbar{display:none}
+.no-scrollbar{scrollbar-width:none}

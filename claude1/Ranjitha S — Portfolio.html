@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ranjitha S — Computer Science Engineer</title>
+<meta name="description" content="Portfolio of Ranjitha S, B.E. Computer Science & Engineering student at RNSIT, building computer-vision and full-stack apps.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Figtree:wght@400..700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F2F1FF;--card:#fff;--ink:#18163D;--mut:#5E5C85;--line:#DAD8F5;--a:#5544F2;--b:#F0527A;--c:#0FA58F;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0E0D24;--card:#17163A;--ink:#EDEBFF;--mut:#A5A3D0;--line:#2B2A5C;--a:#8B7DFF;--b:#FF8AA3;--c:#3DDCC1;color-scheme:dark}}
+:root[data-theme=dark]{--bg:#0E0D24;--card:#17163A;--ink:#EDEBFF;--mut:#A5A3D0;--line:#2B2A5C;--a:#8B7DFF;--b:#FF8AA3;--c:#3DDCC1;color-scheme:dark}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 80px)}
+body{background:var(--bg);color:var(--ink);font:17px/1.65 Figtree,system-ui,sans-serif;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:60}
+h1,h2,h3,.d{font-family:'Bricolage Grotesque',Figtree,system-ui,sans-serif;letter-spacing:-.035em;line-height:1.02;font-weight:700}
+a{color:inherit}.w{max-width:1160px;margin:auto;padding:0 clamp(18px,4vw,40px)}
+section{padding:clamp(72px,11vw,130px) 0}
+h2{font-size:clamp(2.2rem,5.4vw,4.2rem);margin-bottom:16px;max-width:16ch}
+.sub{color:var(--mut);max-width:54ch;margin-bottom:44px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:24px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:99px;background:var(--a);color:#fff;font:600 1rem Figtree,sans-serif;text-decoration:none;border:0;cursor:pointer;transition:transform .3s,box-shadow .3s}
+.btn:hover{transform:translateY(-3px);box-shadow:0 12px 28px -10px var(--a)}
+.btn.g{background:transparent;color:var(--ink);border:1.5px solid var(--line)}.btn.s{padding:9px 18px;font-size:.92rem}
+.row{display:flex;gap:12px;flex-wrap:wrap}
+:focus-visible{outline:3px solid var(--b);outline-offset:3px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}.chips span{padding:6px 14px;border-radius:99px;background:color-mix(in srgb,var(--a) 11%,transparent);font-size:.9rem;font-weight:500}
+#ld{position:fixed;inset:0;z-index:99;background:var(--ink);color:var(--bg);display:grid;place-content:center;font-size:clamp(4rem,16vw,11rem);transition:transform .9s cubic-bezier(.77,0,.18,1);animation:fo 0s 4s forwards}
+#ld.out{transform:translateY(-101%)}#ld b{font-size:.35em;margin-left:6px}@keyframes fo{to{visibility:hidden}}
+#nv{position:fixed;top:calc(env(safe-area-inset-top,0px) + 12px);left:50%;transform:translateX(-50%);z-index:50;display:flex;align-items:center;gap:6px;padding:7px 8px 7px 12px;border-radius:99px;background:color-mix(in srgb,var(--card) 82%,transparent);backdrop-filter:blur(14px);border:1px solid var(--line);width:max-content;max-width:calc(100% - 20px)}
+#nv .lg{width:36px;height:36px;border-radius:50%;background:var(--a);color:#fff;display:grid;place-items:center;text-decoration:none;font-size:.95rem}
+#lk{display:flex}#lk a{padding:6px 12px;border-radius:99px;text-decoration:none;font-size:.92rem;font-weight:500;color:var(--mut);transition:.25s}#lk a:hover{color:var(--ink);background:var(--line)}
+#th{border:0;background:none;color:var(--ink);font-size:1.2rem;cursor:pointer;width:34px;height:34px;border-radius:50%;transition:transform .5s}#th:hover{transform:rotate(180deg)}
+header{position:relative;overflow:hidden;--mx:70%;--my:30%}
+header::before{content:'';position:absolute;inset:0;background:radial-gradient(520px circle at var(--mx) var(--my),color-mix(in srgb,var(--a) 15%,transparent),transparent 60%);pointer-events:none}
+.hero{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;min-height:92svh;padding-top:110px;padding-bottom:40px}
+.pill{display:inline-flex;align-items:center;gap:10px;padding:6px 14px;border-radius:99px;border:1px solid var(--line);background:var(--card);font-size:.9rem;margin-bottom:22px}
+.pill i{width:9px;height:9px;border-radius:50%;background:var(--c);animation:pu 1.8s infinite}@keyframes pu{50%{box-shadow:0 0 0 7px transparent;opacity:.5}0%{box-shadow:0 0 0 0 var(--c)}}
+#nm{font-size:clamp(3.6rem,10.5vw,9rem);overflow:hidden;padding-bottom:.08em;margin-bottom:18px}
+#nm span{display:inline-block;transform:translateY(112%)}.go #nm span{animation:rise .95s cubic-bezier(.2,.8,.2,1) calc(var(--i)*65ms) forwards}@keyframes rise{to{transform:none}}
+.lead{font-size:clamp(1.1rem,2vw,1.35rem);max-width:34ch;margin-bottom:28px}.lead b{font-weight:600;color:var(--a)}
+.hero>div>*{opacity:0}.go .hero>div>*:not(h1){animation:up .8s .5s forwards}.go .hero>div>h1{opacity:1}@keyframes up{from{transform:translateY(16px)}to{opacity:1}}
+.stage{position:relative;height:min(520px,92vw);min-height:360px;overflow:hidden;background:radial-gradient(circle at 50% 40%,color-mix(in srgb,var(--a) 18%,var(--card)),var(--card));opacity:0;transform:scale(.94);transition:.9s .6s}
+.go .stage{opacity:1;transform:none}
+#cv{position:absolute;inset:0;width:100%;height:100%;touch-action:pan-y}
+.rd{position:absolute;left:16px;top:16px;display:flex;gap:14px;align-items:center;padding:10px 16px 10px 14px;border-radius:18px;background:color-mix(in srgb,var(--card) 85%,transparent);border:1px solid var(--line);pointer-events:none}
+#lt{font-size:3rem;color:var(--a);width:1.1ch;text-align:center}.rd small{display:block;color:var(--mut);font-size:.8rem;line-height:1.3}.bar{height:6px;width:120px;background:var(--line);border-radius:9px;margin-top:6px}.bar u{display:block;height:100%;border-radius:9px;background:linear-gradient(90deg,var(--a),var(--c));transition:width .4s}
+.hint{position:absolute;bottom:14px;left:18px;right:18px;font-size:.84rem;color:var(--mut);pointer-events:none}
+.facts{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;padding-bottom:70px}
+.facts div{padding:22px}.facts b{display:block;font-size:2.6rem;color:var(--a)}.facts span{color:var(--mut);font-size:.92rem}
+.mq{overflow:hidden;border-block:1px solid var(--line);padding:22px 0}
+#mq{display:flex;width:max-content;animation:mq 34s linear infinite;font:600 clamp(1.5rem,3.4vw,2.6rem) 'Bricolage Grotesque',sans-serif;letter-spacing:-.03em;color:var(--mut)}
+#mq span{display:flex;align-items:center;gap:44px;padding-right:44px}#mq span::after{content:'✦';color:var(--b);font-size:.55em}@keyframes mq{to{transform:translateX(-50%)}}
+.rv{clip-path:inset(0 0 100% 0);transform:translateY(30px);transition:clip-path 1s cubic-bezier(.2,.8,.2,1),transform 1s cubic-bezier(.2,.8,.2,1)}.rv.in{clip-path:inset(-10% -5% -10% -5%);transform:none}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,70px);align-items:start}.about p{margin-bottom:16px;color:var(--mut)}.about p:first-child{color:var(--ink);font-size:1.2rem}
+.trk{position:relative;display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:22px}
+.pl{position:absolute;left:10%;right:10%;top:27px;height:3px;background:var(--line);z-index:0}.pl u{display:block;position:relative;height:100%;width:0;background:linear-gradient(90deg,var(--a),var(--b));transition:width .9s cubic-bezier(.3,.7,.2,1)}
+.pl u::after{content:'';position:absolute;right:-7px;top:-5px;width:13px;height:13px;border-radius:50%;background:var(--b);box-shadow:0 0 0 7px color-mix(in srgb,var(--b) 24%,transparent)}
+.nd{position:relative;z-index:1;background:none;border:0;color:var(--mut);font:600 .95rem Figtree,sans-serif;cursor:pointer;display:grid;justify-items:center;gap:10px;transition:color .3s}
+.nd i{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;font:700 1.1rem 'Bricolage Grotesque',sans-serif;font-style:normal;background:var(--card);border:2px solid var(--line);transition:.4s}
+.nd.on{color:var(--ink)}.nd.on i,.nd.done i{border-color:var(--a)}.nd.on i{background:var(--a);color:#fff;transform:scale(1.14)}
+#pd{padding:28px clamp(20px,4vw,40px);display:grid;grid-template-columns:auto 1fr;gap:6px 24px;align-items:center}
+#pd h3{font-size:clamp(1.5rem,3vw,2.1rem)}#pd p{color:var(--mut);grid-column:2}#pd .em{grid-row:1/3;font-size:3.2rem}#pd.sw>*{animation:up .6s forwards}
+.wk{display:grid;grid-template-columns:270px 1fr;gap:22px}
+#tabs{display:flex;flex-direction:column;gap:8px}
+.tb{text-align:left;padding:16px 18px;border-radius:18px;border:1px solid var(--line);background:var(--card);color:var(--mut);font:600 1rem Figtree,sans-serif;cursor:pointer;transition:.3s}.tb small{display:block;font-weight:400;font-size:.82rem}
+.tb:hover{transform:translateX(5px)}.tb.on{background:var(--a);color:#fff;border-color:var(--a)}
+#pj{padding:clamp(22px,4vw,40px);min-height:480px}#pj.sw>*{animation:up .6s backwards}#pj.sw>*:nth-child(2){animation-delay:.06s}#pj.sw>*:nth-child(3){animation-delay:.12s}#pj.sw>*:nth-child(n+4){animation-delay:.2s}
+@keyframes up{from{opacity:0;transform:translateY(16px)}}
+#pj h3{font-size:clamp(2rem,4vw,3rem)}.tag{color:var(--c);font-weight:600}.when{color:var(--mut);margin:6px 0 18px}
+.met{display:inline-flex;align-items:baseline;gap:10px;padding:8px 18px;border-radius:99px;background:color-mix(in srgb,var(--c) 14%,transparent);margin-bottom:22px}.met b{font-size:1.9rem;color:var(--c)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:18px}h4{font:700 1rem Figtree,sans-serif;margin-bottom:4px}.cols p,#pj li{color:var(--mut)}
+#pj ul{padding-left:20px;margin-bottom:20px}#pj .chips{margin-bottom:24px}
+.chat{max-width:760px}.ch{display:flex;align-items:center;gap:10px;padding:16px 20px;border-bottom:1px solid var(--line);font-weight:600}.ch i{width:9px;height:9px;border-radius:50%;background:var(--c);animation:pu 1.8s infinite}
+#lg{height:300px;overflow-y:auto;padding:18px 20px;display:flex;flex-direction:column;gap:10px}
+.m{max-width:85%;padding:11px 16px;border-radius:18px;animation:up .4s}.m.b{background:color-mix(in srgb,var(--a) 11%,transparent);border-bottom-left-radius:4px}.m.u{align-self:flex-end;background:var(--a);color:#fff;border-bottom-right-radius:4px}
+.dots span{display:inline-block;width:7px;height:7px;margin:0 2px;border-radius:50%;background:var(--mut);animation:bn 1s infinite}.dots span:nth-child(2){animation-delay:.15s}.dots span:nth-child(3){animation-delay:.3s}@keyframes bn{50%{transform:translateY(-6px)}}
+#qs{display:flex;flex-wrap:wrap;gap:8px;padding:0 20px 14px}#qs button{padding:8px 14px;border-radius:99px;border:1px solid var(--line);background:none;color:var(--ink);font:500 .9rem Figtree,sans-serif;cursor:pointer;transition:.25s}#qs button:hover{background:var(--a);color:#fff;border-color:var(--a)}
+.chat form{display:flex;gap:10px;padding:14px 20px;border-top:1px solid var(--line)}
+input,textarea{flex:1;font:inherit;color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:14px;padding:12px 16px;width:100%}input:focus,textarea:focus{outline:none;border-color:var(--a)}
+.tl{position:relative;padding-left:36px}.tl::before{content:'';position:absolute;left:7px;top:6px;bottom:30px;width:2px;background:linear-gradient(var(--a),var(--b));transform-origin:top;transform:scaleY(0);transition:transform 1.8s cubic-bezier(.3,.7,.2,1)}.tl.in::before{transform:none}
+.ti{position:relative;display:grid;grid-template-columns:170px 1fr;gap:6px 24px;padding-bottom:34px}.ti::before{content:'';position:absolute;left:-36px;top:7px;width:16px;height:16px;border-radius:50%;background:var(--bg);border:3px solid var(--a)}
+.ti time{color:var(--mut);font-weight:500}.ti h3{font-size:1.5rem;margin-bottom:6px}.ti p{color:var(--mut);max-width:60ch}.ti .chips{margin-top:10px}
+.sk{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px}.sk button{padding:9px 18px;border-radius:99px;border:1.5px solid var(--line);background:none;color:var(--ink);font:600 .95rem Figtree,sans-serif;cursor:pointer;transition:.3s}.sk button.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+#sb{display:flex;flex-wrap:wrap;gap:12px;min-height:150px}#sb span{padding:14px 24px;border-radius:18px;background:var(--card);border:1px solid var(--line);font:600 1.15rem 'Bricolage Grotesque',sans-serif;animation:pop .5s backwards cubic-bezier(.3,1.5,.5,1);animation-delay:calc(var(--i)*45ms)}@keyframes pop{from{opacity:0;transform:scale(.7) translateY(14px)}}
+.ct{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,60px)}.ct h2{max-width:12ch}
+.ls{display:grid;gap:10px;margin-top:22px}.ls a{display:flex;justify-content:space-between;padding:16px 20px;border-radius:16px;border:1px solid var(--line);background:var(--card);text-decoration:none;font-weight:600;transition:.3s}.ls a:hover{transform:translateX(8px);border-color:var(--a)}.ls a small{color:var(--mut);font-weight:400}
+form.nt{padding:26px;display:grid;gap:12px}textarea{min-height:130px;resize:vertical}
+footer{border-top:1px solid var(--line);padding:26px 0;color:var(--mut);font-size:.92rem}footer .w{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+@media(max-width:860px){#lk{display:none}.hero,.about,.ct,.wk{grid-template-columns:1fr}.facts{grid-template-columns:1fr 1fr}#tabs{flex-direction:row;overflow-x:auto;padding-bottom:6px}.tb{min-width:200px}.cols{grid-template-columns:1fr}.ti{grid-template-columns:1fr}.nd{font-size:.76rem}.nd i{width:42px;height:42px}.pl{top:21px}#pd{grid-template-columns:1fr}#pd p,#pd .em{grid-column:1;grid-row:auto}}
+@media(prefers-reduced-motion:reduce){*,::before,::after{animation:none!important;transition:none!important}#nm span,.hero>div>*,.stage{opacity:1!important;transform:none!important}.rv{clip-path:none;transform:none}}
+</style></head><body>
+<div id="ld" aria-hidden="true"><span class="d"><span id="pc">0</span><b>%</b></span></div>
+<nav id="nv"><a class="lg d" href="#top" aria-label="Home">RS</a>
+<div id="lk"><a href="#about">About</a><a href="#build">Pipeline</a><a href="#work">Work</a><a href="#ask">Ask me</a><a href="#path">Journey</a><a href="#skills">Toolkit</a></div>
+<button id="th" aria-label="Toggle light and dark theme">◐</button><a class="btn s" href="#contact">Let’s talk</a></nav>
+
+<header id="top"><div class="w hero"><div>
+<p class="pill"><i></i>Batch of 2027 · Bengaluru, India</p>
+<h1 id="nm" aria-label="Ranjitha S.">Ranjitha S.</h1>
+<p class="lead">Computer science student building <b>computer-vision</b> and <b>full-stack</b> apps, from sign language to campus navigation in AR.</p>
+<div class="row"><a class="btn" href="#work">View selected work</a><a class="btn g" id="rs" href="#">Résumé</a></div></div>
+<div class="stage card"><canvas id="cv" aria-label="Interactive hand-tracking demo"></canvas>
+<div class="rd"><span class="d" id="lt">A</span><div><small>Hand-landmark demo</small><small id="cf">Predicting…</small><div class="bar"><u id="bf"></u></div></div></div>
+<p class="hint">Move your cursor. A 21-point hand follows it, like the one my ASL project tracks.</p></div></div>
+<div class="w facts">
+<div class="card"><b class="d" data-n="9.49">0</b><span>CGPA out of 10 at RNS Institute of Technology</span></div>
+<div class="card"><b class="d" data-n="98" data-s="%">0</b><span>in Class 10, ICSE</span></div>
+<div class="card"><b class="d" data-n="93.5" data-s="%">0</b><span>in Class 12, PUE Karnataka</span></div>
+<div class="card"><b class="d" data-n="4">0</b><span>languages: English, Kannada, Hindi, German</span></div></div></header>
+
+<div class="mq" aria-hidden="true"><div id="mq"></div></div>
+
+<section id="about"><div class="w about"><h2 class="rv">I like software that sees, listens and helps.</h2>
+<div><p>I’m a B.E. Computer Science & Engineering student at RNS Institute of Technology (2023–2027), drawn to emerging technology and projects with real impact.</p>
+<p>My work spans deep learning for accessibility, an emotion-aware music app, and a campus navigator with augmented reality. I enjoy owning the whole path: data, model, API and interface.</p>
+<p>Outside code I play badminton, draw and read. I’m after teams that value creativity, collaboration and a strong work ethic.</p></div></div></section>
+
+<section id="build" style="padding-top:0"><div class="w"><h2 class="rv">Watch a mood become music.</h2>
+<p class="sub">How MoodSync-AI works, from a webcam frame to a recommendation. Tap a step or let it play.</p>
+<div class="trk" id="trk"><div class="pl"><u id="pg"></u></div></div><div class="card" id="pd"></div></div></section>
+
+<section id="work" style="padding-top:0"><div class="w"><h2 class="rv">Selected work.</h2>
+<p class="sub">Four projects across computer vision, deep learning and full-stack engineering.</p>
+<div class="wk"><div id="tabs" role="tablist"></div><article class="card" id="pj" aria-live="polite"></article></div></div></section>
+
+<section id="ask" style="padding-top:0"><div class="w"><h2 class="rv">Got a question? Just ask.</h2>
+<p class="sub">Pick a question or type your own. Answers come straight from my résumé.</p>
+<div class="card chat"><div class="ch"><i></i>Ranjitha’s assistant · online</div><div id="lg"></div><div id="qs"></div>
+<form id="qf"><input id="qi" placeholder="Ask about projects, skills, internship…" aria-label="Your question"><button class="btn">Ask</button></form></div></div></section>
+
+<section id="path" style="padding-top:0"><div class="w"><h2 class="rv">Where I’ve learned.</h2><p class="sub">Education, training, certifications and the communities I’m part of.</p><div class="tl" id="tl"></div></div></section>
+
+<section id="skills" style="padding-top:0"><div class="w"><h2 class="rv">The stack behind the work.</h2><p class="sub">Pick a group to see what’s inside.</p><div class="sk" id="sk" role="tablist"></div><div id="sb"></div></div></section>
+
+<section id="contact" style="padding-top:0"><div class="w ct"><div><h2 class="rv">Let’s build something together.</h2>
+<p class="sub" style="margin-bottom:0">Looking for internships and entry-level roles in software, ML and web development.</p>
+<div class="ls" id="ls"></div></div>
+<form class="card nt" id="nf"><h3 class="d" style="font-size:1.8rem">Send a note</h3><input id="fn" placeholder="Your name" required aria-label="Your name"><input id="fe" type="email" placeholder="Your email" required aria-label="Your email"><textarea id="fm" placeholder="What are you building?" required aria-label="Message"></textarea><button class="btn" style="justify-self:start">Send note</button><small id="ft" style="color:var(--c)"></small></form></div></section>
+
+<footer><div class="w"><span>© 2026 Ranjitha S</span><a href="#top">Back to top ↑</a></div></footer>
+
+<script>
+/* ===== EDIT THESE: placeholder links ===== */
+const LINKS={resume:'#',github:'https://github.com/YOUR-USERNAME',linkedin:'https://www.linkedin.com/in/ranjitha-sridhar-a5b711311/',email:'ranjithasgowda245@gmail.com',college:'ranjithas23cs@rnsit.ac.in'};
+const PJ=[
+{t:'MoodSync-AI',tag:'Deep learning · Full-stack',when:'May 2026 – present',m:'2',ml:'deployed services',pr:'Music apps ask how you feel. MoodSync reads it from your face and responds.',ap:'A TensorFlow/Keras model classifies expressions from webcam frames, served through FastAPI to a React frontend.',hi:['REST APIs for emotion detection, prediction and music recommendation','OpenCV image processing feeding a trained Keras model','Frontend and backend deployed as separate services'],st:['Python','FastAPI','React.js','TensorFlow','Keras','OpenCV'],live:'https://YOUR-MOODSYNC-LIVE-LINK.example.com',repo:LINKS.github+'/moodsync-ai'},
+{t:'CampusAR',tag:'Full-stack · Maps & AR',when:'2026',m:'4',ml:'backend layers',pr:'Finding a classroom indoors is harder than finding the building.',ap:'Indoor and outdoor navigation on a campus graph with shortest-path routing, GPS positioning and AR directions.',hi:['Routes between buildings, entrances and indoor nodes','Node.js REST APIs on PostgreSQL/PostGIS for spatial data','GPS updates, QR indoor relocalization and WebSockets','Layered design: API, application, domain, data access'],st:['React','TypeScript','Node.js','PostgreSQL','PostGIS','WebSocket'],live:'https://YOUR-CAMPUSAR-LIVE-LINK.example.com',repo:LINKS.github+'/campusar'},
+{t:'Real-time Sign Language Interpreter',tag:'Computer vision · Accessibility',when:'Nov 2025 · team of 4 · mentor Ms Chethana H R',m:'21',ml:'hand landmarks per frame',pr:'Sign language is hard to follow for people who don’t know it.',ap:'MediaPipe finds hand landmarks from a live webcam, and a CNN classifies the gesture into an ASL letter shown on screen.',hi:['I owned dataset prep, preprocessing and model training','Real-time webcam inference tuned for accuracy and speed','Built for assistive communication'],st:['Python','OpenCV','MediaPipe','TensorFlow','Keras','NumPy'],live:'https://YOUR-ASL-LIVE-LINK.example.com',repo:'https://github.com/PraveenKumarM17/Gesture'},
+{t:'Events Management System',tag:'Frontend · Teamwork',when:'Mar – Jul 2025 · team of 4',m:'4',ml:'person team',pr:'Students and organizers needed one clear place to find and run events.',ap:'I built the responsive interface in React and wired it to the backend APIs for event data.',hi:['Responsive pages for students and organizers','APIs integrated for live event data','GitHub workflow shared with the backend team'],st:['HTML','CSS','JavaScript','React.js','Git'],live:'https://YOUR-EVENTS-LIVE-LINK.example.com',repo:'https://github.com/ssarveshr/DBMS-project-'}];
+const ST=[['Capture','Webcam frame','The React frontend grabs frames from the webcam and sends them to the backend over HTTP.'],['Detect','Face found','OpenCV locates the face, crops it and prepares the image for the model.'],['Classify','Emotion read','A TensorFlow/Keras CNN predicts the expression from the cropped face.'],['Serve','API responds','FastAPI endpoints handle detection, prediction and recommendation, deployed as its own service.'],['Recommend','Music matched','The detected mood becomes personalised music suggestions on screen.']];
+const QA=[['What are you studying?','B.E. in Computer Science & Engineering at RNS Institute of Technology, Bengaluru (2023–2027), with a CGPA of 9.49 / 10.'],['What do you build?','Computer-vision and full-stack apps: a real-time ASL interpreter, MoodSync-AI for emotion-based music and CampusAR for campus navigation.'],['What is your strongest stack?','Python, React.js and FastAPI, with TensorFlow/Keras and OpenCV for ML, and PostgreSQL or MySQL for data. I also write C, C++, Java, JavaScript and C#.'],['Tell me about your internship','At Samsung Innovation Campus (Nov 2024 – Feb 2025) I trained in Python, competitive programming and problem-solving on LeetCode and CodeChef.'],['How do you work with teams?','I’ve shipped in teams of four on the ASL and Events Management projects, and I serve as Secretary of the IEEE Consumer Technology Society.']];
+const EX=[['2023 – 2027','RNS Institute of Technology','B.E. Computer Science & Engineering. CGPA 9.49 / 10.',['Data Structures','DBMS','Computer Networks']],['Nov 2024 – Feb 2025','Samsung Innovation Campus','Student trainee in software. Competitive programming with Python, algorithms and data structures on LeetCode and CodeChef.',['Python','LeetCode','CodeChef']],['Certification','Demystifying Networking, NPTEL (IIT Madras)','Network architecture, TCP/IP, routing, switching and data communication. Scored 78 / 100.',[]],['Co-curricular','IEEE Consumer Technology Society and GDSC','Secretary of the IEEE Consumer Technology Society and member of Google Developer Student Clubs.',['Leadership','Community']],['2023','Deeksha Centre for Learning','PUE Karnataka, 93.5 / 100.',[]],['2021','Swargarani School and PU College','CISCE, 98 / 100.',[]]];
+const SK={'Languages':['Python','C','C++','Java','JavaScript','C#'],'Web & backend':['HTML5','CSS3','React.js','TypeScript','Node.js','FastAPI','ASP.NET Core Web API','REST APIs'],'Data & AI':['TensorFlow','Keras','OpenCV','MediaPipe','Pandas','NumPy','Matplotlib','Machine Learning','EDA'],'Databases':['MySQL','PostgreSQL','PostGIS','SQL'],'Engineering':['Data Structures & Algorithms','OOP','DBMS','API development','Microservices basics','Event-driven basics','Git & GitHub','Google Colab','VS Code'],'People':['Leadership','Team coordination','Presentation','Time management','Critical thinking','Creativity']};
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)],RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+$('#rs').href=LINKS.resume;
+/* loader */
+const t0=performance.now(),dur=RM?0:1500;
+(function ld(t){const k=dur?Math.min((t-t0)/dur,1):1;$('#pc').textContent=Math.round(k*100);if(k<1)requestAnimationFrame(ld);else{$('#ld').classList.add('out');document.body.classList.add('go')}})(t0);
+$('#nm').innerHTML=[...'Ranjitha S.'].map((c,i)=>`<span style="--i:${i}">${c===' '?'&nbsp;':c}</span>`).join('');
+const MQ=['Python','React.js','FastAPI','TensorFlow','OpenCV','MediaPipe','PostgreSQL','TypeScript','Node.js','C++','Java','REST APIs'];
+$('#mq').innerHTML=[...MQ,...MQ].map(x=>`<span>${x}</span>`).join('');
+/* theme */
+let A='#5544F2',B='#F0527A',C='#0FA58F';
+const col=()=>{const s=getComputedStyle(document.documentElement);A=s.getPropertyValue('--a');B=s.getPropertyValue('--b');C=s.getPropertyValue('--c')};
+$('#th').onclick=()=>{const d=document.documentElement,cur=d.dataset.theme||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');d.dataset.theme=cur==='dark'?'light':'dark';col()};
+/* hero hand */
+const cv=$('#cv'),cx=cv.getContext('2d'),dpr=Math.min(devicePixelRatio||1,2);let W,H,vis=true;
+const T=[[0,.9],[-.35,.7],[-.6,.45],[-.75,.2],[-.9,-.05],[-.3,.2],[-.33,-.1],[-.35,-.35],[-.37,-.6],[-.05,.15],[-.05,-.2],[-.05,-.5],[-.05,-.78],[.2,.2],[.23,-.1],[.25,-.35],[.27,-.58],[.42,.3],[.5,.08],[.55,-.1],[.6,-.28]];
+const CN=[[0,1,2,3,4],[0,5,6,7,8],[9,10,11,12],[13,14,15,16],[17,18,19,20],[5,9,13,17],[0,17]];
+const P=T.map(()=>[0,0]),m={x:.5,y:.55};let L=-1;
+function rs(){const r=cv.getBoundingClientRect();W=r.width;H=r.height;cv.width=W*dpr;cv.height=H*dpr;cx.setTransform(dpr,0,0,dpr,0,0);col()}
+addEventListener('resize',rs);rs();
+$('.stage').addEventListener('pointermove',e=>{const r=cv.getBoundingClientRect();m.x=Math.min(1,Math.max(0,(e.clientX-r.left)/r.width));m.y=Math.min(1,Math.max(0,(e.clientY-r.top)/r.height))});
+$('header').addEventListener('pointermove',e=>{const r=e.currentTarget.getBoundingClientRect();e.currentTarget.style.setProperty('--mx',e.clientX-r.left+'px');e.currentTarget.style.setProperty('--my',e.clientY-r.top+'px')});
+new IntersectionObserver(e=>vis=e[0].isIntersecting).observe(cv);
+function fr(ms){if(vis){const t=ms/1000,s=Math.min(W,H)*.3,a=(m.x-.5)*.9,ca=Math.cos(a),sa=Math.sin(a),ox=m.x*W*.8+W*.1,oy=m.y*H*.6+H*.3;
+cx.clearRect(0,0,W,H);
+T.forEach((p,i)=>{const x=(p[0]*ca-p[1]*sa)*s+ox+Math.sin(t*1.6+i*.5)*3,y=(p[0]*sa+p[1]*ca)*s+oy+Math.cos(t*1.3+i*.4)*3,k=.2-i*.005;P[i][0]+=(x-P[i][0])*k;P[i][1]+=(y-P[i][1])*k});
+cx.lineWidth=3;cx.lineCap=cx.lineJoin='round';cx.strokeStyle=A;
+CN.forEach(c=>{cx.beginPath();c.forEach((n,j)=>j?cx.lineTo(P[n][0],P[n][1]):cx.moveTo(P[n][0],P[n][1]));cx.stroke()});
+P.forEach((p,i)=>{cx.beginPath();cx.arc(p[0],p[1],[4,8,12,16,20].includes(i)?7:4.5,0,7);cx.fillStyle=[4,8,12,16,20].includes(i)?B:C;cx.fill()});
+const i=Math.min(25,Math.floor(m.x*26));if(i!==L){L=i;$('#lt').textContent=String.fromCharCode(65+i);const cf=86+(i*7)%13;$('#cf').textContent='Predicting · '+cf+'%';$('#bf').style.width=cf+'%'}}
+if(!RM)requestAnimationFrame(fr)}
+requestAnimationFrame(fr);if(RM)fr(0);
+/* pipeline */
+let pi=0,pt;const trk=$('#trk'),pd=$('#pd');
+ST.forEach((s,i)=>{const b=document.createElement('button');b.className='nd';b.innerHTML=`<i>${i+1}</i>${s[0]}`;b.onclick=()=>{go(i);auto()};trk.appendChild(b)});
+function go(i){pi=i;$$('.nd').forEach((n,j)=>{n.classList.toggle('on',j===i);n.classList.toggle('done',j<i)});$('#pg').style.width=(i/4*100)+'%';pd.innerHTML=`<span class="em">${['📷','🙂','🧠','⚡','🎧'][i]}</span><h3 class="d">${ST[i][1]}</h3><p>${ST[i][2]}</p>`;pd.classList.remove('sw');void pd.offsetWidth;pd.classList.add('sw')}
+function auto(){clearInterval(pt);if(!RM)pt=setInterval(()=>go((pi+1)%5),2800)}
+go(0);new IntersectionObserver(e=>e[0].isIntersecting?auto():clearInterval(pt)).observe(trk);
+/* projects */
+const tabs=$('#tabs'),pj=$('#pj');
+PJ.forEach((p,i)=>{const b=document.createElement('button');b.className='tb';b.setAttribute('role','tab');b.innerHTML=`${p.t}<small>${p.tag}</small>`;b.onclick=()=>show(i);tabs.appendChild(b)});
+function show(i){const p=PJ[i];$$('.tb').forEach((b,j)=>b.classList.toggle('on',j===i));
+pj.innerHTML=`<small class="tag">${p.tag}</small><h3 class="d">${p.t}</h3><p class="when">${p.when}</p><div class="met"><b class="d">${p.m}</b><span>${p.ml}</span></div><div class="cols"><div><h4>Problem</h4><p>${p.pr}</p></div><div><h4>Approach</h4><p>${p.ap}</p></div></div><h4>Highlights</h4><ul>${p.hi.map(x=>`<li>${x}</li>`).join('')}</ul><div class="chips">${p.st.map(x=>`<span>${x}</span>`).join('')}</div><div class="row"><a class="btn" target="_blank" rel="noopener" href="${p.live}">Live demo</a><a class="btn g" target="_blank" rel="noopener" href="${p.repo}">Source code</a></div>`;
+pj.classList.remove('sw');void pj.offsetWidth;pj.classList.add('sw')}
+show(0);
+/* ask me */
+const lg=$('#lg'),qs=$('#qs');
+function msg(c,h){const d=document.createElement('div');d.className='m '+c;d.innerHTML=h;lg.appendChild(d);lg.scrollTop=lg.scrollHeight;return d}
+function ask(q,a){msg('u',q);const d=msg('b','<span class="dots"><span></span><span></span><span></span></span>');setTimeout(()=>{d.textContent='';let n=0;const id=setInterval(()=>{n+=2;d.textContent=a.slice(0,n);lg.scrollTop=lg.scrollHeight;if(n>=a.length)clearInterval(id)},RM?0:16)},700)}
+msg('b','Hi, I’m Ranjitha’s assistant. Ask me anything about her work.');
+QA.forEach(([q,a])=>{const b=document.createElement('button');b.textContent=q;b.onclick=()=>ask(q,a);qs.appendChild(b)});
+$('#qf').onsubmit=e=>{e.preventDefault();const v=$('#qi').value.trim();if(!v)return;$('#qi').value='';const w=v.toLowerCase().match(/\w{4,}/g)||[];let best=null,sc=0;QA.forEach(x=>{const s=w.filter(k=>(x[0]+' '+x[1]).toLowerCase().includes(k)).length;if(s>sc){sc=s;best=x}});ask(v,best?best[1]:'I don’t have that on my résumé. Send her a note below and she’ll reply.')};
+/* timeline + skills */
+$('#tl').innerHTML=EX.map(x=>`<div class="ti"><time>${x[0]}</time><div><h3 class="d">${x[1]}</h3><p>${x[2]}</p>${x[3].length?`<div class="chips">${x[3].map(c=>`<span>${c}</span>`).join('')}</div>`:''}</div></div>`).join('');
+const sk=$('#sk');Object.keys(SK).forEach((k,i)=>{const b=document.createElement('button');b.textContent=k;b.onclick=()=>sel(k);sk.appendChild(b)});
+function sel(k){$$('#sk button').forEach(b=>b.classList.toggle('on',b.textContent===k));$('#sb').innerHTML=SK[k].map((x,i)=>`<span style="--i:${i}">${x}</span>`).join('')}
+sel('Languages');
+/* contact */
+$('#ls').innerHTML=[['Email',LINKS.email,'mailto:'+LINKS.email],['College email',LINKS.college,'mailto:'+LINKS.college],['LinkedIn','ranjitha-sridhar',LINKS.linkedin],['GitHub','YOUR-USERNAME',LINKS.github]].map(x=>`<a href="${x[2]}" target="_blank" rel="noopener">${x[0]}<small>${x[1]}</small></a>`).join('');
+$('#nf').onsubmit=e=>{e.preventDefault();location.href=`mailto:${LINKS.email}?subject=${encodeURIComponent('Hello from '+$('#fn').value)}&body=${encodeURIComponent($('#fm').value+'\n\n'+$('#fn').value+' ('+$('#fe').value+')')}`;$('#ft').textContent='Opening your email app…'};
+/* reveals + counters */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const t=e.target;t.classList.add('in');io.unobserve(t);if(t.dataset.n){const n=+t.dataset.n,d=(t.dataset.n.split('.')[1]||'').length,s=performance.now();(function c(x){const k=RM?1:Math.min((x-s)/1400,1);t.textContent=(n*(1-Math.pow(1-k,3))).toFixed(d)+(t.dataset.s||'');if(k<1)requestAnimationFrame(c)})(s)}}),{threshold:.15});
+$$('.rv,[data-n],.tl').forEach(x=>io.observe(x));
+</script></body></html>
