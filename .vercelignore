@@ -1,0 +1,8 @@
+﻿grok/.grok
+grok/.tanstack
+grok/.vercel
+grok/migrations
+grok/scripts
+grok/server
+grok/package-lock.json
+.git
