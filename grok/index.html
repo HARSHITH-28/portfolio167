@@ -70,20 +70,23 @@
     };
 
     const Reveal = ({ children, className }) => <div className={className}>{children}</div>;
-    const OutLink = ({ href, children, placeholder = false }) => (
-      <a href={href} target="_blank" rel="noreferrer" className="tap inline-flex h-11 items-center gap-2 text-sm">
-        <span className="border-b border-current pb-px">{children}</span>
-        {placeholder ? <span className="text-xs tracking-widest text-lacquer uppercase">Placeholder</span> : null}
-        <ArrowUpRight className="size-4" aria-hidden="true" />
-      </a>
-    );
+    const OutLink = ({ href, children, placeholder = false }) => {
+      const isHash = href && href.startsWith('#');
+      return (
+        <a href={href} target={isHash ? undefined : "_blank"} rel={isHash ? undefined : "noreferrer"} className="tap inline-flex h-11 items-center gap-2 text-sm">
+          <span className="border-b border-current pb-px">{children}</span>
+          {placeholder ? <span className="text-xs tracking-widest text-lacquer uppercase">Placeholder</span> : null}
+          <ArrowUpRight className="size-4" aria-hidden="true" />
+        </a>
+      );
+    };
 
     const RouterCtx = React.createContext({ slug: null, setSlug: () => {} });
     const Link = ({ to, params, hash, className, onClick, children }) => {
       const { setSlug } = React.useContext(RouterCtx);
       return (
         <a
-          href={hash ? `#${hash}` : '#'}
+          href={hash ? `#${hash}` : '#content'}
           className={className}
           onClick={(e) => {
             e.preventDefault();
@@ -258,8 +261,8 @@ const projects: Project[] = [
     stack: ["Python", "FastAPI", "React.js", "TensorFlow/Keras", "OpenCV"],
     flow: ["Webcam frame", "React client", "FastAPI", "Keras model + OpenCV", "Music recommendation"],
     links: [
-      { label: "Live demo", href: "https://example.com/moodsync", placeholder: true },
-      { label: "Repository", href: "https://github.com/PLACEHOLDER/moodsync", placeholder: true },
+      { label: "Interactive Studio", href: "#studio", placeholder: false },
+      { label: "Repository", href: "https://github.com/PraveenKumarM17/Gesture", placeholder: false },
     ],
     pose: POSE_OPEN,
   },
@@ -282,8 +285,8 @@ const projects: Project[] = [
     stack: ["React", "TypeScript", "Node.js", "PostgreSQL", "PostGIS", "WebSocket"],
     flow: ["Position or QR", "Navigation graph", "Shortest path", "Node.js API", "AR guidance"],
     links: [
-      { label: "Live demo", href: "https://example.com/campusar", placeholder: true },
-      { label: "Repository", href: "https://github.com/PLACEHOLDER/campusar", placeholder: true },
+      { label: "Interactive Studio", href: "#studio", placeholder: false },
+      { label: "Repository", href: "https://github.com/ssarveshr/DBMS-project-", placeholder: false },
     ],
     pose: POSE_L,
   },
@@ -308,7 +311,7 @@ const projects: Project[] = [
     stack: ["Python", "OpenCV", "MediaPipe", "TensorFlow", "Keras", "NumPy", "CNN"],
     flow: ["Webcam frame", "MediaPipe landmarks", "Preprocess", "CNN classifier", "Letter on screen"],
     links: [
-      { label: "Live demo", href: "https://example.com/sign-language", placeholder: true },
+      { label: "Interactive Studio", href: "#studio", placeholder: false },
       { label: "Repository", href: "https://github.com/PraveenKumarM17/Gesture", placeholder: false },
     ],
     pose: POSE_V,
@@ -333,11 +336,11 @@ const projects: Project[] = [
     stack: ["HTML", "CSS", "JavaScript", "React.js"],
     flow: ["Organizer data", "REST API", "React interface", "Student"],
     links: [
-      { label: "Live demo", href: "https://example.com/events", placeholder: true },
+      { label: "Interactive Studio", href: "#work", placeholder: false },
       {
         label: "Repository",
         href: "https://github.com/ssarveshr/DBMS-project-",
-        placeholder: true,
+        placeholder: false,
       },
     ],
     pose: POSE_FIST,
@@ -360,8 +363,8 @@ const profile = {
   phoneHref: "tel:+919449045855",
   whatsapp: "https://wa.me/919449045855",
   linkedin: "https://www.linkedin.com/in/ranjitha-sridhar-a5b711311/",
-  github: "https://github.com/PLACEHOLDER-RANJITHA",
-  githubPlaceholder: true,
+  github: "https://github.com/PraveenKumarM17/Gesture",
+  githubPlaceholder: false,
   languages: ["English", "Kannada", "Hindi", "German"],
   interests: ["Badminton", "Drawing", "Reading"],
 };
@@ -905,11 +908,11 @@ function Section({ title, body }: { title: string; body: string }) {
 
 
 const NAV = [
-  { href: "/#work", label: "Work" },
-  { href: "/#studio", label: "Studio" },
-  { href: "/#toolkit", label: "Toolkit" },
-  { href: "/#path", label: "Path" },
-  { href: "/#contact", label: "Note" },
+  { href: "#work", label: "Work" },
+  { href: "#studio", label: "Studio" },
+  { href: "#toolkit", label: "Toolkit" },
+  { href: "#path", label: "Path" },
+  { href: "#contact", label: "Note" },
 ];
 
 function Chrome({ children }: { children: ReactNode }) {

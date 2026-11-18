@@ -175,7 +175,7 @@ function renderProject(index){
   setText('projectTitle',p.title);setText('projectSummary',p.summary);
   setText('projectProblem',p.problem);setText('projectApproach',p.approach);setText('projectPosition',String(projectIndex+1).padStart(2,'0'));
   const tech=$('projectTech');tech.replaceChildren();p.tech.slice(0,5).forEach(name=>{let span=document.createElement('span');span.textContent=name.toUpperCase();tech.append(span);});
-  const repo=$('projectRepo');repo.href=p.repo||'https://github.com/ranjitha-sridhar';
+  const repo=$('projectRepo');repo.href=p.repo||'https://github.com/PraveenKumarM17/Gesture';
   repo.textContent=p.repo?'View résumé-linked repository ↗':'Browse GitHub (repo link pending) ↗';
   repo.classList.toggle('is-unavailable',!p.repo);
 }
@@ -186,7 +186,7 @@ function renderCase(){
   setText('caseInnovation',p.innovation);setText('caseRole',p.role);
   const im=$('caseArt');im.src=p.art;im.alt=p.artAlt;
   const tech=$('caseTech');tech.replaceChildren();p.tech.forEach(name=>{const span=document.createElement('span');span.textContent=name.toUpperCase();tech.append(span);});
-  const repo=$('caseRepo');repo.href=p.repo||'https://github.com/ranjitha-sridhar';repo.textContent=p.repo?'VIEW RÉSUMÉ-LINKED REPOSITORY ↗':'GITHUB PROFILE · REPO LINK PENDING ↗';repo.classList.toggle('is-unavailable',!p.repo);
+  const repo=$('caseRepo');repo.href=p.repo||'https://github.com/PraveenKumarM17/Gesture';repo.textContent=p.repo?'VIEW RÉSUMÉ-LINKED REPOSITORY ↗':'GITHUB PROFILE · REPO LINK PENDING ↗';repo.classList.toggle('is-unavailable',!p.repo);
 }
 function initProjects(){
   document.querySelectorAll('.project-index-item').forEach(b=>b.addEventListener('click',()=>renderProject(Number(b.dataset.project))));

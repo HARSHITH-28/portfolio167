@@ -62,7 +62,7 @@
           <div class="tech-tags">${project.tech.slice(0, 5).map(tag => `<span>${escapeHTML(tag)}</span>`).join('')}</div>
           <div class="project-actions">
             <button class="project-detail-button" type="button" data-open-project="${escapeHTML(project.id)}" aria-label="Read case study for ${escapeHTML(project.title)}">Explore case study <span class="circled-arrow" aria-hidden="true">↗</span></button>
-            <span class="project-link-status">REPO + LIVE URL / COMING SOON</span>
+            ${project.repoUrl ? `<a class="project-link-status" href="${escapeHTML(project.repoUrl)}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">VIEW GITHUB REPO ↗</a>` : `<span class="project-link-status">CASE STUDY READY</span>`}
           </div>
         </div>
       </article>

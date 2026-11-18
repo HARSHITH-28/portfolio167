@@ -23,8 +23,8 @@ window.PORTFOLIO_DATA = {
         { title: 'Predict', subtitle: 'TensorFlow / Keras', description: 'A trained emotion-recognition model predicts an emotion from the image.' },
         { title: 'Recommend', subtitle: 'FastAPI · React', description: 'An API responds with a music recommendation for the interface to present.' }
       ],
-      repoUrl: null, // Replace with https://github.com/YOUR_USERNAME/MoodSync-AI
-      liveUrl: null  // Replace with your deployed application URL
+      repoUrl: '', // Replace with https://github.com/PraveenKumarM17/MoodSync-AI
+      liveUrl: ''  // Replace with your deployed application URL
     },
     {
       id: 'campusar', number: '02', title: 'CampusAR', subtitle: 'A smarter way to find your way.',
@@ -42,8 +42,8 @@ window.PORTFOLIO_DATA = {
         { title: 'Route', subtitle: 'Node.js · graphs', description: 'Compute a connected path with a shortest-path algorithm over navigation nodes.' },
         { title: 'Guide', subtitle: 'React · AR · WS', description: 'Present directions and update navigation state using WebSockets and augmented reality cues.' }
       ],
-      repoUrl: null, // Replace with https://github.com/YOUR_USERNAME/CampusAR
-      liveUrl: null
+      repoUrl: '', // Replace with https://github.com/PraveenKumarM17/CampusAR
+      liveUrl: ''
     },
     {
       id: 'asl', number: '03', title: 'Sign Language Interpreter', subtitle: 'Computer vision in service of communication.',
@@ -61,8 +61,8 @@ window.PORTFOLIO_DATA = {
         { title: 'Classify', subtitle: 'CNN · TensorFlow', description: 'Pass prepared gesture features into a trained classifier for an alphabet prediction.' },
         { title: 'Translate', subtitle: 'Live interface', description: 'Display the predicted ASL alphabet character on the screen.' }
       ],
-      repoUrl: null, // Resume references https://github.com/PraveenKumarM17/Gesture (team repository). Decide whether to use it.
-      liveUrl: null
+      repoUrl: 'https://github.com/PraveenKumarM17/Gesture', (team repository). Decide whether to use it.
+      liveUrl: ''
     },
     {
       id: 'events', number: '04', title: 'Events Management System', subtitle: 'Making event planning feel effortless.',
@@ -80,8 +80,8 @@ window.PORTFOLIO_DATA = {
         { title: 'Integrate', subtitle: 'React · APIs', description: 'Connect frontend views to APIs that provide event data.' },
         { title: 'Collaborate', subtitle: 'GitHub', description: 'Work with backend teammates through version control and integration.' }
       ],
-      repoUrl: null, // Resume references https://github.com/ssarveshr/DBMS-project- (team repository). Decide whether to use it.
-      liveUrl: null
+      repoUrl: 'https://github.com/ssarveshr/DBMS-project-', (team repository). Decide whether to use it.
+      liveUrl: ''
     }
   ],
   skills: [

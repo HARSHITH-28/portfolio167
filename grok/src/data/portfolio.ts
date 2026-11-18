@@ -51,8 +51,8 @@ export const projects: Project[] = [
     stack: ["Python", "FastAPI", "React.js", "TensorFlow/Keras", "OpenCV"],
     flow: ["Webcam frame", "React client", "FastAPI", "Keras model + OpenCV", "Music recommendation"],
     links: [
-      { label: "Live demo", href: "https://example.com/moodsync", placeholder: true },
-      { label: "Repository", href: "https://github.com/PLACEHOLDER/moodsync", placeholder: true },
+      { label: "Interactive Studio", href: "#studio", placeholder: false },
+      { label: "Repository", href: "https://github.com/PraveenKumarM17/Gesture", placeholder: false },
     ],
     pose: POSE_OPEN,
   },
@@ -75,8 +75,8 @@ export const projects: Project[] = [
     stack: ["React", "TypeScript", "Node.js", "PostgreSQL", "PostGIS", "WebSocket"],
     flow: ["Position or QR", "Navigation graph", "Shortest path", "Node.js API", "AR guidance"],
     links: [
-      { label: "Live demo", href: "https://example.com/campusar", placeholder: true },
-      { label: "Repository", href: "https://github.com/PLACEHOLDER/campusar", placeholder: true },
+      { label: "Interactive Studio", href: "#studio", placeholder: false },
+      { label: "Repository", href: "https://github.com/ssarveshr/DBMS-project-", placeholder: false },
     ],
     pose: POSE_L,
   },
@@ -101,7 +101,7 @@ export const projects: Project[] = [
     stack: ["Python", "OpenCV", "MediaPipe", "TensorFlow", "Keras", "NumPy", "CNN"],
     flow: ["Webcam frame", "MediaPipe landmarks", "Preprocess", "CNN classifier", "Letter on screen"],
     links: [
-      { label: "Live demo", href: "https://example.com/sign-language", placeholder: true },
+      { label: "Interactive Studio", href: "#studio", placeholder: false },
       { label: "Repository", href: "https://github.com/PraveenKumarM17/Gesture", placeholder: false },
     ],
     pose: POSE_V,
@@ -126,11 +126,11 @@ export const projects: Project[] = [
     stack: ["HTML", "CSS", "JavaScript", "React.js"],
     flow: ["Organizer data", "REST API", "React interface", "Student"],
     links: [
-      { label: "Live demo", href: "https://example.com/events", placeholder: true },
+      { label: "Interactive Studio", href: "#work", placeholder: false },
       {
         label: "Repository",
         href: "https://github.com/ssarveshr/DBMS-project-",
-        placeholder: true,
+        placeholder: false,
       },
     ],
     pose: POSE_FIST,
@@ -153,8 +153,8 @@ export const profile = {
   phoneHref: "tel:+919449045855",
   whatsapp: "https://wa.me/919449045855",
   linkedin: "https://www.linkedin.com/in/ranjitha-sridhar-a5b711311/",
-  github: "https://github.com/PLACEHOLDER-RANJITHA",
-  githubPlaceholder: true,
+  github: "https://github.com/PraveenKumarM17/Gesture",
+  githubPlaceholder: false,
   languages: ["English", "Kannada", "Hindi", "German"],
   interests: ["Badminton", "Drawing", "Reading"],
 };

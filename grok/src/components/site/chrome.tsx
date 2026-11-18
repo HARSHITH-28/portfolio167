@@ -5,11 +5,11 @@ import { profile } from "@/data/portfolio";
 import { cn } from "@/lib/cn";
 
 const NAV = [
-  { href: "/#work", label: "Work" },
-  { href: "/#studio", label: "Studio" },
-  { href: "/#toolkit", label: "Toolkit" },
-  { href: "/#path", label: "Path" },
-  { href: "/#contact", label: "Note" },
+  { href: "#work", label: "Work" },
+  { href: "#studio", label: "Studio" },
+  { href: "#toolkit", label: "Toolkit" },
+  { href: "#path", label: "Path" },
+  { href: "#contact", label: "Note" },
 ];
 
 export function Chrome({ children }: { children: ReactNode }) {
