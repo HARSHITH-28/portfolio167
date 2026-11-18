@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    { "source": "/all_in_one", "destination": "/all_in_one.html" }
+  ]
+}
