@@ -1,1 +1,1 @@
-AOS.init({ once: true, offset: 120 });
+if (typeof AOS !== 'undefined') { AOS.init({ once: true, offset: 60 }); }

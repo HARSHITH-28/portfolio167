@@ -1,5 +1,14 @@
 {
   "rewrites": [
-    { "source": "/all_in_one", "destination": "/all_in_one.html" }
+    { "source": "/favicon.ico", "destination": "/assets/favicon.svg" },
+    { "source": "/all_in_one", "destination": "/all_in_one.html" },
+    { "source": "/claude1", "destination": "/claude1/Ranjitha%20S%20%E2%80%94%20Portfolio.html" },
+    { "source": "/claude1/", "destination": "/claude1/Ranjitha%20S%20%E2%80%94%20Portfolio.html" },
+    { "source": "/claude2", "destination": "/claude2/Ranjitha%20S%20%E2%80%94%20Portfolio.html" },
+    { "source": "/claude2/", "destination": "/claude2/Ranjitha%20S%20%E2%80%94%20Portfolio.html" },
+    { "source": "/gemini1", "destination": "/gemini1/ranjitha_s_software_ai_engineering_portfolio.html" },
+    { "source": "/gemini1/", "destination": "/gemini1/ranjitha_s_software_ai_engineering_portfolio.html" },
+    { "source": "/gemini2", "destination": "/gemini2/gemini-code-1795023601805.html" },
+    { "source": "/gemini2/", "destination": "/gemini2/gemini-code-1795023601805.html" }
   ]
 }

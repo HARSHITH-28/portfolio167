@@ -5,11 +5,11 @@ import { profile } from "@/data/portfolio";
 import { cn } from "@/lib/cn";
 
 const NAV = [
-  { href: "#work", label: "Work" },
-  { href: "#studio", label: "Studio" },
-  { href: "#toolkit", label: "Toolkit" },
-  { href: "#path", label: "Path" },
-  { href: "#contact", label: "Note" },
+  { hash: "work", label: "Work" },
+  { hash: "studio", label: "Studio" },
+  { hash: "toolkit", label: "Toolkit" },
+  { hash: "path", label: "Path" },
+  { hash: "contact", label: "Note" },
 ];
 
 export function Chrome({ children }: { children: ReactNode }) {
@@ -85,9 +85,9 @@ function Nav() {
         </Link>
         <nav className="hidden items-center gap-7 md:flex" aria-label="Sections">
           {NAV.map((item) => (
-            <a key={item.href} href={item.href} className="nav-link text-sm">
+            <Link key={item.hash} to="/" hash={item.hash} className="nav-link text-sm">
               {item.label}
-            </a>
+            </Link>
           ))}
         </nav>
         <button
@@ -111,14 +111,15 @@ function Nav() {
       >
         <nav className="grid gap-2" aria-label="Sections">
           {NAV.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
+            <Link
+              key={item.hash}
+              to="/"
+              hash={item.hash}
               onClick={() => setOpen(false)}
               className="border-b border-paper/15 py-4 font-display text-4xl"
             >
               {item.label}
-            </a>
+            </Link>
           ))}
         </nav>
       </div>

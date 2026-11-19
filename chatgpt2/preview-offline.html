@@ -397,7 +397,7 @@ function updateDemo(index){
     if(i<item.code.length-1)code.append(document.createElement('br'));
   }
   const indicators=[...$('stageNumber').parentElement.querySelectorAll('span')].find(n=>n!==$('stageNumber'));
-  if(indicators){indicators.textContent='● '.repeat(demoIndex+1)+'○ '.repeat(STAGES.length-demoIndex);}
+  if(indicators){indicators.textContent='● '.repeat(demoIndex+1)+'○ '.repeat(STAGES.length-1-demoIndex);}
 }
 function stopDemo(){window.clearInterval(demoTimer);demoTimer=null;$('playDemo').innerHTML='▶ <span>Play flow</span>';}
 function initDemo(){
@@ -478,7 +478,7 @@ function answerQuestion(raw){
   if(/cgpa|college|degree|educat|graduate|university|rnsit/.test(q))return 'Ranjitha is pursuing B.E. in Computer Science & Engineering at RNS Institute of Technology in Bengaluru (2023–2027), with a 9.49/10 CGPA on the academic résumé. Earlier scores: 93.5% in Class 12 and 98% in Class 10.';
   if(/ieee|gdsc|club|lead|secretary|society|collab/.test(q))return 'Outside coursework, Ranjitha served as Secretary of the IEEE Consumer Technology Society and was a Google Developer Student Clubs (GDSC) member. The résumés also highlight teamwork, leadership, communication and time management.';
   if(/network|nptel|certificat/.test(q))return 'Ranjitha completed “Demystifying Networking,” an NPTEL course offered by IIT Madras, covering network architecture, TCP/IP, routing, switching and data communications. The academic résumé lists a 78/100 assessment score.';
-  if(/contact|email|reach|hire|opportun|connect|linkedin|github|resume/.test(q))return 'You can reach Ranjitha at ranjithasgowda245@gmail.com, see GitHub at github.com/ranjitha-sridhar, or connect on LinkedIn at linkedin.com/in/ranjitha-sridhar-a5b711311. The contact section has direct links and a résumé PDF.';
+  if(/contact|email|reach|hire|opportun|connect|linkedin|github|resume/.test(q))return 'You can reach Ranjitha at ranjithasgowda245@gmail.com, see GitHub at github.com/PraveenKumarM17/Gesture, or connect on LinkedIn at linkedin.com/in/ranjitha-sridhar-a5b711311. The contact section has direct links and a résumé PDF.';
   if(/skill|stack|tool|tech|language|python|java|backend|api|react|database|frontend/.test(q))return 'Programming: Python, JavaScript, C++, Java, C and C#. Web/backend: React, TypeScript, FastAPI, Node.js, HTML/CSS, REST APIs and ASP.NET Core Web API. Data/ML: OpenCV, TensorFlow/Keras, NumPy and Pandas. Data stores include MySQL, PostgreSQL and PostGIS.';
   if(/hobb|interest|read|badminton|draw/.test(q))return 'The academic résumé lists badminton, drawing and reading as personal interests.';
   if(/hello|hey|hi|who are you|about you/.test(q))return 'Hi! I’m a local portfolio guide to Ranjitha S’s résumé and projects. Ask about MoodSync-AI, CampusAR, Samsung Innovation Campus, the tech stack, education or how to connect.';

@@ -120,7 +120,7 @@
         <div class="dialog-action-row">
           ${projectLink(project.repoUrl, 'Repository')}
           ${projectLink(project.liveUrl, 'Live demo')}
-          <small>Links are intentionally placeholders until project URLs are added to <code>data.js</code>.</small>
+          ${(!project.repoUrl && !project.liveUrl) ? '<small>Repository and live links can be configured in <code>data.js</code>.</small>' : ''}
         </div>
       </div>`;
     if (typeof dialog.showModal === 'function') {
@@ -265,11 +265,21 @@
   // Copy-to-clipboard with a fallback; no fake success notification.
   $('#copyEmail').addEventListener('click', async () => {
     try {
-      if (!navigator.clipboard?.writeText) throw new Error('Clipboard API unavailable');
-      await navigator.clipboard.writeText(DATA.email);
-      notify('Email address copied to clipboard.');
+      if (navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(DATA.email);
+        notify('Email address copied to clipboard.');
+        return;
+      }
+      throw new Error('Clipboard API unavailable');
     } catch {
-      notify('Select the email address above to copy it.');
+      const ta = document.createElement('textarea');
+      ta.value = DATA.email;
+      ta.style.cssText = 'position:fixed;opacity:0;pointer-events:none';
+      document.body.appendChild(ta);
+      ta.select();
+      const ok = document.execCommand('copy');
+      document.body.removeChild(ta);
+      notify(ok ? 'Email address copied to clipboard.' : 'Email: ' + DATA.email);
     }
   });
 

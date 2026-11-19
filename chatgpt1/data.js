@@ -61,7 +61,7 @@ window.PORTFOLIO_DATA = {
         { title: 'Classify', subtitle: 'CNN · TensorFlow', description: 'Pass prepared gesture features into a trained classifier for an alphabet prediction.' },
         { title: 'Translate', subtitle: 'Live interface', description: 'Display the predicted ASL alphabet character on the screen.' }
       ],
-      repoUrl: 'https://github.com/PraveenKumarM17/Gesture', (team repository). Decide whether to use it.
+      repoUrl: 'https://github.com/PraveenKumarM17/Gesture',
       liveUrl: ''
     },
     {
@@ -80,7 +80,7 @@ window.PORTFOLIO_DATA = {
         { title: 'Integrate', subtitle: 'React · APIs', description: 'Connect frontend views to APIs that provide event data.' },
         { title: 'Collaborate', subtitle: 'GitHub', description: 'Work with backend teammates through version control and integration.' }
       ],
-      repoUrl: 'https://github.com/ssarveshr/DBMS-project-', (team repository). Decide whether to use it.
+      repoUrl: 'https://github.com/ssarveshr/DBMS-project-',
       liveUrl: ''
     }
   ],

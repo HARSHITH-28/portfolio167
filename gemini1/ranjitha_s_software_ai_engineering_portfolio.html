@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ranjitha S — Software, Spatial Systems &amp; AI Engineer</title>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
   <meta name="description" content="Portfolio of Ranjitha S — B.E./B.Tech Computer Science & Engineering (Batch 2027, RNS Institute of Technology, CGPA 9.49/10). Full-Stack Systems, Spatial AR Platforms & Real-Time Computer Vision AI." />
 
   <!-- Editorial Typography: Bricolage Grotesque, Geist & Geist Mono -->
@@ -550,7 +551,7 @@
               <span>Get in Touch</span>
             </a>
 
-            <button type="button" onclick="openResumeModal()" class="magnetic-btn inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-medium border border-[var(--border-hairline)] hover:border-violet-400/50 bg-violet-500/10 text-violet-300 dark:text-violet-300 text-violet-700">
+            <button type="button" onclick="openResumeModal()" class="magnetic-btn inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-medium border border-[var(--border-hairline)] hover:border-violet-400/50 bg-violet-500/10 text-violet-700 dark:text-violet-300">
               <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                 <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
@@ -1026,18 +1027,6 @@
           </button>
         </div>
       </div>
-
-      <!-- Placeholder Links Notice Banner -->
-      <div class="flex flex-wrap items-center justify-between gap-3 px-4 py-2.5 rounded-2xl border border-amber-500/25 bg-amber-500/5 text-xs text-[var(--text-secondary)] reveal-up">
-        <div class="flex items-center gap-2">
-          <span class="inline-flex items-center px-2 py-0.5 rounded-md font-mono text-[11px] font-semibold bg-amber-500/15 text-amber-400 border border-amber-500/30">
-            PLACEHOLDER LINKS
-          </span>
-          <span>Live Deployment &amp; GitHub Repository URLs below use structured placeholders ready to swap with production endpoints.</span>
-        </div>
-        <span class="font-mono text-[11px] text-[var(--text-muted)]">Click "Case Study" for architecture breakdown</span>
-      </div>
-
       <!-- Projects Grid (2x2 Bento) -->
       <div id="projects-grid" class="grid grid-cols-1 lg:grid-cols-2 gap-6">
 
@@ -1117,24 +1106,16 @@
             <div class="flex flex-wrap items-center gap-2">
               <!-- Live Demo Placeholder -->
               <div class="placeholder-link-wrap">
-                <span class="placeholder-tooltip px-2.5 py-1 rounded-lg bg-zinc-900 text-amber-300 border border-amber-500/30 font-mono text-[10px] shadow-lg">
-                  Placeholder URL • Ready to Replace
-                </span>
-                <a href="#projects" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/25 hover:bg-emerald-500/20 transition-colors">
-                  <span>Live Demo</span>
-                  <span class="text-[9px] font-mono uppercase px-1 py-0.2 rounded bg-amber-500/20 text-amber-300">Placeholder</span>
-                </a>
+                <button type="button" onclick="openCaseStudy('moodsync')" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/25 hover:bg-emerald-500/20 transition-colors">
+                  <span>Architecture</span>
+                </button>
               </div>
 
               <!-- GitHub Repo Placeholder -->
               <div class="placeholder-link-wrap">
-                <span class="placeholder-tooltip px-2.5 py-1 rounded-lg bg-zinc-900 text-amber-300 border border-amber-500/30 font-mono text-[10px] shadow-lg">
-                  Placeholder Repo • Ready to Replace
-                </span>
                 <a href="https://github.com/PraveenKumarM17/Gesture" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-medium border border-[var(--border-hairline)] bg-[var(--bg-card)] hover:border-[var(--border-strong)] transition-colors">
                   <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
                   <span>GitHub</span>
-                  <span class="text-[9px] font-mono uppercase px-1 rounded bg-amber-500/15 text-amber-400">Placeholder</span>
                 </a>
               </div>
             </div>
@@ -1215,23 +1196,15 @@
           <div class="bento-inner px-6 sm:px-7 py-4 border-t border-[var(--border-hairline)] bg-[var(--bg-base)]/40 flex flex-wrap items-center justify-between gap-2.5">
             <div class="flex flex-wrap items-center gap-2">
               <div class="placeholder-link-wrap">
-                <span class="placeholder-tooltip px-2.5 py-1 rounded-lg bg-zinc-900 text-amber-300 border border-amber-500/30 font-mono text-[10px] shadow-lg">
-                  Placeholder URL • Ready to Replace
-                </span>
-                <a href="#projects" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-medium bg-cyan-500/10 text-cyan-400 border border-cyan-500/25 hover:bg-cyan-500/20 transition-colors">
-                  <span>Live Demo</span>
-                  <span class="text-[9px] font-mono uppercase px-1 rounded bg-amber-500/20 text-amber-300">Placeholder</span>
-                </a>
+                <button type="button" onclick="openCaseStudy('campusar')" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-medium bg-cyan-500/10 text-cyan-400 border border-cyan-500/25 hover:bg-cyan-500/20 transition-colors">
+                  <span>Architecture</span>
+                </button>
               </div>
 
               <div class="placeholder-link-wrap">
-                <span class="placeholder-tooltip px-2.5 py-1 rounded-lg bg-zinc-900 text-amber-300 border border-amber-500/30 font-mono text-[10px] shadow-lg">
-                  Placeholder Repo • Ready to Replace
-                </span>
                 <a href="https://github.com/ssarveshr/DBMS-project-" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-medium border border-[var(--border-hairline)] bg-[var(--bg-card)] hover:border-[var(--border-strong)] transition-colors">
                   <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
                   <span>GitHub</span>
-                  <span class="text-[9px] font-mono uppercase px-1 rounded bg-amber-500/15 text-amber-400">Placeholder</span>
                 </a>
               </div>
             </div>
@@ -1324,23 +1297,15 @@
           <div class="bento-inner px-6 sm:px-7 py-4 border-t border-[var(--border-hairline)] bg-[var(--bg-base)]/40 flex flex-wrap items-center justify-between gap-2.5">
             <div class="flex flex-wrap items-center gap-2">
               <div class="placeholder-link-wrap">
-                <span class="placeholder-tooltip px-2.5 py-1 rounded-lg bg-zinc-900 text-amber-300 border border-amber-500/30 font-mono text-[10px] shadow-lg">
-                  Placeholder URL • Ready to Replace
-                </span>
                 <a href="https://github.com/PraveenKumarM17/Gesture" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/25 hover:bg-emerald-500/20 transition-colors">
                   <span>Live Demo</span>
-                  <span class="text-[9px] font-mono uppercase px-1 rounded bg-amber-500/20 text-amber-300">Placeholder</span>
                 </a>
               </div>
 
               <div class="placeholder-link-wrap">
-                <span class="placeholder-tooltip px-2.5 py-1 rounded-lg bg-zinc-900 text-amber-300 border border-amber-500/30 font-mono text-[10px] shadow-lg">
-                  Placeholder Repo • Ready to Replace
-                </span>
                 <a href="https://github.com/PraveenKumarM17/Gesture" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-medium border border-[var(--border-hairline)] bg-[var(--bg-card)] hover:border-[var(--border-strong)] transition-colors">
                   <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
                   <span>GitHub</span>
-                  <span class="text-[9px] font-mono uppercase px-1 rounded bg-amber-500/15 text-amber-400">Placeholder</span>
                 </a>
               </div>
             </div>
@@ -1421,23 +1386,15 @@
           <div class="bento-inner px-6 sm:px-7 py-4 border-t border-[var(--border-hairline)] bg-[var(--bg-base)]/40 flex flex-wrap items-center justify-between gap-2.5">
             <div class="flex flex-wrap items-center gap-2">
               <div class="placeholder-link-wrap">
-                <span class="placeholder-tooltip px-2.5 py-1 rounded-lg bg-zinc-900 text-amber-300 border border-amber-500/30 font-mono text-[10px] shadow-lg">
-                  Placeholder URL • Ready to Replace
-                </span>
                 <a href="https://github.com/ssarveshr/DBMS-project-" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-medium bg-amber-500/10 text-amber-400 border border-amber-500/25 hover:bg-amber-500/20 transition-colors">
                   <span>Live Demo</span>
-                  <span class="text-[9px] font-mono uppercase px-1 rounded bg-amber-500/20 text-amber-300">Placeholder</span>
                 </a>
               </div>
 
               <div class="placeholder-link-wrap">
-                <span class="placeholder-tooltip px-2.5 py-1 rounded-lg bg-zinc-900 text-amber-300 border border-amber-500/30 font-mono text-[10px] shadow-lg">
-                  Placeholder Repo • Ready to Replace
-                </span>
                 <a href="https://github.com/ssarveshr/DBMS-project-" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-medium border border-[var(--border-hairline)] bg-[var(--bg-card)] hover:border-[var(--border-strong)] transition-colors">
                   <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
                   <span>GitHub</span>
-                  <span class="text-[9px] font-mono uppercase px-1 rounded bg-amber-500/15 text-amber-400">Placeholder</span>
                 </a>
               </div>
             </div>
@@ -1681,7 +1638,7 @@
                 <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
               </span>
               <div>
-                <p class="font-display font-bold text-sm">GitHub <span class="text-[9px] font-mono font-normal px-1.5 py-0.5 rounded bg-amber-500/15 text-amber-400">Placeholder</span></p>
+                <p class="font-display font-bold text-sm">GitHub</p>
                 <p class="text-[11px] font-mono text-[var(--text-secondary)]">github.com/PraveenKumarM17/Gesture</p>
               </div>
             </div>
@@ -1786,12 +1743,12 @@
       <!-- Placeholder Links in Modal -->
       <div class="pt-4 border-t border-[var(--border-hairline)] flex flex-wrap items-center justify-between gap-3">
         <div class="flex flex-wrap items-center gap-2.5">
-          <a id="cs-modal-demo" href="#projects" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 hover:bg-emerald-500/25 transition-colors">
-            <span>Live Demo (Placeholder)</span>
+          <a id="cs-modal-demo" href="#projects" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 hover:bg-emerald-500/25 transition-colors">
+            <span id="cs-modal-demo-label">Live Demo</span>
             <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
           </a>
           <a id="cs-modal-repo" href="https://github.com/PraveenKumarM17/Gesture" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold bg-[var(--bg-base)] border border-[var(--border-strong)] hover:border-violet-400/50 text-[var(--text-primary)] transition-colors">
-            <span>GitHub Repo (Placeholder)</span>
+            <span>GitHub Repo</span>
             <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
           </a>
         </div>
@@ -1820,6 +1777,8 @@
           </p>
         </div>
         <div class="flex items-center gap-2">
+          <a href="../assets/Ranjitha-S-Resume.pdf" download="Ranjitha-S-Resume.pdf" target="_blank" rel="noopener noreferrer" class="px-3.5 py-2 rounded-xl text-xs font-semibold bg-cyan-500/15 text-cyan-400 border border-cyan-500/30 hover:bg-cyan-500/25 transition-colors">Download PDF</a>
+          <a href="../assets/Ranjitha-S-Resume.pdf" download="Ranjitha-S-Resume.pdf" target="_blank" rel="noopener noreferrer" class="px-3.5 py-2 rounded-xl text-xs font-semibold bg-cyan-500/15 text-cyan-400 border border-cyan-500/30 hover:bg-cyan-500/25 transition-colors">Download PDF</a>
           <button type="button" onclick="copyResumeSummary()" class="px-3.5 py-2 rounded-xl text-xs font-semibold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 hover:bg-emerald-500/25 transition-colors">
             Copy Text CV
           </button>
@@ -1870,7 +1829,7 @@
         </div>
 
         <div>
-          <h4 class="font-mono text-xs uppercase tracking-wider text-cyan-400 mb-1.5">Projects &amp; Placeholder Links</h4>
+          <h4 class="font-mono text-xs uppercase tracking-wider text-cyan-400 mb-1.5">Featured Projects</h4>
           <ul class="space-y-2 text-xs">
             <li class="p-3 rounded-xl bg-[var(--bg-base)]/60 border border-[var(--border-hairline)]">
               <strong class="text-[var(--text-primary)]">MoodSync-AI (May 2026 – Present):</strong> FastAPI + React.js + TensorFlow/Keras + OpenCV webcam emotion detection &amp; music recommendation.
@@ -2210,7 +2169,20 @@
         )
         .join('');
 
-      document.getElementById('cs-modal-demo').href = data.demo;
+      const demoLink = document.getElementById('cs-modal-demo');
+      const demoLabel = document.getElementById('cs-modal-demo-label');
+      demoLink.href = data.demo;
+      if (data.demo && data.demo.startsWith('http')) {
+        demoLink.setAttribute('target', '_blank');
+        demoLink.setAttribute('rel', 'noopener noreferrer');
+        demoLink.onclick = null;
+        if (demoLabel) demoLabel.textContent = 'View Project';
+      } else {
+        demoLink.removeAttribute('target');
+        demoLink.removeAttribute('rel');
+        demoLink.onclick = () => closeModals();
+        if (demoLabel) demoLabel.textContent = 'Back to Projects';
+      }
       document.getElementById('cs-modal-repo').href = data.repo;
 
       caseStudyModal.classList.add('is-open');
@@ -2307,7 +2279,14 @@
         return;
       }
 
-      formFeedback.textContent = `Thank you, ${name}! Your note for Ranjitha has been logged.`;
+      try {
+        const saved = JSON.parse(localStorage.getItem('portfolio_contact_messages') || '[]');
+        saved.push({ name, email, message, createdAt: new Date().toISOString() });
+        localStorage.setItem('portfolio_contact_messages', JSON.stringify(saved));
+      } catch {}
+      const mail = `mailto:ranjithasgowda245@gmail.com?subject=${encodeURIComponent('Portfolio inquiry from ' + name)}&body=${encodeURIComponent(message + '\n\n— ' + name + ' (' + email + ')')}`;
+      window.location.href = mail;
+      formFeedback.textContent = `Thank you, ${name}! Your email draft is opening and your note was saved locally.`;
       formFeedback.classList.remove('hidden', 'text-amber-400');
       formFeedback.classList.add('text-emerald-400');
       showToast(`Message prepared for Ranjitha S`);

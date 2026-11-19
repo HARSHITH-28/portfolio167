@@ -5,4 +5,6 @@ grok/migrations
 grok/scripts
 grok/server
 grok/package-lock.json
+meta1/.clippy
+meta2/.clippy
 .git

@@ -3,6 +3,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0D0B17">
 <title>Ranjitha S — Software & AI Engineer</title>
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
 <meta name="description" content="Ranjitha S — computer science student building AI, computer vision and full-stack systems, from Bengaluru to production.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
@@ -134,7 +135,7 @@ footer{border-top:1px solid var(--line);padding:26px 6vw;display:flex;flex-wrap:
    <span class="kick">About</span>
    <h2>Software that sees, learns and ships.</h2>
    <p class="lead">I build <b style="color:var(--tx)">AI-powered and full-stack applications</b> that go past the notebook — computer vision models behind real-time interfaces, REST APIs, and databases that hold up in use.</p>
-   <div class="row" style="margin-top:20px"><a class="btn p" href="#work">View selected work</a><a class="btn" href="#reel">See how a project works</a><a class="btn" href="../assets/Ranjitha-S-Resume.pdf" download="Ranjitha-S-Resume.pdf" target="_blank">Résumé</a></div>
+   <div class="row" style="margin-top:20px"><a class="btn p" href="#work">View selected work</a><a class="btn" href="#reel">See how a project works</a><a class="btn" href="../assets/Ranjitha-S-Resume.pdf" download="Ranjitha-S-Resume.pdf" target="_blank" rel="noopener noreferrer" rel="noopener noreferrer">Résumé</a></div>
   </div>
   <div class="avatar"><b>RS</b><span class="badge">Open to internships</span></div>
  </div>
@@ -226,7 +227,7 @@ footer{border-top:1px solid var(--line);padding:26px 6vw;display:flex;flex-wrap:
   <a class="btn p" href="mailto:ranjithasgowda245@gmail.com?subject=Let%E2%80%99s%20book%20a%20call&body=Hi%20Ranjitha%2C%0A%0AI%E2%80%99d%20like%20to%20book%20a%2030-minute%20call.%0A%0ATopic%3A%20%0ATimes%20that%20work%20for%20me%20(with%20time%20zone)%3A%0A1.%20%0A2.%20%0A%0AThanks!">Book a call</a>
   <a href="tel:+919449045855">+91 94490 45855</a>
   <a href="https://www.linkedin.com/in/ranjitha-sridhar-a5b711311/" target="_blank" rel="noopener">LinkedIn</a>
-  <a href="../assets/Ranjitha-S-Resume.pdf" download="Ranjitha-S-Resume.pdf" target="_blank">Résumé</a>
+  <a href="../assets/Ranjitha-S-Resume.pdf" download="Ranjitha-S-Resume.pdf" target="_blank" rel="noopener noreferrer" rel="noopener noreferrer">Résumé</a>
  </div>
  <form class="card" id="cf" style="max-width:720px">
   <b>Send a note</b>
@@ -262,14 +263,14 @@ const P=[
  inn:'Landmark-based features keep recognition fast enough for live webcam input.',
  steps:[['Capture','Live webcam frames'],['Detect','MediaPipe hand landmarks'],['Extract','Relevant features per frame'],['Classify','CNN predicts the letter'],['Display','Alphabet shown in real time']],
  gd:['Model training and evaluation on a prepared dataset','Accuracy and speed tuned for real-time use'],
- role:'Handled dataset preparation, preprocessing, model training, real-time inference integration and optimisation. Mentor: Ms Chethana H R.',stack:['Python','OpenCV','MediaPipe','TensorFlow','Keras','CNN','NumPy']},
+ role:'Handled dataset preparation, preprocessing, model training, real-time inference integration and optimisation. Mentor: Ms Chethana H R.',stack:['Python','OpenCV','MediaPipe','TensorFlow','Keras','CNN','NumPy'],repo:'https://github.com/PraveenKumarM17/Gesture'},
 {tag:'Web · DBMS',title:'Events Management System',short:'Events for students and organisers',when:'Mar – Jul 2025 · team of 4',metric:'4',ml:'person team, frontend built with React.js',
  problem:'Students and organisers need one place to publish, find and manage events.',
  approach:'A React.js interface with responsive pages pulls event data through APIs from the backend team’s services.',
  inn:'A smooth, responsive experience for both students and organisers on shared event data.',
  steps:[['Design','Responsive pages in HTML and CSS'],['Build','Interactive UI with JavaScript and React.js'],['Integrate','APIs for event data'],['Collaborate','GitHub with the backend team'],['Ship','Single experience for students and organisers']],
  gd:['Version control and integration through GitHub','Responsive across screen sizes'],
- role:'Frontend Developer — built the user interface and integrated the event APIs.',stack:['HTML','CSS','JavaScript','React.js','GitHub']}];
+ role:'Frontend Developer — built the user interface and integrated the event APIs.',stack:['HTML','CSS','JavaScript','React.js','GitHub'],repo:'https://github.com/ssarveshr/DBMS-project-'}];
 const nav=['About:about','Pipeline:reel','Work:work','Ask:ask','Experience:experience','Toolkit:toolkit','Contact:contact'];
 $('#nav').innerHTML=nav.map(n=>{const[a,b]=n.split(':');return`<a href="#${b}">${a}</a>`}).join('');
 const tk=['Python','C','C++','Java','JavaScript','FastAPI','React.js','OpenCV','TensorFlow','MediaPipe','PostgreSQL','Data Structures'];
@@ -287,10 +288,10 @@ function show(i){cur=i;const p=P[i];document.querySelectorAll('#tabs button').fo
 $('#wk').innerHTML=`<div><span class="kick">${p.tag}</span><h3>${p.title}</h3><div class="big">${p.metric}</div><p>${p.ml}</p><p style="margin-top:10px"><small>${p.when}</small></p></div><div><h4>Problem</h4><p>${p.problem}</p><h4>Approach</h4><p>${p.approach}</p><h4>What’s new</h4><p>${p.inn}</p><div style="margin-top:20px"><button class="btn p" data-cs="${i}">Read the case study</button></div></div>`}
 $('#tabs').onclick=e=>{const b=e.target.closest('button');if(b)show(+b.dataset.i)};
 $('#wk').onclick=e=>{const b=e.target.closest('[data-cs]');if(b)openCS(+b.dataset.cs)};
-function openCS(i){cur=i;const p=P[i],n=P.length;$('#csb').innerHTML=`<button class="btn" id="x">Close ✕</button><p class="kick" style="margin-top:24px">Case study · ${p.tag}</p><h2>${p.title}</h2><p class="lead">${p.approach}</p><div class="row"><div class="card"><div class="big">${p.metric}</div>${p.ml}</div></div><h3 style="margin-top:30px">The problem</h3><p class="lead">${p.problem}</p><h3 style="margin-top:30px">How it works</h3><ol>${p.steps.map(s=>`<li><b style="color:var(--tx)">${s[0]}</b> — ${s[1]}</li>`).join('')}</ol><h3 style="margin-top:30px">What’s new</h3><p class="lead">${p.inn}</p><h3 style="margin-top:30px">Guardrails &amp; quality</h3><ul class="lead">${p.gd.map(g=>`<li>${g}</li>`).join('')}</ul><h3 style="margin-top:30px">My role</h3><p class="lead">${p.role}</p><h3 style="margin-top:30px">Stack</h3><div>${p.stack.map(s=>`<span class="chip">${s}</span>`).join('')}</div><div class="row" style="margin-top:34px;justify-content:space-between"><button class="btn" data-go="${(i+n-1)%n}">← ${P[(i+n-1)%n].title.split(' ')[0]}</button><a class="btn p" href="mailto:ranjithasgowda245@gmail.com?subject=About%20${encodeURIComponent(p.title)}">Talk about a project like this</a><button class="btn" data-go="${(i+1)%n}">${P[(i+1)%n].title.split(' ')[0]} →</button></div>`;
+function openCS(i){cur=i;const p=P[i],n=P.length;$('#csb').innerHTML=`<button class="btn" id="x">Close ✕</button><p class="kick" style="margin-top:24px">Case study · ${p.tag}</p><h2>${p.title}</h2><p class="lead">${p.approach}</p><div class="row"><div class="card"><div class="big">${p.metric}</div>${p.ml}</div></div><h3 style="margin-top:30px">The problem</h3><p class="lead">${p.problem}</p><h3 style="margin-top:30px">How it works</h3><ol>${p.steps.map(s=>`<li><b style="color:var(--tx)">${s[0]}</b> — ${s[1]}</li>`).join('')}</ol><h3 style="margin-top:30px">What’s new</h3><p class="lead">${p.inn}</p><h3 style="margin-top:30px">Guardrails &amp; quality</h3><ul class="lead">${p.gd.map(g=>`<li>${g}</li>`).join('')}</ul><h3 style="margin-top:30px">My role</h3><p class="lead">${p.role}</p><h3 style="margin-top:30px">Stack</h3><div>${p.stack.map(s=>`<span class="chip">${s}</span>`).join('')}</div><div class="row" style="margin-top:34px;justify-content:space-between"><button class="btn" data-go="${(i+n-1)%n}">← ${P[(i+n-1)%n].title.split(' ')[0]}</button>${p.repo?`<a class="btn" href="${p.repo}" target="_blank" rel="noopener noreferrer">GitHub Repo ↗</a>`:''}${p.repo?`<a class="btn" href="${p.repo}" target="_blank" rel="noopener noreferrer">GitHub Repo ↗</a>`:''}<a class="btn p" href="mailto:ranjithasgowda245@gmail.com?subject=About%20${encodeURIComponent(p.title)}">Talk about a project like this</a><button class="btn" data-go="${(i+1)%n}">${P[(i+1)%n].title.split(' ')[0]} →</button></div>`;
 $('#cs').classList.add('on');$('#cs').scrollTop=0;document.body.style.overflow='hidden'}
 function closeCS(){$('#cs').classList.remove('on');document.body.style.overflow=''}
-$('#cs').onclick=e=>{if(e.target.id=='x')closeCS();const g=e.target.closest('[data-go]');if(g)openCS(+g.dataset.go)};
+$('#cs').onclick=e=>{if(e.target.id=='x'||e.target.id=='cs')closeCS();const g=e.target.closest('[data-go]');if(g)openCS(+g.dataset.go)};
 addEventListener('keydown',e=>{if(e.key=='Escape')closeCS()});
 show(0);
 // reel
@@ -303,7 +304,7 @@ const A=[['What have you built?','I’ve built four projects: MoodSync-AI (emoti
 ['Where do you study?','I’m pursuing a B.E. in Computer Science & Engineering at RNS Institute of Technology, Bengaluru (2023 – 2027), with a CGPA of 9.49 / 10.'],
 ['What are you looking for?','Opportunities in software development, especially backend systems, cloud-native applications and AI-driven products, where I can keep growing and ship real work.'],
 ['How can I reach you?','Email ranjithasgowda245@gmail.com, call +91 94490 45855, or connect on LinkedIn. The contact form below also works.']];
-const say=(t,u)=>{const m=E('div',t,'m'+(u?' u':''));$('#msgs').append(m);$('#msgs').scrollTop=1e5};
+const say=(t,u)=>{const m=document.createElement('div');m.className='m'+(u?' u':'');m.textContent=t;$('#msgs').append(m);$('#msgs').scrollTop=1e5};
 say('Hi, I’m Ranjitha’s assistant. Ask about her projects, skills or studies.');
 $('#sug').innerHTML=A.map((a,i)=>`<button class="btn chip" data-a="${i}">${a[0]}</button>`).join('');
 $('#sug').onclick=e=>{const b=e.target.closest('[data-a]');if(b){say(A[b.dataset.a][0],1);setTimeout(()=>say(A[b.dataset.a][1]),350)}};

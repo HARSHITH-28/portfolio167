@@ -65,7 +65,7 @@
       font-family: var(--font-sans);
       line-height: 1.65;
       -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
+      overflow-x: clip;
     }
 
     /* Subtle Ambient Background Grid & Glow */
@@ -1163,14 +1163,33 @@
       });
     });
 
-    // Copy Email with Toast Feedback
+    // Copy Email with Toast Feedback (iframe & HTTP safe)
     function copyEmail(email) {
-      navigator.clipboard.writeText(email).then(() => {
+      const show = (msg) => {
         const toast = document.getElementById('toast');
-        toast.textContent = `Copied: ${email}`;
+        toast.textContent = msg;
         toast.classList.add('show');
         setTimeout(() => toast.classList.remove('show'), 2600);
-      });
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(email).then(() => show(`Copied: ${email}`)).catch(() => fallbackCopy(email, show));
+      } else {
+        fallbackCopy(email, show);
+      }
+    }
+    function fallbackCopy(text, show) {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.cssText = 'position:fixed;opacity:0;pointer-events:none';
+      document.body.appendChild(ta);
+      ta.select();
+      try {
+        document.execCommand('copy');
+        show(`Copied: ${text}`);
+      } catch {
+        show(`Email: ${text}`);
+      }
+      document.body.removeChild(ta);
     }
   </script>
 </body>

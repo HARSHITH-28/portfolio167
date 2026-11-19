@@ -11,7 +11,7 @@ export function OutLink({
   placeholder?: boolean;
 }) {
   return (
-    <a href={href} target="_blank" rel="noreferrer" className="tap inline-flex h-11 items-center gap-2 text-sm">
+    <a href={href} target={href.startsWith("#") ? undefined : "_blank"} rel={href.startsWith("#") ? undefined : "noreferrer"} className="tap inline-flex h-11 items-center gap-2 text-sm">
       <span className="border-b border-current pb-px">{children}</span>
       {placeholder ? (
         <span className="text-xs tracking-widest text-lacquer uppercase">Placeholder</span>

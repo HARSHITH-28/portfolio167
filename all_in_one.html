@@ -37,7 +37,7 @@
       color: var(--text);
       font-family: var(--font-sans);
       min-height: 100vh;
-      overflow-x: hidden;
+      overflow-x: clip;
       -webkit-font-smoothing: antialiased;
     }
 
@@ -720,7 +720,7 @@
         </span>
       </a>
       <div class="top-actions">
-        <a class="pill-link" href="assets/Ranjitha-S-Resume.pdf" download="Ranjitha-S-Resume.pdf" target="_blank">
+        <a class="pill-link" href="assets/Ranjitha-S-Resume.pdf" download="Ranjitha-S-Resume.pdf" target="_blank" rel="noopener noreferrer">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 19h16"/></svg>
           Résumé PDF
         </a>
@@ -737,7 +737,7 @@
       <div>
         <div class="eyebrow">
           <span class="live-dot"></span>
-          <span>13 AI Portfolios · 12 Project Folders · 1 Unified Hub</span>
+          <span>13 AI Portfolios · 13 Project Folders · 1 Unified Hub</span>
         </div>
         <h1>Every AI Portfolio,<br><span class="grad-text">One Command Center.</span></h1>
         <p class="hero-lead">
@@ -807,9 +807,9 @@
           <strong id="modal-title" style="font-family: var(--font-display); font-size: 18px">Antigravity (3D WebGL Mirror)</strong>
         </div>
         <div style="display: flex; align-items: center; gap: 10px">
-          <button type="button" class="pill-link" onclick="setFrameWidth('100%')">Desktop</button>
-          <button type="button" class="pill-link" onclick="setFrameWidth('768px')">Tablet</button>
-          <button type="button" class="pill-link" onclick="setFrameWidth('390px')">Mobile</button>
+          <button type="button" class="pill-link frame-size-btn" onclick="setFrameWidth('100%', this)">Desktop</button>
+          <button type="button" class="pill-link frame-size-btn" onclick="setFrameWidth('768px', this)">Tablet</button>
+          <button type="button" class="pill-link frame-size-btn" onclick="setFrameWidth('390px', this)">Mobile</button>
           <a id="modal-open-link" href="antigravity/index.html" class="pill-link primary">Redirect to Full Page ↗</a>
           <button type="button" class="pill-link" onclick="closePreview()" aria-label="Close preview">✕ Close</button>
         </div>
@@ -1021,6 +1021,14 @@
         return matchCat && matchQ;
       });
 
+      if (!filtered.length) {
+        gridEl.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:56px 24px;border-radius:20px;border:1px dashed var(--border);background:var(--bg-card)">
+          <p style="font-family:var(--font-display);font-size:22px;font-weight:700;margin-bottom:8px">No matching portfolios found</p>
+          <p style="color:var(--text-muted);font-size:14px;margin-bottom:18px">Try clearing your search query or switching back to All Portfolios.</p>
+          <button type="button" class="pill-link primary" style="cursor:pointer" onclick="resetFilters()">Reset Filters</button>
+        </div>`;
+        return;
+      }
       gridEl.innerHTML = filtered.map((p) => {
         const swatchesHtml = p.palette.map((c) => `<span class="swatch" style="background:${c}" title="${c}"></span>`).join('');
         const tagsHtml = p.tags.map((t) => `<span class="tag">${t}</span>`).join('');
@@ -1111,9 +1119,20 @@
       document.body.style.overflow = '';
     }
 
-    function setFrameWidth(w) {
+    function setFrameWidth(w, btn) {
       document.getElementById('modal-iframe').style.width = w;
+      document.querySelectorAll('.frame-size-btn').forEach((b) => b.style.borderColor = '');
+      if (btn) btn.style.borderColor = 'var(--acc)';
     }
+    function resetFilters() {
+      searchInput.value = '';
+      activeFilter = 'all';
+      document.querySelectorAll('.filter-btn').forEach((b) => b.classList.toggle('active', b.getAttribute('data-filter') === 'all'));
+      renderCards();
+    }
+    document.getElementById('preview-modal').addEventListener('click', (e) => {
+      if (e.target === e.currentTarget) closePreview();
+    });
 
     window.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') closePreview();
