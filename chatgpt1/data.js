@@ -24,7 +24,7 @@ window.PORTFOLIO_DATA = {
         { title: 'Recommend', subtitle: 'FastAPI · React', description: 'An API responds with a music recommendation for the interface to present.' }
       ],
       repoUrl: '', // Replace with https://github.com/PraveenKumarM17/MoodSync-AI
-      liveUrl: ''  // Replace with your deployed application URL
+      liveUrl: 'https://mood-sync-ai-v2-aoofar6ji-ranjitha-s.vercel.app/'
     },
     {
       id: 'campusar', number: '02', title: 'CampusAR', subtitle: 'A smarter way to find your way.',

@@ -720,9 +720,9 @@
         </span>
       </a>
       <div class="top-actions">
-        <a class="pill-link" href="assets/Ranjitha-S-Resume.pdf" download="Ranjitha-S-Resume.pdf" target="_blank" rel="noopener noreferrer">
+        <a class="pill-link" href="assets/Ranjitha-S-Resume.pdf" download="Ranjitha-S-Resume.pdf" target="_blank" rel="noopener noreferrer" rel="noopener noreferrer">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 19h16"/></svg>
-          Résumé PDF
+          Resume PDF
         </a>
         <a class="pill-link" href="https://www.linkedin.com/in/ranjitha-sridhar-a5b711311/" target="_blank" rel="noopener">LinkedIn ↗</a>
         <a class="pill-link" href="https://github.com/HARSHITH-28/portfolio167" target="_blank" rel="noopener">GitHub Repo ↗</a>
@@ -1021,6 +1021,14 @@
         return matchCat && matchQ;
       });
 
+      if (!filtered.length) {
+        gridEl.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:56px 24px;border-radius:20px;border:1px dashed var(--border);background:var(--bg-card)">
+          <p style="font-family:var(--font-display);font-size:22px;font-weight:700;margin-bottom:8px">No matching portfolios found</p>
+          <p style="color:var(--text-muted);font-size:14px;margin-bottom:18px">Try clearing your search query or switching back to All Portfolios.</p>
+          <button type="button" class="pill-link primary" style="cursor:pointer" onclick="resetFilters()">Reset Filters</button>
+        </div>`;
+        return;
+      }
       if (!filtered.length) {
         gridEl.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:56px 24px;border-radius:20px;border:1px dashed var(--border);background:var(--bg-card)">
           <p style="font-family:var(--font-display);font-size:22px;font-weight:700;margin-bottom:8px">No matching portfolios found</p>

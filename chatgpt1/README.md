@@ -44,7 +44,7 @@ Project deployment URLs and the other repository URLs were not included in the s
 - **Name, email, social URLs:** edit the copy in `index.html`; also update `email` and `linkedin` in `data.js` (used by interactive features) and the schema.org metadata in the HTML.
 - **Project descriptions and stacks:** edit `data.js`. The project grid, filters, modal, and interactive architecture explorer use this data.
 - **Photo:** replace `assets/ranjitha-portrait.png` with a higher-resolution professional headshot of the same filename (or update its path in `index.html`). The included image is extracted from the supplied academic resume at 200 × 200 pixels.
-- **Résumé:** replace `assets/ranjitha-public-resume.pdf` with your preferred public résumé. The included PDF is a privacy-conscious summary of the two source resumes. It omits the home address, date of birth, and phone number.
+- **Resume:** replace `assets/ranjitha-public-resume.pdf` with your preferred public resume. The included PDF is a privacy-conscious summary of the two source resumes. It omits the home address, date of birth, and phone number.
 - **Theme:** edit CSS variables at the beginning of `styles.css`.
 - **Project visual art:** replace the custom `assets/project-*.svg` images and update image paths in `data.js`.
 - **Contact:** the contact form opens a prefilled email draft via `mailto:`. It does **not** send mail on its own or require any secret API key. If you want direct web form delivery, integrate a form provider or server endpoint before changing the form's messaging.

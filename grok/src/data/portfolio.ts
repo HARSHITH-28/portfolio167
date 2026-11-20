@@ -51,8 +51,8 @@ export const projects: Project[] = [
     stack: ["Python", "FastAPI", "React.js", "TensorFlow/Keras", "OpenCV"],
     flow: ["Webcam frame", "React client", "FastAPI", "Keras model + OpenCV", "Music recommendation"],
     links: [
-      { label: "Interactive Studio", href: "#studio", placeholder: false },
-      { label: "Repository", href: "https://github.com/PraveenKumarM17/Gesture", placeholder: false },
+      { label: "Live demo", href: "https://mood-sync-ai-v2-aoofar6ji-ranjitha-s.vercel.app/", placeholder: false },
+      { label: "Repository", href: "https://github.com/ranjitha-sridhar/MoodSync-AI-V2", placeholder: false },
     ],
     pose: POSE_OPEN,
   },
@@ -101,8 +101,8 @@ export const projects: Project[] = [
     stack: ["Python", "OpenCV", "MediaPipe", "TensorFlow", "Keras", "NumPy", "CNN"],
     flow: ["Webcam frame", "MediaPipe landmarks", "Preprocess", "CNN classifier", "Letter on screen"],
     links: [
-      { label: "Interactive Studio", href: "#studio", placeholder: false },
-      { label: "Repository", href: "https://github.com/PraveenKumarM17/Gesture", placeholder: false },
+      { label: "Live demo", href: "https://mood-sync-ai-v2-aoofar6ji-ranjitha-s.vercel.app/", placeholder: false },
+      { label: "Repository", href: "https://github.com/ranjitha-sridhar/MoodSync-AI-V2", placeholder: false },
     ],
     pose: POSE_V,
   },

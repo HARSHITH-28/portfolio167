@@ -1,5 +1,5 @@
 /* Original, dependency-free interactions for Ranjitha S's portfolio.
-   Content assembled from the two user-provided résumés. */
+   Content assembled from the two user-provided resumes. */
 'use strict';
 
 const PROJECTS = [
@@ -9,7 +9,7 @@ const PROJECTS = [
     problem: 'Connect facial emotion recognition with a practical, engaging music recommendation interface instead of stopping at a model prediction.',
     approach: 'Capture webcam frames in React, use OpenCV-based image processing and a TensorFlow/Keras model, and serve emotion predictions and recommendations through FastAPI REST endpoints.',
     innovation: 'Built REST APIs for prediction and recommendation; integrated model inference and webcam capture with the frontend; deployed the application as separate frontend and backend services.',
-    role: 'Full-stack and machine-learning application development. The résumé describes contributions across React, FastAPI, OpenCV and TensorFlow/Keras.',
+    role: 'Full-stack and machine-learning application development. The resume describes contributions across React, FastAPI, OpenCV and TensorFlow/Keras.',
     tech: ['React.js','FastAPI','Python','TensorFlow / Keras','OpenCV','REST APIs'],
     art: 'assets/project-moodsync.svg',
     artAlt: 'Abstract diagram with facial-emotion detection connected to a recommendation output',
@@ -21,7 +21,7 @@ const PROJECTS = [
     problem: 'Make it easier to navigate complex campus spaces, including the difficult handoff between outdoor GPS routing and indoor locations.',
     approach: 'Modeled campus paths as navigation graphs, generated routes using shortest-path algorithms, and built Node.js REST APIs backed by PostgreSQL/PostGIS.',
     innovation: 'Combined GPS position updates, QR-based indoor relocalization, WebSocket communication, and AR directional guidance; organized the backend into API, application, domain, and data-access layers.',
-    role: 'Full-stack project development, including routing logic, location-aware features and backend API architecture, as described in the résumé.',
+    role: 'Full-stack project development, including routing logic, location-aware features and backend API architecture, as described in the resume.',
     tech: ['React','TypeScript','Node.js','PostgreSQL','PostGIS','WebSockets','REST APIs'],
     art: 'assets/project-campusar.svg',
     artAlt: 'Stylized campus graph with an illuminated path and AR destination marker',
@@ -31,9 +31,9 @@ const PROJECTS = [
     title: 'Sign Language Interpreter', short: 'SIGN LANGUAGE / 03', tag: 'AI / ACCESSIBILITY',
     summary: 'A real-time sign-language gesture recognition system designed to translate webcam hand gestures into readable alphabet characters.',
     problem: 'Use accessible computer-vision technology to help translate signed alphabet gestures into text on a screen.',
-    approach: 'Process live webcam input with OpenCV; use hand detection and landmark extraction with MediaPipe and a TensorFlow/Keras CNN-based classification pipeline described in the project résumé.',
+    approach: 'Process live webcam input with OpenCV; use hand detection and landmark extraction with MediaPipe and a TensorFlow/Keras CNN-based classification pipeline described in the project resume.',
     innovation: 'Prepared and preprocessed gesture datasets, trained and evaluated models, integrated live webcam inference, and worked on prediction performance.',
-    role: 'Dataset preparation, preprocessing, model training, live webcam integration and optimization are explicitly noted in the academic résumé; this was a four-person team project.',
+    role: 'Dataset preparation, preprocessing, model training, live webcam integration and optimization are explicitly noted in the academic resume; this was a four-person team project.',
     tech: ['Python','OpenCV','MediaPipe','TensorFlow / Keras','CNN','NumPy'],
     art: 'assets/project-sign.svg',
     artAlt: 'Hand outline with computer vision landmarks and a predicted letter',
@@ -45,7 +45,7 @@ const PROJECTS = [
     problem: 'Make it easy for students and event organizers to access and interact with event information in a clear, responsive interface.',
     approach: 'Developed the frontend using React.js, HTML, CSS and JavaScript; integrated event-related APIs and collaborated with the backend team via GitHub.',
     innovation: 'Implemented responsive pages and coordinated frontend-backend integration for a smooth event-browsing experience.',
-    role: 'Frontend developer. Worked on the user interface, responsive behavior, API integration, and team collaboration. The academic résumé notes a four-person team.',
+    role: 'Frontend developer. Worked on the user interface, responsive behavior, API integration, and team collaboration. The academic resume notes a four-person team.',
     tech: ['React.js','JavaScript','HTML5','CSS3','API Integration','GitHub'],
     art: 'assets/project-events.svg',
     artAlt: 'Stylized event-management calendar and application dashboard',
@@ -176,7 +176,7 @@ function renderProject(index){
   setText('projectProblem',p.problem);setText('projectApproach',p.approach);setText('projectPosition',String(projectIndex+1).padStart(2,'0'));
   const tech=$('projectTech');tech.replaceChildren();p.tech.slice(0,5).forEach(name=>{let span=document.createElement('span');span.textContent=name.toUpperCase();tech.append(span);});
   const repo=$('projectRepo');repo.href=p.repo||'https://github.com/PraveenKumarM17/Gesture';
-  repo.textContent=p.repo?'View résumé-linked repository ↗':'Browse GitHub (repo link pending) ↗';
+  repo.textContent=p.repo?'View resume-linked repository ↗':'Browse GitHub (repo link pending) ↗';
   repo.classList.toggle('is-unavailable',!p.repo);
 }
 function renderCase(){
@@ -186,7 +186,7 @@ function renderCase(){
   setText('caseInnovation',p.innovation);setText('caseRole',p.role);
   const im=$('caseArt');im.src=p.art;im.alt=p.artAlt;
   const tech=$('caseTech');tech.replaceChildren();p.tech.forEach(name=>{const span=document.createElement('span');span.textContent=name.toUpperCase();tech.append(span);});
-  const repo=$('caseRepo');repo.href=p.repo||'https://github.com/PraveenKumarM17/Gesture';repo.textContent=p.repo?'VIEW RÉSUMÉ-LINKED REPOSITORY ↗':'GITHUB PROFILE · REPO LINK PENDING ↗';repo.classList.toggle('is-unavailable',!p.repo);
+  const repo=$('caseRepo');repo.href=p.repo||'https://github.com/PraveenKumarM17/Gesture';repo.textContent=p.repo?'VIEW RESUME-LINKED REPOSITORY ↗':'GITHUB PROFILE · REPO LINK PENDING ↗';repo.classList.toggle('is-unavailable',!p.repo);
 }
 function initProjects(){
   document.querySelectorAll('.project-index-item').forEach(b=>b.addEventListener('click',()=>renderProject(Number(b.dataset.project))));
@@ -221,19 +221,19 @@ function initSkills(){
 
 function answerQuestion(raw){
   const q=raw.toLowerCase();
-  if(/mood|emotion|music/.test(q))return 'MoodSync-AI is an emotion-aware music recommendation app. A React frontend captures webcam frames, OpenCV prepares them, TensorFlow/Keras supports emotion recognition, and FastAPI connects predictions to music recommendations. The résumé says the frontend and backend were deployed as separate services.';
+  if(/mood|emotion|music/.test(q))return 'MoodSync-AI is an emotion-aware music recommendation app. A React frontend captures webcam frames, OpenCV prepares them, TensorFlow/Keras supports emotion recognition, and FastAPI connects predictions to music recommendations. The resume says the frontend and backend were deployed as separate services.';
   if(/campus|navigation|\bar\b|postgis|gps|route/.test(q))return 'CampusAR helps users navigate campus indoor and outdoor spaces. It uses React and TypeScript, Node.js REST APIs, PostgreSQL/PostGIS, graph-based shortest paths, GPS updates, QR-assisted indoor positioning, WebSockets, and AR direction cues.';
-  if(/sign language|gesture|\basl\b|accessib|deaf|hand/.test(q))return 'The Sign Language Interpreter recognizes hand gestures from webcam input and displays predicted alphabet characters. The academic résumé describes MediaPipe landmark detection and a TensorFlow/Keras CNN, plus Ranjitha’s work on dataset preparation, training, and webcam inference.';
+  if(/sign language|gesture|\basl\b|accessib|deaf|hand/.test(q))return 'The Sign Language Interpreter recognizes hand gestures from webcam input and displays predicted alphabet characters. The academic resume describes MediaPipe landmark detection and a TensorFlow/Keras CNN, plus Ranjitha’s work on dataset preparation, training, and webcam inference.';
   if(/event|management|frontend project/.test(q))return 'The Events Management System is a team project. Ranjitha worked as a frontend developer using React, HTML, CSS, and JavaScript, designed responsive pages, integrated event APIs, and collaborated with the backend team.';
   if(/project|portfolio|built|build|work/.test(q))return 'Four featured builds: (1) MoodSync-AI — emotion-aware music recommendations; (2) CampusAR — indoor/outdoor campus navigation; (3) Sign Language Interpreter — computer-vision accessibility; and (4) Events Management System — responsive React frontend. Open “Selected work” to explore each case study.';
   if(/samsung|intern|training|industry/.test(q))return 'Ranjitha was a Student Trainee at Samsung Innovation Campus from November 2024 to February 2025. Training focused on Python programming, algorithms, competitive programming, coding exercises and problem solving.';
-  if(/cgpa|college|degree|educat|graduate|university|rnsit/.test(q))return 'Ranjitha is pursuing B.E. in Computer Science & Engineering at RNS Institute of Technology in Bengaluru (2023–2027), with a 9.49/10 CGPA on the academic résumé. Earlier scores: 93.5% in Class 12 and 98% in Class 10.';
-  if(/ieee|gdsc|club|lead|secretary|society|collab/.test(q))return 'Outside coursework, Ranjitha served as Secretary of the IEEE Consumer Technology Society and was a Google Developer Student Clubs (GDSC) member. The résumés also highlight teamwork, leadership, communication and time management.';
-  if(/network|nptel|certificat/.test(q))return 'Ranjitha completed “Demystifying Networking,” an NPTEL course offered by IIT Madras, covering network architecture, TCP/IP, routing, switching and data communications. The academic résumé lists a 78/100 assessment score.';
-  if(/contact|email|reach|hire|opportun|connect|linkedin|github|resume/.test(q))return 'You can reach Ranjitha at ranjithasgowda245@gmail.com, see GitHub at github.com/PraveenKumarM17/Gesture, or connect on LinkedIn at linkedin.com/in/ranjitha-sridhar-a5b711311. The contact section has direct links and a résumé PDF.';
+  if(/cgpa|college|degree|educat|graduate|university|rnsit/.test(q))return 'Ranjitha is pursuing B.E. in Computer Science & Engineering at RNS Institute of Technology in Bengaluru (2023–2027), with a 9.49/10 CGPA on the academic resume. Earlier scores: 93.5% in Class 12 and 98% in Class 10.';
+  if(/ieee|gdsc|club|lead|secretary|society|collab/.test(q))return 'Outside coursework, Ranjitha served as Secretary of the IEEE Consumer Technology Society and was a Google Developer Student Clubs (GDSC) member. The resumes also highlight teamwork, leadership, communication and time management.';
+  if(/network|nptel|certificat/.test(q))return 'Ranjitha completed “Demystifying Networking,” an NPTEL course offered by IIT Madras, covering network architecture, TCP/IP, routing, switching and data communications. The academic resume lists a 78/100 assessment score.';
+  if(/contact|email|reach|hire|opportun|connect|linkedin|github|resume/.test(q))return 'You can reach Ranjitha at ranjithasgowda245@gmail.com, see GitHub at github.com/PraveenKumarM17/Gesture, or connect on LinkedIn at linkedin.com/in/ranjitha-sridhar-a5b711311. The contact section has direct links and a resume PDF.';
   if(/skill|stack|tool|tech|language|python|java|backend|api|react|database|frontend/.test(q))return 'Programming: Python, JavaScript, C++, Java, C and C#. Web/backend: React, TypeScript, FastAPI, Node.js, HTML/CSS, REST APIs and ASP.NET Core Web API. Data/ML: OpenCV, TensorFlow/Keras, NumPy and Pandas. Data stores include MySQL, PostgreSQL and PostGIS.';
-  if(/hobb|interest|read|badminton|draw/.test(q))return 'The academic résumé lists badminton, drawing and reading as personal interests.';
-  if(/hello|hey|hi|who are you|about you/.test(q))return 'Hi! I’m a local portfolio guide to Ranjitha S’s résumé and projects. Ask about MoodSync-AI, CampusAR, Samsung Innovation Campus, the tech stack, education or how to connect.';
+  if(/hobb|interest|read|badminton|draw/.test(q))return 'The academic resume lists badminton, drawing and reading as personal interests.';
+  if(/hello|hey|hi|who are you|about you/.test(q))return 'Hi! I’m a local portfolio guide to Ranjitha S’s resume and projects. Ask about MoodSync-AI, CampusAR, Samsung Innovation Campus, the tech stack, education or how to connect.';
   return 'I can answer questions about the four featured projects, technology stack, Samsung training, education, student leadership and contact details. Try “How does CampusAR work?” or “Tell me about MoodSync-AI.”';
 }
 function addMessage(sender,text){
