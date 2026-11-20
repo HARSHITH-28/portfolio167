@@ -92,6 +92,7 @@
   function projectLink(url, type) {
     const usable = safeURL(url);
     if (!usable) return `<span class="dialog-link disabled" aria-disabled="true" title="Add the ${type} URL in data.js">${type} · link pending ↗</span>`;
+    if (type === 'Live Demo') return `<a class="dialog-link demo" href="${escapeHTML(usable)}" target="_blank" rel="noopener noreferrer"><span class="demo-dot" aria-hidden="true"></span>Live Demo ↗</a>`;
     return `<a class="dialog-link" href="${escapeHTML(usable)}" target="_blank" rel="noopener noreferrer">View ${type} ↗</a>`;
   }
 

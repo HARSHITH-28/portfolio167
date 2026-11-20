@@ -64,6 +64,26 @@ function Hero() {
               Write to me
             </a>
           </div>
+          <div className="mt-4 flex flex-wrap gap-3">
+            <a
+              href="https://retailpulse.up.railway.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex h-10 items-center gap-2 rounded-full border border-lacquer/60 bg-lacquer/15 px-4 text-xs font-medium tracking-wide text-paper transition-colors hover:bg-lacquer"
+            >
+              <span className="size-1.5 rounded-full bg-lacquer" aria-hidden="true" />
+              RetailPulse Live Demo &#8599;
+            </a>
+            <a
+              href="https://mood-sync-ai-v2-ranjitha-s.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex h-10 items-center gap-2 rounded-full border border-paper/25 bg-paper/10 px-4 text-xs font-medium tracking-wide text-paper transition-colors hover:border-lacquer hover:bg-lacquer"
+            >
+              <span className="size-1.5 rounded-full bg-paper" aria-hidden="true" />
+              MoodSync-AI V2 Live Demo &#8599;
+            </a>
+          </div>
         </div>
         <figure className="mx-auto w-40 md:w-full md:max-w-sm">
           <div className="aspect-square border border-paper/15">
@@ -77,8 +97,12 @@ function Hero() {
       <div className="border-t border-paper/15">
         <p className="mx-auto max-w-6xl px-5 py-4 text-sm text-paper/75 md:px-8">
           Now ·{" "}
+          <Link to="/work/$slug" params={{ slug: "retailpulse" }} className="nav-link">
+            RetailPulse
+          </Link>
+          ,{" "}
           <Link to="/work/$slug" params={{ slug: "moodsync" }} className="nav-link">
-            MoodSync-AI
+            MoodSync-AI V2
           </Link>{" "}
           and{" "}
           <Link to="/work/$slug" params={{ slug: "campusar" }} className="nav-link">
@@ -96,7 +120,7 @@ function Work() {
       <div className="mx-auto max-w-6xl px-5 md:px-8">
         <Reveal>
           <p className="text-xs tracking-widest text-lacquer uppercase">Selected work</p>
-          <h2 className="mt-3 max-w-xl text-4xl sm:text-5xl">Four systems, each with a person at the end of it.</h2>
+          <h2 className="mt-3 max-w-xl text-4xl sm:text-5xl">Five systems, each with a person at the end of it.</h2>
         </Reveal>
         <div className="mt-14 divide-y divide-line border-y border-line">
           {projects.map((project, index) => (

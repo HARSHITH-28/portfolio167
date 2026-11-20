@@ -26,7 +26,7 @@ const PROJECTS = [
     tech: ['React.js','FastAPI','Python','TensorFlow / Keras','OpenCV','REST APIs'],
     art: 'assets/project-moodsync.svg',
     artAlt: 'Abstract diagram with facial-emotion detection connected to a recommendation output',
-    demo: 'https://mood-sync-ai-v2-aoofar6ji-ranjitha-s.vercel.app/',
+    demo: 'https://mood-sync-ai-v2-ranjitha-s.vercel.app/',
     repo: 'https://github.com/ranjitha-sridhar/MoodSync-AI-V2', artMicro: '7-CLASS EMOTION ENGINE'
   },
   {
@@ -249,16 +249,16 @@ function answerQuestion(raw){
   if(/sign language|gesture|\basl\b|accessib|deaf|hand/.test(q))return 'The Sign Language Interpreter recognizes hand gestures from webcam input and displays predicted alphabet characters. The academic resume describes MediaPipe landmark detection and a TensorFlow/Keras CNN, plus Ranjitha’s work on dataset preparation, training, and webcam inference.';
   if(/event|management|frontend project/.test(q))return 'The Events Management System is a team project. Ranjitha worked as a frontend developer using React, HTML, CSS, and JavaScript, designed responsive pages, integrated event APIs, and collaborated with the backend team.';
   if(/retail|forecast|xgboost|inventory|m5/.test(q))return 'RetailPulse is a full-stack retail demand forecasting and inventory optimization platform using historical M5 data, XGBoost (MAE & WAPE), FastAPI + JWT, and React. Live Demo: retailpulse.up.railway.app';
-  if(/project|portfolio|built|build|work/.test(q))return 'Five featured builds including RetailPulse (retailpulse.up.railway.app) and MoodSync-AI V2 (mood-sync-ai-v2-aoofar6ji-ranjitha-s.vercel.app), plus CampusAR, Sign Language Interpreter, and Events Management System. (1) MoodSync-AI — emotion-aware music recommendations; (2) CampusAR — indoor/outdoor campus navigation; (3) Sign Language Interpreter — computer-vision accessibility; and (4) Events Management System — responsive React frontend. Open “Selected work” to explore each case study.';
+  if(/project|portfolio|built|build|work/.test(q))return 'Five featured builds including RetailPulse (retailpulse.up.railway.app) and MoodSync-AI V2 (mood-sync-ai-v2-ranjitha-s.vercel.app), plus CampusAR, Sign Language Interpreter, and Events Management System: (1) RetailPulse — M5 demand forecasting & inventory optimization; (2) MoodSync-AI V2 — emotion-aware music recommendations; (3) CampusAR — indoor/outdoor campus navigation; (4) Sign Language Interpreter — computer-vision accessibility; and (5) Events Management System — responsive React frontend. Open “Selected work” to explore each case study.';
   if(/samsung|intern|training|industry/.test(q))return 'Ranjitha was a Student Trainee at Samsung Innovation Campus from November 2024 to February 2025. Training focused on Python programming, algorithms, competitive programming, coding exercises and problem solving.';
   if(/cgpa|college|degree|educat|graduate|university|rnsit/.test(q))return 'Ranjitha is pursuing B.E. in Computer Science & Engineering at RNS Institute of Technology in Bengaluru (2023–2027), with a 9.49/10 CGPA on the academic resume. Earlier scores: 93.5% in Class 12 and 98% in Class 10.';
   if(/ieee|gdsc|club|lead|secretary|society|collab/.test(q))return 'Outside coursework, Ranjitha served as Secretary of the IEEE Consumer Technology Society and was a Google Developer Student Clubs (GDSC) member. The resumes also highlight teamwork, leadership, communication and time management.';
   if(/network|nptel|certificat/.test(q))return 'Ranjitha completed “Demystifying Networking,” an NPTEL course offered by IIT Madras, covering network architecture, TCP/IP, routing, switching and data communications. The academic resume lists a 78/100 assessment score.';
-  if(/contact|email|reach|hire|opportun|connect|linkedin|github|resume/.test(q))return 'You can reach Ranjitha at ranjithasgowda245@gmail.com, see GitHub at github.com/PraveenKumarM17/Gesture, or connect on LinkedIn at linkedin.com/in/ranjitha-sridhar-a5b711311. The contact section has direct links and a resume PDF.';
+  if(/contact|email|reach|hire|opportun|connect|linkedin|github|resume/.test(q))return 'You can reach Ranjitha at ranjithasgowda245@gmail.com, see GitHub at github.com/ranjitha-sridhar, or connect on LinkedIn at linkedin.com/in/ranjitha-sridhar-a5b711311. The contact section has direct links and a resume PDF.';
   if(/skill|stack|tool|tech|language|python|java|backend|api|react|database|frontend/.test(q))return 'Programming: Python, JavaScript, C++, Java, C and C#. Web/backend: React, TypeScript, FastAPI, Node.js, HTML/CSS, REST APIs and ASP.NET Core Web API. Data/ML: OpenCV, TensorFlow/Keras, NumPy and Pandas. Data stores include MySQL, PostgreSQL and PostGIS.';
   if(/hobb|interest|read|badminton|draw/.test(q))return 'The academic resume lists badminton, drawing and reading as personal interests.';
-  if(/hello|hey|hi|who are you|about you/.test(q))return 'Hi! I’m a local portfolio guide to Ranjitha S’s resume and projects. Ask about MoodSync-AI, CampusAR, Samsung Innovation Campus, the tech stack, education or how to connect.';
-  return 'I can answer questions about the four featured projects, technology stack, Samsung training, education, student leadership and contact details. Try “How does CampusAR work?” or “Tell me about MoodSync-AI.”';
+  if(/hello|hey|hi|who are you|about you/.test(q))return 'Hi! I’m a local portfolio guide to Ranjitha S’s resume and projects. Ask about RetailPulse, MoodSync-AI V2, CampusAR, Samsung Innovation Campus, the tech stack, education or how to connect.';
+  return 'I can answer questions about the five featured projects, technology stack, Samsung training, education, student leadership and contact details. Try “Tell me about RetailPulse” or “Tell me about MoodSync-AI V2.”';
 }
 function addMessage(sender,text){
   const log=$('chatMessages'), item=document.createElement('div');item.className='chat-message '+(sender==='user'?'user':'bot');

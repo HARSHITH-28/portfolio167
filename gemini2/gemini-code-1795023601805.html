@@ -273,6 +273,8 @@
     }
 
     .btn {
+      position: relative;
+      overflow: hidden;
       display: inline-flex;
       align-items: center;
       gap: 8px;
@@ -281,8 +283,24 @@
       font-size: 0.92rem;
       font-weight: 500;
       cursor: pointer;
-      transition: all 0.22s ease;
+      transition: transform 0.24s cubic-bezier(0.2, 0.8, 0.2, 1), background 0.22s ease, border-color 0.22s ease, box-shadow 0.24s ease;
       border: 1px solid transparent;
+    }
+    .btn::after, .btn-demo-pill::after {
+      content: '';
+      position: absolute;
+      inset: 0 auto 0 -130%;
+      width: 70%;
+      background: linear-gradient(105deg, transparent, rgba(255, 255, 255, 0.34), transparent);
+      transform: skewX(-18deg);
+      transition: left 0.55s cubic-bezier(0.2, 0.8, 0.2, 1);
+      pointer-events: none;
+    }
+    .btn:hover::after, .btn-demo-pill:hover::after {
+      left: 140%;
+    }
+    .btn:active, .btn-demo-pill:active, .btn-repo-pill:active {
+      transform: scale(0.975);
     }
 
     .btn-primary {
@@ -444,6 +462,8 @@
     }
 
     .btn-demo-pill {
+      position: relative;
+      overflow: hidden;
       display: inline-flex;
       align-items: center;
       gap: 7px;
@@ -455,12 +475,14 @@
       background: var(--accent-primary);
       color: #061311;
       text-decoration: none;
-      transition: transform 0.2s ease, filter 0.2s ease;
+      transition: transform 0.22s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.2s ease, box-shadow 0.24s ease;
+      box-shadow: 0 6px 18px rgba(16, 185, 129, 0.22);
     }
 
     .btn-demo-pill:hover {
       transform: translateY(-2px);
       filter: brightness(1.08);
+      box-shadow: 0 10px 26px rgba(16, 185, 129, 0.34);
     }
 
     .btn-repo-pill {
@@ -491,6 +513,22 @@
       border-radius: 999px;
       background: currentColor;
       display: inline-block;
+      animation: pulseAnim 2s infinite;
+    }
+    .project-card:hover {
+      box-shadow: 0 22px 48px -22px rgba(16, 185, 129, 0.24);
+    }
+    .skill-box, .cred-card {
+      transition: transform 0.26s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.25s ease, box-shadow 0.26s ease;
+    }
+    .skill-box:hover, .cred-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--border-accent);
+      box-shadow: 0 16px 34px -20px rgba(16, 185, 129, 0.22);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .pulse, .demo-dot { animation: none !important; }
+      * { transition: none !important; }
     }
 
     .project-title {
@@ -840,6 +878,8 @@
 
       <div class="hero-actions">
         <a href="#projects" class="btn btn-primary">Explore Projects ↓</a>
+        <a href="https://retailpulse.up.railway.app/" target="_blank" rel="noopener noreferrer" class="btn btn-demo-pill" style="padding:11px 18px;font-size:0.85rem;border-radius:12px"><span class="demo-dot" aria-hidden="true"></span>RetailPulse Live Demo &#8599;</a>
+        <a href="https://mood-sync-ai-v2-ranjitha-s.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn btn-repo-pill" style="padding:11px 18px;font-size:0.85rem;border-radius:12px;border-color:var(--border-accent)"><span class="demo-dot" aria-hidden="true" style="color:var(--accent-primary)"></span>MoodSync-AI V2 Live Demo &#8599;</a>
         <a href="https://www.linkedin.com/in/ranjitha-sridhar-a5b711311/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">LinkedIn ↗</a>
         <button type="button" class="btn btn-secondary" onclick="copyEmail('ranjithasgowda245@gmail.com')">Copy Email</button>
       </div>
@@ -912,7 +952,7 @@
               <span class="tag">REST APIs</span>
             </div>
             <div class="project-actions">
-              <a href="https://mood-sync-ai-v2-aoofar6ji-ranjitha-s.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-demo-pill"><span class="demo-dot" aria-hidden="true"></span>Live Demo &#8599;</a>
+              <a href="https://mood-sync-ai-v2-ranjitha-s.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-demo-pill"><span class="demo-dot" aria-hidden="true"></span>Live Demo &#8599;</a>
               <a href="https://github.com/ranjitha-sridhar/MoodSync-AI-V2" target="_blank" rel="noopener noreferrer" class="btn-repo-pill">GitHub Repo &#8599;</a>
             </div>
           </div>
@@ -1193,6 +1233,8 @@
         </div>
         <div class="contact-actions">
           <a href="mailto:ranjithasgowda245@gmail.com" class="btn btn-primary">ranjithasgowda245@gmail.com</a>
+          <a href="https://github.com/ranjitha-sridhar" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">GitHub ↗</a>
+          <a href="https://www.linkedin.com/in/ranjitha-sridhar-a5b711311/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">LinkedIn ↗</a>
           <button type="button" class="btn btn-secondary" onclick="copyEmail('ranjithas23cs@rnsit.ac.in')">Copy Academic Email</button>
           <a href="tel:+919449045855" class="btn btn-secondary">+91-9449045855</a>
         </div>

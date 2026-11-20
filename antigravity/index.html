@@ -47,7 +47,7 @@ a{color:var(--acc)}a:hover{color:#E8ECF2}
 .btn:hover{transform:translateY(-2px)}
 .btn-solid:hover{background:#E8ECF2 !important;color:#070B12 !important}
 .btn-ghost:hover{border-color:var(--acc) !important;color:var(--acc) !important}
-.btn-demo{background:color-mix(in srgb,var(--acc) 16%,#0C141D) !important;color:var(--acc) !important;border:1px solid color-mix(in srgb,var(--acc) 68%,transparent) !important;box-shadow:0 8px 24px color-mix(in srgb,var(--acc) 16%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.btn-demo{background:color-mix(in srgb,var(--acc) 16%,#0C141D) !important;color:var(--acc) !important;border:1px solid color-mix(in srgb,var(--acc) 68%,transparent) !important;box-shadow:0 8px 24px color-mix(in srgb,var(--acc) 16%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);flex-shrink:0;white-space:nowrap}
 .btn-demo:hover{background:var(--acc) !important;color:#070B12 !important;border-color:var(--acc) !important;box-shadow:0 12px 28px color-mix(in srgb,var(--acc) 36%,transparent)}
 @keyframes demoPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.45;transform:scale(.82)}}
 .demo-dot{width:7px;height:7px;border-radius:999px;background:currentColor;display:inline-block;flex-shrink:0;animation:demoPulse 1.8s ease-in-out infinite}
@@ -55,8 +55,10 @@ a{color:var(--acc)}a:hover{color:#E8ECF2}
 .tab:hover{padding-left:30px !important}
 .card-hover{transition:transform .5s cubic-bezier(.2,.8,.2,1),border-color .3s}
 .card-hover:hover{transform:translateY(-6px);border-color:var(--acc) !important}
-.portrait img{transition:transform 1.2s cubic-bezier(.2,.8,.2,1),filter .8s}
+.portrait img{transition:transform .85s cubic-bezier(.2,.8,.2,1),filter .7s ease}
 .portrait:hover img{transform:scale(1.05);filter:grayscale(0) contrast(1.05) !important}
+.chatcard img{background:#000;transition:transform .45s cubic-bezier(.22,1,.36,1),box-shadow .45s ease,filter .45s ease}
+.chatcard:hover img{transform:scale(1.08);box-shadow:0 0 0 2px var(--acc)}
 .outline{color:transparent;-webkit-text-stroke:1.2px rgba(232,236,242,.55)}
 
 @keyframes rise{from{transform:translateY(105%)}to{transform:translateY(0)}}
@@ -251,8 +253,18 @@ section{position:relative;z-index:1}
   .csnav > *{flex-grow:1;justify-content:center}
 }
 #contact a.btn-ghost{background:rgba(9,12,17,0.6);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.btn{position:relative;overflow:hidden}
+.btn:active{transform:translateY(0) scale(.985) !important}
+.btn-solid::after,.btn-demo::after{content:"";position:absolute;inset:0 auto 0 -130%;width:75%;background:linear-gradient(105deg,transparent,rgba(255,255,255,.32),transparent);transform:skewX(-18deg);transition:left .6s cubic-bezier(.2,.8,.2,1);pointer-events:none}
+.btn-solid:hover::after,.btn-demo:hover::after{left:140%}
+.card-hover:hover{box-shadow:0 22px 50px -24px color-mix(in srgb,var(--acc) 32%,transparent)}
+[role="tab"]{transition:background .3s ease,color .3s ease,padding-left .4s cubic-bezier(.2,.8,.2,1),box-shadow .3s ease}
+[role="tab"][aria-selected="true"]{box-shadow:inset 3px 0 0 var(--acc)}
+@keyframes csIn{from{opacity:0;transform:translateY(22px) scale(.985)}to{opacity:1;transform:none}}
+.csov .csbox{animation:csIn .38s cubic-bezier(.16,1,.3,1) both}
 .paused *,.paused{animation-play-state:paused !important}
 .reduced *,.reduced{animation:none !important}
+@media(prefers-reduced-motion:reduce){.demo-dot,.pulse,.stg,.stg-dot,.fade,.rv{animation:none !important;transition:none !important}}
 </style>
 </helmet>
 
@@ -368,12 +380,16 @@ Rajarajeshwari Nagar, Bengaluru, India
 <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 1.5v11l9-5.5z" fill="currentColor"></path></svg>See the vision pipeline</a>
 <a class="btn btn-ghost" href="assets/Ranjitha-S-Resume.pdf" download="Ranjitha-S-Resume.pdf" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 10px; height: 52px; padding: 0 24px; border-radius: 8px; border: 1px solid rgba(232,236,242,0.22); color: #E8ECF2; text-decoration: none; font-size: 15px; font-weight: 500"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v8M4.5 7L8 10.5 11.5 7M2.5 13.5h11"></path></svg>Resume</a>
 </div>
+<div class="rv" style="display: flex; gap: 10px; flex-wrap: wrap; align-items: center">
+<a class="btn btn-demo" href="https://retailpulse.up.railway.app/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 16px; border-radius: 999px; text-decoration: none; font-size: 13px; font-weight: 600"><span class="demo-dot" aria-hidden="true"></span>RetailPulse Live Demo &#8599;</a>
+<a class="btn btn-demo" href="https://mood-sync-ai-v2-ranjitha-s.vercel.app/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 16px; border-radius: 999px; text-decoration: none; font-size: 13px; font-weight: 600"><span class="demo-dot" aria-hidden="true"></span>MoodSync-AI V2 Live Demo &#8599;</a>
+</div>
 </div>
 
 <div class="fade" style="grid-column: span 4; position: relative; animation-delay: 1.45s">
 <div ref="{{setTilt}}" style="transition: transform 0.6s cubic-bezier(.2,.8,.2,1)">
-<div class="portrait float" style="position: relative; aspect-ratio: 4 / 5; border-radius: 20px; overflow: hidden; border: 1px solid rgba(232,236,242,0.14); background: rgba(16,20,27,0.74)">
-<img src="assets/portrait.jpg" alt="Portrait of Ranjitha S" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; filter: grayscale(0.35) contrast(1.05); display: block">
+<div class="portrait float" style="position: relative; aspect-ratio: 4 / 5; border-radius: 20px; overflow: hidden; border: 1px solid rgba(232,236,242,0.14); background: #000000">
+<img src="assets/portrait.jpg" alt="Portrait of Ranjitha S" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 18%; filter: grayscale(0.28) contrast(1.05); display: block">
 <div style="position: absolute; left: 0; right: 0; bottom: 0; padding: 18px 20px; display: flex; justify-content: space-between; align-items: center; background: linear-gradient(to top, rgba(9,12,17,0.88), transparent)">
 <span style="font-size: 13px; font-weight: 500; color: #E8ECF2">B.Tech CSE @ RNSIT</span>
 <span style="display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 500; color: var(--acc)"><span style="width: 7px; height: 7px; border-radius: 50%; background: var(--acc)"></span>9.49 CGPA</span>
@@ -430,7 +446,7 @@ Rajarajeshwari Nagar, Bengaluru, India
 <sc-if value="{{st1}}" hint-placeholder-val="{{ false }}">
 <div class="fade" style="pointer-events: auto; max-width: 560px; padding: 24px 30px; border-radius: 18px; border: 1px solid color-mix(in srgb, var(--acc) 45%, transparent); background: rgba(12,16,26,0.82); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); text-align: center; display: flex; flex-direction: column; gap: 14px; align-items: center; box-shadow: 0 20px 60px -20px color-mix(in srgb, var(--acc) 40%, transparent)">
 <span style="font-size: 18px; line-height: 1.5; color: #E8ECF2; font-weight: 500">RetailPulse, MoodSync-AI V2, CampusAR, Real-time ASL Interpreter, and Events Management System — built end to end.</span>
-<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px"><a class="btn btn-solid" href="#work" style="display: inline-flex; align-items: center; gap: 10px; height: 44px; padding: 0 20px; border-radius: 8px; background: var(--acc); color: #070B12; text-decoration: none; font-size: 14px; font-weight: 600">See the work <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"></path></svg></a><a class="btn btn-demo" href="https://retailpulse.up.railway.app/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 8px; height: 44px; padding: 0 16px; border-radius: 8px; text-decoration: none; font-size: 13px; font-weight: 600"><span class="demo-dot" aria-hidden="true"></span>RetailPulse Live Demo &#8599;</a><a class="btn btn-demo" href="https://mood-sync-ai-v2-aoofar6ji-ranjitha-s.vercel.app/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 8px; height: 44px; padding: 0 16px; border-radius: 8px; text-decoration: none; font-size: 13px; font-weight: 600"><span class="demo-dot" aria-hidden="true"></span>MoodSync-AI V2 Live Demo &#8599;</a></div>
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px"><a class="btn btn-solid" href="#work" style="display: inline-flex; align-items: center; gap: 10px; height: 44px; padding: 0 20px; border-radius: 8px; background: var(--acc); color: #070B12; text-decoration: none; font-size: 14px; font-weight: 600">See the work <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"></path></svg></a><a class="btn btn-demo" href="https://retailpulse.up.railway.app/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 8px; height: 44px; padding: 0 16px; border-radius: 8px; text-decoration: none; font-size: 13px; font-weight: 600"><span class="demo-dot" aria-hidden="true"></span>RetailPulse Live Demo &#8599;</a><a class="btn btn-demo" href="https://mood-sync-ai-v2-ranjitha-s.vercel.app/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 8px; height: 44px; padding: 0 16px; border-radius: 8px; text-decoration: none; font-size: 13px; font-weight: 600"><span class="demo-dot" aria-hidden="true"></span>MoodSync-AI V2 Live Demo &#8599;</a></div>
 </div>
 </sc-if>
 <sc-if value="{{st2}}" hint-placeholder-val="{{ false }}">
@@ -486,10 +502,10 @@ Rajarajeshwari Nagar, Bengaluru, India
 
 <div class="tilt3d {{reelClass}}" style="position: relative; border-radius: 20px; border: 1px solid rgba(232,236,242,0.12); background: rgba(12,16,22,0.8); overflow: hidden">
 <div style="display: flex; align-items: center; justify-content: space-between; padding: 16px 24px; border-bottom: 1px solid rgba(232,236,242,0.08)">
-<div style="display: flex; align-items: center; gap: 12px; font-size: 14px; color: #8E97A6">
+<div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-size: 14px; color: #8E97A6">
 <span class="pulse" style="width: 8px; height: 8px; border-radius: 50%; background: #FF5A4E; display: inline-block"></span>
 <span style="color: #E8ECF2; font-weight: 500">MoodSync-AI V2 &amp; ASL Vision Engine</span><span>— live inference loop</span>
-<a class="btn btn-demo" href="https://mood-sync-ai-v2-aoofar6ji-ranjitha-s.vercel.app/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 7px; height: 32px; padding: 0 13px; border-radius: 999px; text-decoration: none; font-size: 12px; font-weight: 600; margin-left: 6px"><span class="demo-dot" aria-hidden="true"></span>Live Demo &#8599;</a>
+<a class="btn btn-demo" href="https://mood-sync-ai-v2-ranjitha-s.vercel.app/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 7px; height: 32px; padding: 0 13px; border-radius: 999px; text-decoration: none; font-size: 12px; font-weight: 600"><span class="demo-dot" aria-hidden="true"></span>Live Demo &#8599;</a>
 </div>
 <button type="button" onClick="{{togglePlay}}" aria-label="{{playLabel}}" style="display: inline-flex; align-items: center; gap: 10px; height: 44px; padding: 0 18px; border-radius: 8px; border: 1px solid rgba(232,236,242,0.18); background: transparent; color: #E8ECF2; font-family: 'Geist', sans-serif; font-size: 14px; font-weight: 500; cursor: pointer">
 <sc-if value="{{playing}}" hint-placeholder-val="{{ true }}"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><rect x="2" y="1" width="3" height="10" fill="currentColor"></rect><rect x="7" y="1" width="3" height="10" fill="currentColor"></rect></svg></sc-if>
@@ -562,7 +578,7 @@ Rajarajeshwari Nagar, Bengaluru, India
 <span style="display: inline-flex; align-items: center; gap: 12px; font-size: 15px; font-weight: 600; color: var(--acc)"><span style="width: 24px; height: 2px; background: var(--acc)"></span>Selected work</span>
 <h2 class="display" style="margin: 0; font-size: 80px; font-weight: 800; letter-spacing: -0.05em; line-height: 0.95">Real-world systems,<br><span style="color: #5C6573">built end-to-end.</span></h2>
 </div>
-<div style="display: flex; flex-direction: column; gap: 14px; align-items: flex-start"><p style="margin: 0; max-width: 380px; font-size: 16px; line-height: 1.6; color: #8E97A6">Full-stack, computer vision, spatial AR navigation, and demand-forecasting systems built across my academic and internship journey.</p><div style="display: flex; flex-wrap: wrap; gap: 10px"><a class="btn btn-demo" href="https://retailpulse.up.railway.app/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 16px; border-radius: 999px; text-decoration: none; font-size: 13px; font-weight: 600"><span class="demo-dot" aria-hidden="true"></span>RetailPulse Live Demo &#8599;</a><a class="btn btn-demo" href="https://mood-sync-ai-v2-aoofar6ji-ranjitha-s.vercel.app/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 16px; border-radius: 999px; text-decoration: none; font-size: 13px; font-weight: 600"><span class="demo-dot" aria-hidden="true"></span>MoodSync-AI V2 Live Demo &#8599;</a></div></div>
+<div style="display: flex; flex-direction: column; gap: 14px; align-items: flex-start"><p style="margin: 0; max-width: 380px; font-size: 16px; line-height: 1.6; color: #8E97A6">Full-stack, computer vision, spatial AR navigation, and demand-forecasting systems built across my academic and internship journey.</p><div style="display: flex; flex-wrap: wrap; gap: 10px"><a class="btn btn-demo" href="https://retailpulse.up.railway.app/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 16px; border-radius: 999px; text-decoration: none; font-size: 13px; font-weight: 600"><span class="demo-dot" aria-hidden="true"></span>RetailPulse Live Demo &#8599;</a><a class="btn btn-demo" href="https://mood-sync-ai-v2-ranjitha-s.vercel.app/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 16px; border-radius: 999px; text-decoration: none; font-size: 13px; font-weight: 600"><span class="demo-dot" aria-hidden="true"></span>MoodSync-AI V2 Live Demo &#8599;</a></div></div>
 </div>
 
 <div style="display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 24px; align-items: start">
@@ -595,7 +611,7 @@ Rajarajeshwari Nagar, Bengaluru, India
 <circle cx="590" cy="276" r="6" class="pulse" style="fill: var(--acc)"></circle>
 <text x="492" y="152" style="font-family: 'Geist', sans-serif; font-size: 13px; fill: #C3CAD6">Seasonal Naive</text>
 <text x="454" y="304" style="font-family: 'Geist', sans-serif; font-size: 13px; font-weight: 600; fill: var(--acc)">XGBoost Forecast</text>
-<text x="80" y="52" style="font-family: 'Geist', sans-serif; font-size: 13px; fill: #8E97A6">7-Day M5 Forecast · MAE &amp; WAPE</text>
+<text x="80" y="64" style="font-family: 'Geist', sans-serif; font-size: 13px; fill: #8E97A6">7-Day M5 Forecast · MAE &amp; WAPE</text>
 <g class="chip" style="animation-delay: 0s"><rect x="110" y="80" width="112" height="34" rx="8" fill="#111826" stroke="rgba(232,236,242,0.2)"></rect><text x="166" y="102" text-anchor="middle" style="font-family: 'Geist', sans-serif; font-size: 13px; font-weight: 500; fill: #E8ECF2">XGBoost M5</text></g>
 <g class="chip" style="animation-delay: 0.4s"><rect x="232" y="80" width="118" height="34" rx="8" fill="#111826" stroke="rgba(232,236,242,0.2)"></rect><text x="291" y="102" text-anchor="middle" style="font-family: 'Geist', sans-serif; font-size: 13px; font-weight: 500; fill: #E8ECF2">Store Transfer</text></g>
 <g class="chip" style="animation-delay: 0.8s"><rect x="360" y="80" width="116" height="34" rx="8" style="fill: var(--acc)"></rect><text x="418" y="102" text-anchor="middle" style="font-family: 'Geist', sans-serif; font-size: 13px; font-weight: 600; fill: #070B12">FastAPI + JWT</text></g>
@@ -752,7 +768,7 @@ Rajarajeshwari Nagar, Bengaluru, India
 
 <div class="tilt3d chatcard" style="grid-column: 7 / span 6; height: 640px; display: flex; flex-direction: column; border-radius: 20px; border: 1px solid rgba(232,236,242,0.12); background: rgba(12,16,22,0.8); overflow: hidden; box-shadow: 0 40px 120px -40px color-mix(in srgb, var(--acc) 28%, transparent)">
 <div style="display: flex; align-items: center; gap: 12px; padding: 16px 20px; border-bottom: 1px solid rgba(232,236,242,0.08)">
-<img src="assets/portrait.jpg" alt="" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; object-position: 50% 25%">
+<img src="assets/portrait.jpg" alt="Ranjitha S avatar" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; object-position: 50% 18%; background: #000; border: 1px solid rgba(52,245,197,.35)">
 <div style="display: flex; flex-direction: column; gap: 2px">
 <span style="font-size: 15px; font-weight: 600">Ranjitha's AI assistant</span>
 <span style="display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: #8E97A6"><span class="live" style="width: 7px; height: 7px; border-radius: 50%; background: var(--acc)"></span>Online</span>
@@ -1080,7 +1096,7 @@ class Component extends DCLogic {
     { summary: 'An AI-powered emotion detection and music recommendation application (V2) that identifies 7 facial emotion categories through webcam input and recommends music via decoupled React.js and FastAPI services.',
       impact: [{ v: '7 Classes', l: 'CNN facial emotion classification trained with batch norm & dropout' }, { v: 'FastAPI', l: 'REST APIs for emotion detection, inference & music recommendation' }, { v: '2 Services', l: 'separate frontend & backend deployment with CORS & env config' }],
       stages: [['Webcam', 'React.js captures live webcam frames'], ['FastAPI', 'REST APIs receive & orchestrate inference'], ['OpenCV', 'Real-time face detection & preprocessing'], ['CNN Model', '7-category TensorFlow/Keras CNN classifier'], ['Recommend', 'Emotion-to-music recommendation engine'], ['Deploy', 'Decoupled React + FastAPI cloud services']],
-      guards: ['Batch normalization and dropout layers in CNN to improve model generalization across faces', 'OpenCV real-time image preprocessing before TensorFlow/Keras inference', 'Configured cross-origin communication (CORS) and environment variables across services', 'Live demo: mood-sync-ai-v2-aoofar6ji-ranjitha-s.vercel.app · GitHub: github.com/ranjitha-sridhar/MoodSync-AI-V2'],
+      guards: ['Batch normalization and dropout layers in CNN to improve model generalization across faces', 'OpenCV real-time image preprocessing before TensorFlow/Keras inference', 'Configured cross-origin communication (CORS) and environment variables across services', 'Live demo: mood-sync-ai-v2-ranjitha-s.vercel.app · GitHub: github.com/ranjitha-sridhar/MoodSync-AI-V2'],
       role: 'Full-Stack & AI/ML Developer (May 2026 – Present) — trained the 7-class TensorFlow/Keras CNN, integrated OpenCV preprocessing and FastAPI endpoints, built the React.js frontend, and deployed separate frontend/backend services.',
       stack: ['Python', 'FastAPI', 'React.js', 'TensorFlow/Keras', 'OpenCV', 'CNN', 'REST APIs'] },
     { summary: 'A full-stack AI and AR-powered campus navigation system supporting indoor and outdoor navigation through A* pathfinding, location-aware routing, GPS, QR indoor relocalization, and augmented reality directional guidance.',
@@ -2621,7 +2637,7 @@ void main(){
           ctx.shadowBlur = 0;
         };
         mark(proj(B), 'Bengaluru, Karnataka', 'RNSIT · Samsung Innovation Campus', routeA * (1 - clamp((f - 0.55) / 0.2, 0, 1)));
-        mark(proj(P), 'Global Cloud & AI Systems', 'Full-Stack & AI/ML Deployments', routeA * clamp((f - 0.35) / 0.25, 0, 1) * (1 - clamp((e - 0.3) / 0.3, 0, 1)));
+        mark(proj(P), 'AI and ML deployments', 'Full Stack in Action', routeA * clamp((f - 0.35) / 0.25, 0, 1) * (1 - clamp((e - 0.3) / 0.3, 0, 1)));
         // the plane
         const planeA = routeA * (1 - clamp((e - 0.15) / 0.3, 0, 1));
         const qa = proj(route(Math.max(0, f - 0.004))), qb = proj(route(Math.min(1, f + 0.004)));
@@ -2930,12 +2946,12 @@ void main(){
       { k: ['contact', 'email', 'hire', 'reach', 'phone', 'call', 'number', 'linkedin', 'github', 'profile', 'whatsapp', 'location', 'where'], a: 'You can reach me by email at ranjithasgowda245@gmail.com or ranjithas23cs@rnsit.ac.in, by phone/WhatsApp at +91-9449045855, on GitHub at github.com/ranjitha-sridhar, or on LinkedIn at linkedin.com/in/ranjitha-sridhar-a5b711311/. I am based in Bengaluru, Karnataka, India.' },
       { k: ['resume', 'cv', 'download'], a: 'You can download my updated Resume PDF directly using the Resume buttons in the About and Contact sections.' },
       { k: ['retailpulse', 'retail', 'xgboost', 'forecast', 'inventory', 'm5', 'wape', 'mae', 'replenish'], a: 'RetailPulse (Nov 2026 – Present) is a full-stack retail intelligence platform for multi-store demand forecasting, inventory optimization, and replenishment using historical M5 sales data. Built with Python, FastAPI, React.js, XGBoost, SQL, and Pandas with a 7-day prediction pipeline evaluated via MAE and WAPE, inter-store transfers, and JWT auth. Live Demo: retailpulse.up.railway.app | Repo: github.com/ranjitha-sridhar/RetailPulse' },
-      { k: ['moodsync', 'emotion', 'music', 'fastapi', 'demo'], a: 'MoodSync-AI V2 (May 2026 – Present) is an AI-powered facial emotion detection and music recommendation app built with a 7-class TensorFlow/Keras CNN (batch norm & dropout), OpenCV, FastAPI, and React.js, deployed across separate frontend and backend services. Live Demo: mood-sync-ai-v2-aoofar6ji-ranjitha-s.vercel.app | Repo: github.com/ranjitha-sridhar/MoodSync-AI-V2' },
+      { k: ['moodsync', 'emotion', 'music', 'fastapi', 'demo'], a: 'MoodSync-AI V2 (May 2026 – Present) is an AI-powered facial emotion detection and music recommendation app built with a 7-class TensorFlow/Keras CNN (batch norm & dropout), OpenCV, FastAPI, and React.js, deployed across separate frontend and backend services. Live Demo: mood-sync-ai-v2-ranjitha-s.vercel.app | Repo: github.com/ranjitha-sridhar/MoodSync-AI-V2' },
       { k: ['campusar', 'navigation', 'ar', 'augmented', 'postgis', 'spatial', 'indoor', 'qr', 'a*'], a: 'CampusAR (2026 – Present) is a full-stack AI and AR campus navigation system built with React, TypeScript, Node.js, PostgreSQL, PostGIS, REST APIs, and WebSockets. It uses A* pathfinding with contextual navigation costs, GPS positioning, QR indoor relocalization, and AR guidance. Repo: github.com/ranjitha-sridhar/Campus-Navigation-System' },
       { k: ['asl', 'sign language', 'gesture', 'mediapipe', 'interpreter', 'hand', 'chethana'], a: 'The Real-time Sign Language Interpreter (ASL) recognizes American Sign Language alphabet gestures live from webcam input using MediaPipe hand landmark extraction and a CNN in TensorFlow/Keras and OpenCV (Mentored by Ms Chethana H R, Team Size: 4). Repo: github.com/PraveenKumarM17/Gesture' },
       { k: ['event', 'dbms', 'organizer'], a: 'The Events Management System (Mar 2025 – Jul 2025, Team Size: 4) is a responsive campus event platform built with React.js, HTML5, CSS3, JavaScript, REST APIs, and DBMS. Repo: github.com/ssarveshr/DBMS-project-' },
       { k: ['samsung', 'internship', 'intern', 'trainee', 'competitive', 'leetcode', 'codechef'], a: 'I completed an internship as a Student/Internship Trainee at Samsung Innovation Campus in Bengaluru (Nov 2024 – Feb 2025). The training focused on Python programming, problem-solving, DSA, dataset analysis, and project-based learning under expert mentorship.' },
-      { k: ['project', 'work', 'built', 'portfolio'], a: 'My key projects: (1) RetailPulse — M5 demand forecasting & inventory optimization (retailpulse.up.railway.app | github.com/ranjitha-sridhar/RetailPulse), (2) MoodSync-AI V2 — 7-class CNN emotion detection & music recommendation (mood-sync-ai-v2-aoofar6ji-ranjitha-s.vercel.app | github.com/ranjitha-sridhar/MoodSync-AI-V2), (3) CampusAR — A* & AR campus navigation (github.com/ranjitha-sridhar/Campus-Navigation-System), (4) ASL Interpreter (github.com/PraveenKumarM17/Gesture), and (5) Events Management System (github.com/ssarveshr/DBMS-project-).' },
+      { k: ['project', 'work', 'built', 'portfolio'], a: 'My key projects: (1) RetailPulse — M5 demand forecasting & inventory optimization (retailpulse.up.railway.app | github.com/ranjitha-sridhar/RetailPulse), (2) MoodSync-AI V2 — 7-class CNN emotion detection & music recommendation (mood-sync-ai-v2-ranjitha-s.vercel.app | github.com/ranjitha-sridhar/MoodSync-AI-V2), (3) CampusAR — A* & AR campus navigation (github.com/ranjitha-sridhar/Campus-Navigation-System), (4) ASL Interpreter (github.com/PraveenKumarM17/Gesture), and (5) Events Management System (github.com/ssarveshr/DBMS-project-).' },
       { k: ['skill', 'stack', 'tech', 'language', 'database', 'framework', 'tool'], a: 'Languages: C++, Java, Python, C, JavaScript, C#. Full-Stack & Backend: HTML5, CSS, JavaScript, React.js, Node.js, FastAPI, REST APIs. Databases: MySQL, SQL, PostgreSQL, PostGIS. AI/ML & Data: XGBoost, TensorFlow/Keras, OpenCV, MediaPipe, Pandas, NumPy, Matplotlib, EDA. Tools & CS: Git, GitHub, VS Code, Google Colab, OOP, DSA, DBMS.' },
       { k: ['educat', 'college', 'school', 'cgpa', 'rnsit', 'deeksha', 'swargarani', '10th', '12th', 'degree', 'percentage'], a: 'I am pursuing my B.Tech in Computer Science & Engineering at RNS Institute of Technology, Bengaluru (Sep 2023 – Sep 2027) with a 9.49 / 10 CGPA. Previously, I scored 93.50% in 12th Grade (State PU) at Deeksha Centre for Learning (2023) and 98.00% in 10th Grade (ICSE) at Swargarani School (2021).' },
       { k: ['certif', 'nptel', 'network', 'iit', 'activity', 'activities', 'gdsc', 'ieee', 'club', 'leadership', 'secretary'], a: 'I completed the IIT Madras NPTEL certification "Demystifying Networking" (78/100), serve as Secretary of the IEEE Consumer Technology Society, and am an active Member of Google Developer Student Clubs (GDSC).' },
@@ -3202,11 +3218,11 @@ void main(){
         approach: 'Built an XGBoost 7-day demand forecasting pipeline over historical M5 data (evaluated with MAE and WAPE against seasonal-naive baselines), plus FastAPI REST APIs with JWT auth.',
         innovation: 'Combines inventory optimization, inter-store transfer recommendations, and interactive React what-if dashboards at retailpulse.up.railway.app.' },
       { short: 'MoodSync-AI V2', tag: 'Computer Vision · 7-Class CNN & FastAPI', title: 'MoodSync-AI V2 — Emotion Detection & Music Recommendation', metric: '7-Class', metricLabel: 'webcam CNN facial expression classification & personalized music recommendations (May 2026 – Present)',
-        demoHref: 'https://mood-sync-ai-v2-aoofar6ji-ranjitha-s.vercel.app/',
+        demoHref: 'https://mood-sync-ai-v2-ranjitha-s.vercel.app/',
         repoHref: 'https://github.com/ranjitha-sridhar/MoodSync-AI-V2',
         problem: 'Static playlists ignore a listener’s real-time mood, while facial emotion classifiers overfit without proper regularization and low-latency API separation.',
         approach: 'Trained a TensorFlow/Keras CNN with batch normalization and dropout across 7 emotion categories, paired with OpenCV preprocessing, FastAPI inference endpoints, and a React.js frontend.',
-        innovation: 'Deployed across separate frontend and backend services with configured CORS & env variables — live at mood-sync-ai-v2-aoofar6ji-ranjitha-s.vercel.app.' },
+        innovation: 'Deployed across separate frontend and backend services with configured CORS & env variables — live at mood-sync-ai-v2-ranjitha-s.vercel.app.' },
       { short: 'CampusAR', tag: 'Full-Stack · A* Pathfinding, PostGIS & AR', title: 'CampusAR — Indoor & Outdoor AR Campus Navigation', metric: 'A* + AR', metricLabel: 'graph-based A* routing, GPS, QR indoor relocalization & AR guidance (2026 – Present)',
         demoHref: '',
         repoHref: 'https://github.com/ranjitha-sridhar/Campus-Navigation-System',

@@ -34,7 +34,7 @@ window.PORTFOLIO_DATA = {
       synopsis: 'An AI-powered application that reads facial expressions from webcam input and creates personalized music recommendations.',
       problem: 'Explore how an application can translate a moment of visual input into a more personal listening experience.',
       approach: 'Connected webcam-based image processing and a trained emotion-recognition model with Python / FastAPI endpoints. A React interface captures frames, requests predictions, and displays recommendations.',
-      contribution: 'Built REST APIs for emotion prediction and music recommendations, integrated the TensorFlow/Keras model with OpenCV, and developed the React experience. The resume reports separate frontend and backend deployments; URLs can be added below.',
+      contribution: 'Built REST APIs for emotion prediction and music recommendations, integrated the TensorFlow/Keras model with OpenCV, and developed the React experience as separate deployed frontend and backend services.',
       highlights: ['Webcam frame capture and processing', 'Emotion classification with a trained model', 'Personalized music recommendations', 'Separate frontend and backend services'],
       pipeline: [
         { title: 'Capture', subtitle: 'React · webcam', description: 'The browser captures a webcam frame through the React interface.' },
@@ -43,7 +43,7 @@ window.PORTFOLIO_DATA = {
         { title: 'Recommend', subtitle: 'FastAPI · React', description: 'An API responds with a music recommendation for the interface to present.' }
       ],
       repoUrl: 'https://github.com/ranjitha-sridhar/MoodSync-AI-V2',
-      liveUrl: 'https://mood-sync-ai-v2-aoofar6ji-ranjitha-s.vercel.app/'
+      liveUrl: 'https://mood-sync-ai-v2-ranjitha-s.vercel.app/'
     },
     {
       id: 'campusar', number: '03', title: 'CampusAR', subtitle: 'A smarter way to find your way.',

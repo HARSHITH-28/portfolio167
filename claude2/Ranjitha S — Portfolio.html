@@ -27,6 +27,10 @@ section{padding:96px 6vw;max-width:1200px;margin:0 auto}
 .btn.p{background:linear-gradient(120deg,var(--ac),var(--ac2));color:#16101F;border:0}
 .btn.live{background:color-mix(in srgb,var(--ac2) 15%,#16101F);border-color:color-mix(in srgb,var(--ac2) 65%,transparent);color:var(--ac2)}
 .btn.live:hover{background:var(--ac2);color:#16101F;border-color:var(--ac2)}
+.btn.live.subtle{background:color-mix(in srgb,var(--ac3) 14%,#16101F);border-color:color-mix(in srgb,var(--ac3) 55%,transparent);color:var(--ac3)}
+.btn.live.subtle:hover{background:var(--ac3);color:#16101F;border-color:var(--ac3)}
+.tb-live{display:inline-block;margin-left:7px;padding:2px 8px;border-radius:999px;background:color-mix(in srgb,var(--ac2) 18%,transparent);color:var(--ac2);font-size:10px;font-weight:700;letter-spacing:.06em;vertical-align:middle}
+button.on .tb-live{background:#16101F;color:var(--ac2)}
 .demo-dot{display:inline-block;width:7px;height:7px;border-radius:999px;background:currentColor;margin-right:7px;vertical-align:middle}
 .row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
 .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px}
@@ -112,7 +116,22 @@ footer{border-top:1px solid var(--line);padding:26px 6vw;display:flex;flex-wrap:
 #cs.on{display:block}
 #cs .in{max-width:860px;margin:0 auto}
 #cs ol{padding-left:20px;color:var(--mu)}#cs li{margin:6px 0}
-@media(prefers-reduced-motion:reduce){.mq div{animation:none}html{scroll-behavior:auto}*{transition:none!important}}
+@keyframes dotBeat{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.42);opacity:.55}}
+@keyframes csModalIn{from{opacity:0;transform:translateY(18px) scale(.985)}to{opacity:1;transform:none}}
+@keyframes cardLiftIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.btn{position:relative;overflow:hidden}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px -10px color-mix(in srgb,var(--ac) 35%,transparent)}
+.btn:active{transform:scale(.975)}
+.btn.p::after,.btn.live::after{content:"";position:absolute;inset:0 auto 0 -130%;width:70%;background:linear-gradient(105deg,transparent,rgba(255,255,255,.32),transparent);transform:skewX(-18deg);transition:left .55s cubic-bezier(.2,.8,.2,1);pointer-events:none}
+.btn.p:hover::after,.btn.live:hover::after{left:140%}
+.demo-dot{animation:dotBeat 1.8s ease-in-out infinite}
+.card{transition:transform .3s cubic-bezier(.2,.8,.2,1),border-color .3s,box-shadow .35s}
+.card:hover{border-color:color-mix(in srgb,var(--ac) 48%,var(--line));box-shadow:0 18px 46px -22px color-mix(in srgb,var(--ac) 24%,transparent)}
+.flow div.on{box-shadow:0 12px 30px -14px color-mix(in srgb,var(--ac3) 45%,transparent)}
+.chip{transition:transform .2s,border-color .2s}
+.chip:hover{transform:translateY(-2px);border-color:var(--ac3)}
+#cs.on .in{animation:csModalIn .34s cubic-bezier(.16,1,.3,1) both}
+@media(prefers-reduced-motion:reduce){.mq div{animation:none}html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
 </style></head><body>
 <div id="intro"><div><b id="ip">0%</b><small>Ranjitha S · loading portfolio</small></div></div>
 <header>
@@ -128,6 +147,7 @@ footer{border-top:1px solid var(--line);padding:26px 6vw;display:flex;flex-wrap:
   <div class="role" id="role"></div>
   <p class="lead">Computer science student building AI, computer vision and full-stack systems — from Bengaluru to production.</p>
   <div class="row" style="margin-top:22px"><a class="btn p" href="#work">View selected work</a><a class="btn" href="#reel">See a pipeline</a></div>
+  <div class="row" style="margin-top:12px"><a class="btn live" href="https://retailpulse.up.railway.app/" target="_blank" rel="noopener noreferrer" style="padding:8px 15px;font-size:13px"><span class="demo-dot" aria-hidden="true"></span>RetailPulse Live Demo &#8599;</a><a class="btn live subtle" href="https://mood-sync-ai-v2-ranjitha-s.vercel.app/" target="_blank" rel="noopener noreferrer" style="padding:8px 15px;font-size:13px"><span class="demo-dot" aria-hidden="true"></span>MoodSync-AI V2 Live Demo &#8599;</a></div>
  </div>
  <canvas id="globe" aria-label="Rotating globe centred on Bengaluru"></canvas>
 </section>
@@ -138,7 +158,7 @@ footer{border-top:1px solid var(--line);padding:26px 6vw;display:flex;flex-wrap:
    <span class="kick">About</span>
    <h2>Software that sees, learns and ships.</h2>
    <p class="lead">I build <b style="color:var(--tx)">AI-powered and full-stack applications</b> that go past the notebook — computer vision models behind real-time interfaces, REST APIs, and databases that hold up in use.</p>
-   <div class="row" style="margin-top:20px"><a class="btn p" href="#work">View selected work</a><a class="btn" href="#reel">See how a project works</a><a class="btn" href="../assets/Ranjitha-S-Resume.pdf" download="Ranjitha-S-Resume.pdf" target="_blank" rel="noopener noreferrer" rel="noopener noreferrer" rel="noopener noreferrer">Resume</a></div>
+   <div class="row" style="margin-top:20px"><a class="btn p" href="#work">View selected work</a><a class="btn" href="#reel">See how a project works</a><a class="btn" href="../assets/Ranjitha-S-Resume.pdf" download="Ranjitha-S-Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a></div>
   </div>
   <div class="avatar"><b>RS</b><span class="badge">Open to internships</span></div>
  </div>
@@ -155,7 +175,7 @@ footer{border-top:1px solid var(--line);padding:26px 6vw;display:flex;flex-wrap:
  <div class="stats" id="stats"></div>
  <div class="trio">
   <div class="card">Hi, I’m Ranjitha — a computer science student building AI and full-stack systems.</div>
-  <div class="card">Four projects across emotion detection, campus AR navigation, sign language recognition and events management. <a href="#work">See the work →</a></div>
+  <div class="card">Five flagship projects across demand forecasting, emotion detection, campus AR navigation, sign language recognition and events management. <a href="#work">See the work →</a></div>
   <div class="card">From Samsung Innovation Campus training to leading IEEE CTS as Secretary. <a href="#experience">My experience →</a></div>
   <div class="card">Looking for a team that ships? Let’s talk. <a href="mailto:ranjithasgowda245@gmail.com">Get in touch →</a></div>
  </div>
@@ -166,7 +186,7 @@ footer{border-top:1px solid var(--line);padding:26px 6vw;display:flex;flex-wrap:
  <span class="kick">Pipeline</span>
  <h2>Watch a pipeline think.</h2>
  <p class="lead">How MoodSync-AI works: a webcam frame goes in, an emotion is read, and music comes back.</p>
- <div class="row"><b>MoodSync-AI — example run</b></div>
+ <div class="row"><b>MoodSync-AI V2 — example run</b><a class="btn live" href="https://mood-sync-ai-v2-ranjitha-s.vercel.app/" target="_blank" rel="noopener noreferrer" style="padding:7px 14px;font-size:13px"><span class="demo-dot" aria-hidden="true"></span>Live Demo &#8599;</a></div>
  <div class="flow" id="flow"></div>
  <p id="play"></p>
  <button class="btn p" id="pbtn">Play the pipeline</button>
@@ -229,8 +249,9 @@ footer{border-top:1px solid var(--line);padding:26px 6vw;display:flex;flex-wrap:
   <a href="mailto:ranjithasgowda245@gmail.com">ranjithasgowda245@gmail.com</a>
   <a class="btn p" href="mailto:ranjithasgowda245@gmail.com?subject=Let%E2%80%99s%20book%20a%20call&body=Hi%20Ranjitha%2C%0A%0AI%E2%80%99d%20like%20to%20book%20a%2030-minute%20call.%0A%0ATopic%3A%20%0ATimes%20that%20work%20for%20me%20(with%20time%20zone)%3A%0A1.%20%0A2.%20%0A%0AThanks!">Book a call</a>
   <a href="tel:+919449045855">+91 94490 45855</a>
-  <a href="https://www.linkedin.com/in/ranjitha-sridhar-a5b711311/" target="_blank" rel="noopener">LinkedIn</a>
-  <a href="../assets/Ranjitha-S-Resume.pdf" download="Ranjitha-S-Resume.pdf" target="_blank" rel="noopener noreferrer" rel="noopener noreferrer" rel="noopener noreferrer">Resume</a>
+  <a href="https://www.linkedin.com/in/ranjitha-sridhar-a5b711311/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+  <a href="https://github.com/ranjitha-sridhar" target="_blank" rel="noopener noreferrer">GitHub</a>
+  <a href="../assets/Ranjitha-S-Resume.pdf" download="Ranjitha-S-Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
  </div>
  <form class="card" id="cf" style="max-width:720px">
   <b>Send a note</b>
@@ -239,7 +260,7 @@ footer{border-top:1px solid var(--line);padding:26px 6vw;display:flex;flex-wrap:
   <div style="margin-top:12px"><button class="btn p">Send note</button><span id="toast"></span></div>
  </form>
 </section>
-<footer><span>© 2026 Ranjitha S</span><span class="links"><a href="mailto:ranjithasgowda245@gmail.com">Email</a> · <a href="tel:+919449045855">+91 94490 45855</a> · <a href="https://www.linkedin.com/in/ranjitha-sridhar-a5b711311/" target="_blank" rel="noopener">LinkedIn</a></span><a href="#earth">Back to top ↑</a></footer>
+<footer><span>© 2026 Ranjitha S</span><span class="links"><a href="mailto:ranjithasgowda245@gmail.com">Email</a> · <a href="tel:+919449045855">+91 94490 45855</a> · <a href="https://github.com/ranjitha-sridhar" target="_blank" rel="noopener noreferrer">GitHub</a> · <a href="https://www.linkedin.com/in/ranjitha-sridhar-a5b711311/" target="_blank" rel="noopener noreferrer">LinkedIn</a></span><a href="#earth">Back to top ↑</a></footer>
 
 <div id="cs" role="dialog" aria-modal="true"><div class="in" id="csb"></div></div>
 
@@ -259,7 +280,7 @@ const P=[
  inn:'Facial expression analysis drives personalised music recommendations in a single flow.',
  steps:[['Capture','React grabs webcam frames'],['Send','HTTP request to the FastAPI service'],['Detect','OpenCV image processing'],['Classify','Keras emotion model predicts mood'],['Recommend','Tracks returned to the UI']],
  gd:['REST APIs separate detection, prediction and recommendation','Frontend and backend deploy as independent services'],
- role:'Built the FastAPI endpoints, integrated the trained model with OpenCV processing, and developed the React frontend.',stack:['Python','FastAPI','React.js','TensorFlow/Keras','OpenCV'],demo:'https://mood-sync-ai-v2-aoofar6ji-ranjitha-s.vercel.app/',repo:'https://github.com/ranjitha-sridhar/MoodSync-AI-V2'},
+ role:'Built the FastAPI endpoints, integrated the trained model with OpenCV processing, and developed the React frontend.',stack:['Python','FastAPI','React.js','TensorFlow/Keras','OpenCV'],demo:'https://mood-sync-ai-v2-ranjitha-s.vercel.app/',repo:'https://github.com/ranjitha-sridhar/MoodSync-AI-V2'},
 {tag:'Full-stack · AR',title:'CampusAR',short:'Indoor + outdoor navigation',when:'2026',metric:'In + out',ml:'navigation across buildings, entrances and indoor nodes',
  problem:'Finding your way around a large campus, especially indoors, is hard with ordinary maps.',
  approach:'A graph of the campus feeds shortest-path routing. GPS positions outdoors, QR codes relocalise indoors, and AR arrows guide the walk.',
@@ -293,7 +314,7 @@ $('#early').innerHTML=[['Training · Samsung','Samsung Innovation Campus','Stude
 $('#tl').innerHTML=[['2023 — 2027','RNS Institute of Technology','B.E. in Computer Science & Engineering · CGPA 9.49 / 10'],['Nov 2024 — Feb 2025','Samsung Innovation Campus','Student Trainee — Python, problem-solving and competitive programming'],['Now','IEEE Consumer Technology Society','Secretary'],['Now','Google Developer Student Clubs','Member'],['2023','Deeksha Centre for Learning','12th, Karnataka PUE board · 93.5%'],['2021','Swargarani School and PU College','10th, ICSE · 98%']].map(t=>`<div class="it"><small>${t[0]}</small><h3>${t[1]}</h3><p>${t[2]}</p></div>`).join('');
 // work
 let cur=0;
-$('#tabs').innerHTML=P.map((p,i)=>`<button class="btn" data-i="${i}">${p.title.split(' ').slice(0,2).join(' ')}</button>`).join('');
+$('#tabs').innerHTML=P.map((p,i)=>`<button class="btn" data-i="${i}">${p.title.split(' ').slice(0,2).join(' ')}${p.demo?'<span class="tb-live">LIVE</span>':''}</button>`).join('');
 function show(i){cur=i;const p=P[i];document.querySelectorAll('#tabs button').forEach((b,j)=>b.classList.toggle('on',j==i));
 $('#wk').innerHTML=`<div><span class="kick">${p.tag}</span><h3>${p.title}</h3><div class="big">${p.metric}</div><p>${p.ml}</p><p style="margin-top:10px"><small>${p.when}</small></p></div><div><h4>Problem</h4><p>${p.problem}</p><h4>Approach</h4><p>${p.approach}</p><h4>What’s new</h4><p>${p.inn}</p><div class="row" style="margin-top:20px;gap:10px">${p.demo?`<a class="btn live" href="${p.demo}" target="_blank" rel="noopener noreferrer"><span class="demo-dot" aria-hidden="true"></span>Live Demo &#8599;</a>`:""}${p.repo?`<a class="btn" href="${p.repo}" target="_blank" rel="noopener noreferrer">GitHub Repo &#8599;</a>`:""}<button class="btn p" data-cs="${i}">Read the case study</button></div></div>`}
 $('#tabs').onclick=e=>{const b=e.target.closest('button');if(b)show(+b.dataset.i)};
@@ -305,11 +326,11 @@ $('#cs').onclick=e=>{if(e.target.id=='x'||e.target.id=='cs')closeCS();const g=e.
 addEventListener('keydown',e=>{if(e.key=='Escape')closeCS()});
 show(0);
 // reel
-const S=P[0].steps;$('#flow').innerHTML=S.map(s=>`<div><b>${s[0]}</b><small>${s[1]}</small></div>`).join('');
+const S=P[1].steps;$('#flow').innerHTML=S.map(s=>`<div><b>${s[0]}</b><small>${s[1]}</small></div>`).join('');
 let timer;$('#pbtn').onclick=()=>{clearInterval(timer);let k=0;const f=[...document.querySelectorAll('#flow div')];
 const step=()=>{if(k>=S.length){clearInterval(timer);f.forEach(d=>d.classList.remove('on'));$('#play').textContent='Done: the emotion is read and the music is ready to play.';return}f.forEach((d,j)=>d.classList.toggle('on',j==k));$('#play').textContent=S[k][0]+': '+S[k][1]+'.';k++};step();timer=setInterval(step,1400)};
 // chat
-const A=[['What have you built?','I’ve built five flagship projects including RetailPulse (Live Demo: retailpulse.up.railway.app), MoodSync-AI V2 (Live Demo: mood-sync-ai-v2-aoofar6ji-ranjitha-s.vercel.app), MoodSync-AI (emotion-based music recommendations), CampusAR (indoor and outdoor campus navigation with AR), a real-time ASL sign language interpreter, and an Events Management System.'],
+const A=[['What have you built?','I’ve built five flagship projects including RetailPulse (Live Demo: retailpulse.up.railway.app), MoodSync-AI V2 (Live Demo: mood-sync-ai-v2-ranjitha-s.vercel.app), CampusAR (indoor and outdoor campus navigation with AR), a real-time ASL sign language interpreter, and an Events Management System.'],
 ['What’s your tech stack?','Python, C, C++, Java and JavaScript, with React.js, FastAPI and ASP.NET Core on the web side. For AI I use OpenCV, TensorFlow/Keras, Pandas and NumPy, and for data MySQL and PostgreSQL.'],
 ['Where do you study?','I’m pursuing a B.E. in Computer Science & Engineering at RNS Institute of Technology, Bengaluru (2023 – 2027), with a CGPA of 9.49 / 10.'],
 ['What are you looking for?','Opportunities in software development, especially backend systems, cloud-native applications and AI-driven products, where I can keep growing and ship real work.'],

@@ -75,7 +75,7 @@ export const projects: Project[] = [
     stack: ["Python", "FastAPI", "React.js", "TensorFlow/Keras", "OpenCV"],
     flow: ["Webcam frame", "React client", "FastAPI", "Keras model + OpenCV", "Music recommendation"],
     links: [
-      { label: "Live Demo", href: "https://mood-sync-ai-v2-aoofar6ji-ranjitha-s.vercel.app/", placeholder: false },
+      { label: "Live Demo", href: "https://mood-sync-ai-v2-ranjitha-s.vercel.app/", placeholder: false },
       { label: "Repository", href: "https://github.com/ranjitha-sridhar/MoodSync-AI-V2", placeholder: false },
     ],
     pose: POSE_OPEN,
