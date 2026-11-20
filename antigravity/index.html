@@ -9,7 +9,7 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Ranjitha S — Full-Stack, AI/ML &amp; Computer Vision Developer">
 <meta property="og:description" content="Full-stack, computer vision, and AI/ML systems — RetailPulse (M5 Demand Forecasting), MoodSync-AI V2, CampusAR, Real-time ASL Interpreter, and Events Management System.">
-<meta property="og:image" content="assets/portrait.jpg">
+<meta property="og:image" content="assets/share.jpg">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Ranjitha S","jobTitle":"Full-Stack & AI/ML Developer","affiliation":{"@type":"CollegeOrUniversity","name":"RNS Institute of Technology"},"email":"mailto:ranjithasgowda245@gmail.com","telephone":"+91-9449045855","address":{"@type":"PostalAddress","addressLocality":"Bengaluru","addressRegion":"Karnataka","addressCountry":"IN"},"alumniOf":"RNS Institute of Technology","sameAs":["https://www.linkedin.com/in/ranjitha-sridhar-a5b711311/","https://github.com/ranjitha-sridhar","https://github.com/ranjitha-sridhar/RetailPulse","https://github.com/ranjitha-sridhar/MoodSync-AI-V2","https://github.com/ranjitha-sridhar/Campus-Navigation-System","https://github.com/PraveenKumarM17/Gesture","https://github.com/ssarveshr/DBMS-project-"]}</script>
@@ -57,7 +57,7 @@ a{color:var(--acc)}a:hover{color:#E8ECF2}
 .card-hover:hover{transform:translateY(-6px);border-color:var(--acc) !important}
 .portrait img{transition:transform .85s cubic-bezier(.2,.8,.2,1),filter .7s ease}
 .portrait:hover img{transform:scale(1.05);filter:grayscale(0) contrast(1.05) !important}
-.chatcard img{background:#000;transition:transform .45s cubic-bezier(.22,1,.36,1),box-shadow .45s ease,filter .45s ease}
+.chatcard img{background:radial-gradient(circle at 50% 30%,rgba(52,245,197,.22),rgba(18,32,48,.72));transition:transform .45s cubic-bezier(.22,1,.36,1),box-shadow .45s ease,filter .45s ease}
 .chatcard:hover img{transform:scale(1.08);box-shadow:0 0 0 2px var(--acc)}
 .outline{color:transparent;-webkit-text-stroke:1.2px rgba(232,236,242,.55)}
 
@@ -388,8 +388,8 @@ Rajarajeshwari Nagar, Bengaluru, India
 
 <div class="fade" style="grid-column: span 4; position: relative; animation-delay: 1.45s">
 <div ref="{{setTilt}}" style="transition: transform 0.6s cubic-bezier(.2,.8,.2,1)">
-<div class="portrait float" style="position: relative; aspect-ratio: 4 / 5; border-radius: 20px; overflow: hidden; border: 1px solid rgba(232,236,242,0.14); background: #000000">
-<img src="assets/portrait.jpg" alt="Portrait of Ranjitha S" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 18%; filter: grayscale(0.28) contrast(1.05); display: block">
+<div class="portrait float" style="position: relative; aspect-ratio: 4 / 5; border-radius: 20px; overflow: hidden; border: 1px solid rgba(232,236,242,0.16); background: radial-gradient(circle at 50% 26%, rgba(52,245,197,0.16), rgba(16,28,44,0.44) 68%, rgba(10,18,30,0.62)); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px)">
+<img src="assets/portrait.png" alt="Portrait of Ranjitha S" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 18%; filter: grayscale(0.2) contrast(1.04); display: block">
 <div style="position: absolute; left: 0; right: 0; bottom: 0; padding: 18px 20px; display: flex; justify-content: space-between; align-items: center; background: linear-gradient(to top, rgba(9,12,17,0.88), transparent)">
 <span style="font-size: 13px; font-weight: 500; color: #E8ECF2">B.Tech CSE @ RNSIT</span>
 <span style="display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 500; color: var(--acc)"><span style="width: 7px; height: 7px; border-radius: 50%; background: var(--acc)"></span>9.49 CGPA</span>
@@ -768,7 +768,7 @@ Rajarajeshwari Nagar, Bengaluru, India
 
 <div class="tilt3d chatcard" style="grid-column: 7 / span 6; height: 640px; display: flex; flex-direction: column; border-radius: 20px; border: 1px solid rgba(232,236,242,0.12); background: rgba(12,16,22,0.8); overflow: hidden; box-shadow: 0 40px 120px -40px color-mix(in srgb, var(--acc) 28%, transparent)">
 <div style="display: flex; align-items: center; gap: 12px; padding: 16px 20px; border-bottom: 1px solid rgba(232,236,242,0.08)">
-<img src="assets/portrait.jpg" alt="Ranjitha S avatar" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; object-position: 50% 18%; background: #000; border: 1px solid rgba(52,245,197,.35)">
+<img src="assets/portrait.png" alt="Ranjitha S avatar" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; object-position: 50% 16%; background: radial-gradient(circle at 50% 30%, rgba(52,245,197,0.24), rgba(18,32,48,0.72)); border: 1px solid rgba(52,245,197,.35)">
 <div style="display: flex; flex-direction: column; gap: 2px">
 <span style="font-size: 15px; font-weight: 600">Ranjitha's AI assistant</span>
 <span style="display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: #8E97A6"><span class="live" style="width: 7px; height: 7px; border-radius: 50%; background: var(--acc)"></span>Online</span>
@@ -2674,11 +2674,11 @@ void main(){
         ctx.fillStyle = '#070B12'; ctx.beginPath(); ctx.arc(px, py, 2.5, 0, 6.2832); ctx.fill();
         ctx.shadowColor = 'rgba(0,0,0,0.8)'; ctx.shadowBlur = 12;
         ctx.font = '700 20px Geist, system-ui, sans-serif';
-        const ptw = Math.max(ctx.measureText('Silicon Valley, California').width, 200);
+        const ptw = Math.max(ctx.measureText('AI and ML deployments, Full Stack in Action').width, 200);
         let plx = px + 22, ply = py, pal = 'left';
         if (plx + ptw > W - 12) { if (px - 22 - ptw >= 12) { plx = px - 22; pal = 'right'; } else { plx = Math.min(W - 12 - ptw / 2, Math.max(12 + ptw / 2, px)); pal = 'center'; ply = py + 58; } }
         ctx.textAlign = pal;
-        ctx.fillStyle = '#FFFFFF'; ctx.fillText('Bengaluru — Global AI & Cloud', plx, ply - 12);
+        ctx.fillStyle = '#FFFFFF'; ctx.fillText('AI and ML deployments, Full Stack in Action', plx, ply - 12);
         ctx.fillStyle = '#C3CAD6'; ctx.font = '500 13px Geist, system-ui, sans-serif';
         ctx.fillText('Ranjitha S  ·  RNSIT CSE  ·  9.49 CGPA', plx, ply + 9);
         ctx.textAlign = 'left';
