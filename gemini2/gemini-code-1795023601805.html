@@ -433,6 +433,66 @@
       border-color: var(--border-accent);
     }
 
+    .project-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .btn-demo-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 14px;
+      border-radius: 10px;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 600;
+      background: var(--accent-primary);
+      color: #061311;
+      text-decoration: none;
+      transition: transform 0.2s ease, filter 0.2s ease;
+    }
+
+    .btn-demo-pill:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.08);
+    }
+
+    .btn-repo-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 13px;
+      border-radius: 10px;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 500;
+      border: 1px solid var(--border-subtle);
+      color: var(--text-primary);
+      background: transparent;
+      text-decoration: none;
+      transition: transform 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    }
+
+    .btn-repo-pill:hover {
+      transform: translateY(-2px);
+      border-color: var(--border-accent);
+      color: var(--accent-primary);
+    }
+
+    .demo-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: currentColor;
+      display: inline-block;
+    }
+
     .project-title {
       font-family: var(--font-display);
       font-size: 1.35rem;
@@ -793,33 +853,68 @@
           <h2 class="section-title">Featured Engineering Projects</h2>
         </div>
         <div class="filter-group" role="tablist" aria-label="Filter projects">
-          <button class="filter-btn active" data-filter="all">All (4)</button>
+          <button class="filter-btn active" data-filter="all">All (5)</button>
           <button class="filter-btn" data-filter="ai">AI &amp; Vision</button>
           <button class="filter-btn" data-filter="fullstack">Full-Stack &amp; Spatial</button>
         </div>
       </div>
 
       <div class="projects-grid">
-        <!-- Project 1: MoodSync-AI -->
+        <!-- Project 0: RetailPulse -->
+        <article class="project-card" data-category="ai fullstack">
+          <div>
+            <div class="project-top">
+              <span class="project-date">Nov 2026 – Present</span>
+              <span class="project-link">Forecasting · Full-Stack</span>
+            </div>
+            <h3 class="project-title">RetailPulse</h3>
+            <div class="project-role">Retail Demand Forecasting &amp; Inventory Platform</div>
+            <p class="project-desc">
+              Built a full-stack retail intelligence platform predicting 7-day store demand from historical M5 sales data using XGBoost evaluated with MAE and WAPE against seasonal-naive baselines. Delivered inter-store transfers, replenishment simulation, and FastAPI JWT APIs alongside a React dashboard.
+            </p>
+          </div>
+          <div>
+            <div class="tag-list">
+              <span class="tag">Python</span>
+              <span class="tag">XGBoost</span>
+              <span class="tag">FastAPI</span>
+              <span class="tag">React.js</span>
+              <span class="tag">SQL</span>
+              <span class="tag">Pandas</span>
+            </div>
+            <div class="project-actions">
+              <a href="https://retailpulse.up.railway.app/" target="_blank" rel="noopener noreferrer" class="btn-demo-pill"><span class="demo-dot" aria-hidden="true"></span>Live Demo &#8599;</a>
+              <a href="https://github.com/ranjitha-sridhar/RetailPulse" target="_blank" rel="noopener noreferrer" class="btn-repo-pill">GitHub Repo &#8599;</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 1: MoodSync-AI V2 -->
         <article class="project-card" data-category="ai fullstack">
           <div>
             <div class="project-top">
               <span class="project-date">May 2026 – Present</span>
               <span class="project-link">Full-Stack AI</span>
             </div>
-            <h3 class="project-title">MoodSync-AI</h3>
+            <h3 class="project-title">MoodSync-AI V2</h3>
             <div class="project-role">AI Emotion Detection &amp; Music Recommendation System</div>
             <p class="project-desc">
-              Engineered an end-to-end facial emotion recognition web application that captures live webcam frames in React.js and streams them over HTTP to FastAPI REST endpoints. Integrated OpenCV preprocessing with a trained TensorFlow/Keras classifier to deliver real-time, mood-adaptive music recommendations across decoupled frontend and backend services.
+              Engineered an end-to-end 7-class facial emotion recognition web application that captures live webcam frames in React.js and streams them over HTTP to FastAPI REST endpoints. Integrated OpenCV preprocessing with a regularized TensorFlow/Keras classifier to deliver real-time, mood-adaptive music recommendations across decoupled frontend and backend services.
             </p>
           </div>
-          <div class="tag-list">
-            <span class="tag">Python</span>
-            <span class="tag">FastAPI</span>
-            <span class="tag">React.js</span>
-            <span class="tag">TensorFlow / Keras</span>
-            <span class="tag">OpenCV</span>
-            <span class="tag">REST APIs</span>
+          <div>
+            <div class="tag-list">
+              <span class="tag">Python</span>
+              <span class="tag">FastAPI</span>
+              <span class="tag">React.js</span>
+              <span class="tag">TensorFlow / Keras</span>
+              <span class="tag">OpenCV</span>
+              <span class="tag">REST APIs</span>
+            </div>
+            <div class="project-actions">
+              <a href="https://mood-sync-ai-v2-aoofar6ji-ranjitha-s.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-demo-pill"><span class="demo-dot" aria-hidden="true"></span>Live Demo &#8599;</a>
+              <a href="https://github.com/ranjitha-sridhar/MoodSync-AI-V2" target="_blank" rel="noopener noreferrer" class="btn-repo-pill">GitHub Repo &#8599;</a>
+            </div>
           </div>
         </article>
 
@@ -836,13 +931,18 @@
               Built a full-stack campus navigation platform supporting seamless indoor and outdoor wayfinding using shortest-path graph algorithms, GPS positioning, QR-based indoor relocalization, WebSocket telemetry, and AR directional overlays. Designed a layered Node.js backend backed by PostgreSQL and PostGIS spatial queries.
             </p>
           </div>
-          <div class="tag-list">
-            <span class="tag">React</span>
-            <span class="tag">TypeScript</span>
-            <span class="tag">Node.js</span>
-            <span class="tag">PostgreSQL</span>
-            <span class="tag">PostGIS</span>
-            <span class="tag">WebSockets</span>
+          <div>
+            <div class="tag-list">
+              <span class="tag">React</span>
+              <span class="tag">TypeScript</span>
+              <span class="tag">Node.js</span>
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">PostGIS</span>
+              <span class="tag">WebSockets</span>
+            </div>
+            <div class="project-actions">
+              <a href="https://github.com/ranjitha-sridhar/Campus-Navigation-System" target="_blank" rel="noopener noreferrer" class="btn-repo-pill">GitHub Repo &#8599;</a>
+            </div>
           </div>
         </article>
 
@@ -859,13 +959,18 @@
               Developed an assistive real-time American Sign Language recognition system translating live webcam hand gestures into alphabet text. Combined MediaPipe hand landmark extraction with a custom TensorFlow/Keras Convolutional Neural Network (CNN), leading dataset preprocessing, model training, live inference integration, and latency optimization.
             </p>
           </div>
-          <div class="tag-list">
-            <span class="tag">Python</span>
-            <span class="tag">OpenCV</span>
-            <span class="tag">MediaPipe</span>
-            <span class="tag">TensorFlow / Keras</span>
-            <span class="tag">CNN</span>
-            <span class="tag">NumPy</span>
+          <div>
+            <div class="tag-list">
+              <span class="tag">Python</span>
+              <span class="tag">OpenCV</span>
+              <span class="tag">MediaPipe</span>
+              <span class="tag">TensorFlow / Keras</span>
+              <span class="tag">CNN</span>
+              <span class="tag">NumPy</span>
+            </div>
+            <div class="project-actions">
+              <a href="https://github.com/PraveenKumarM17/Gesture" target="_blank" rel="noopener noreferrer" class="btn-repo-pill">GitHub Repo &#8599;</a>
+            </div>
           </div>
         </article>
 
@@ -882,13 +987,18 @@
               Designed and implemented a responsive campus event management portal for students and organizers using React.js, HTML5, CSS3, and JavaScript. Integrated REST APIs for live event scheduling and registration workflows while coordinating multi-developer feature branches via GitHub.
             </p>
           </div>
-          <div class="tag-list">
-            <span class="tag">React.js</span>
-            <span class="tag">JavaScript</span>
-            <span class="tag">HTML5</span>
-            <span class="tag">CSS3</span>
-            <span class="tag">REST APIs</span>
-            <span class="tag">GitHub</span>
+          <div>
+            <div class="tag-list">
+              <span class="tag">React.js</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">HTML5</span>
+              <span class="tag">CSS3</span>
+              <span class="tag">REST APIs</span>
+              <span class="tag">GitHub</span>
+            </div>
+            <div class="project-actions">
+              <a href="https://github.com/ssarveshr/DBMS-project-" target="_blank" rel="noopener noreferrer" class="btn-repo-pill">GitHub Repo &#8599;</a>
+            </div>
           </div>
         </article>
       </div>

@@ -33,9 +33,33 @@ export type Project = {
  */
 export const projects: Project[] = [
   {
-    slug: "moodsync",
+    slug: "retailpulse",
     index: "01",
-    title: "MoodSync-AI",
+    title: "RetailPulse",
+    dates: "Nov 2026 — Present",
+    role: "Full stack & ML",
+    summary:
+      "Multi-store demand forecasting and inventory optimization built on historical M5 sales data and XGBoost.",
+    problem:
+      "Retail stores face stockouts and overstocking when replenishment relies on static heuristics instead of store-level demand forecasts.",
+    approach:
+      "Trained an XGBoost 7-day demand forecasting pipeline over historical M5 data evaluated with MAE and WAPE against seasonal-naive baselines, backed by FastAPI JWT endpoints and a React inventory dashboard.",
+    distinct:
+      "Connects 7-day statistical forecasts directly to inter-store transfer recommendations and what-if simulation.",
+    owned:
+      "Demand forecasting pipeline, MAE/WAPE evaluation, FastAPI + JWT backend APIs, and the React operations dashboard.",
+    stack: ["Python", "XGBoost", "FastAPI", "React.js", "SQL", "Pandas"],
+    flow: ["M5 sales history", "XGBoost 7-day model", "MAE & WAPE check", "FastAPI + JWT", "Store transfer UI"],
+    links: [
+      { label: "Live Demo", href: "https://retailpulse.up.railway.app/", placeholder: false },
+      { label: "Repository", href: "https://github.com/ranjitha-sridhar/RetailPulse", placeholder: false },
+    ],
+    pose: POSE_OPEN,
+  },
+  {
+    slug: "moodsync",
+    index: "02",
+    title: "MoodSync-AI V2",
     dates: "May 2026 — Present",
     role: "Full stack",
     summary:
@@ -51,14 +75,14 @@ export const projects: Project[] = [
     stack: ["Python", "FastAPI", "React.js", "TensorFlow/Keras", "OpenCV"],
     flow: ["Webcam frame", "React client", "FastAPI", "Keras model + OpenCV", "Music recommendation"],
     links: [
-      { label: "Live demo", href: "https://mood-sync-ai-v2-aoofar6ji-ranjitha-s.vercel.app/", placeholder: false },
+      { label: "Live Demo", href: "https://mood-sync-ai-v2-aoofar6ji-ranjitha-s.vercel.app/", placeholder: false },
       { label: "Repository", href: "https://github.com/ranjitha-sridhar/MoodSync-AI-V2", placeholder: false },
     ],
     pose: POSE_OPEN,
   },
   {
     slug: "campusar",
-    index: "02",
+    index: "03",
     title: "CampusAR",
     dates: "2026",
     role: "Full stack",
@@ -76,13 +100,13 @@ export const projects: Project[] = [
     flow: ["Position or QR", "Navigation graph", "Shortest path", "Node.js API", "AR guidance"],
     links: [
       { label: "Interactive Studio", href: "#studio", placeholder: false },
-      { label: "Repository", href: "https://github.com/ssarveshr/DBMS-project-", placeholder: false },
+      { label: "Repository", href: "https://github.com/ranjitha-sridhar/Campus-Navigation-System", placeholder: false },
     ],
     pose: POSE_L,
   },
   {
     slug: "sign-language",
-    index: "03",
+    index: "04",
     title: "Sign Language Interpreter",
     dates: "2025",
     role: "Data, model, and live inference",
@@ -101,14 +125,14 @@ export const projects: Project[] = [
     stack: ["Python", "OpenCV", "MediaPipe", "TensorFlow", "Keras", "NumPy", "CNN"],
     flow: ["Webcam frame", "MediaPipe landmarks", "Preprocess", "CNN classifier", "Letter on screen"],
     links: [
-      { label: "Live demo", href: "https://mood-sync-ai-v2-aoofar6ji-ranjitha-s.vercel.app/", placeholder: false },
-      { label: "Repository", href: "https://github.com/ranjitha-sridhar/MoodSync-AI-V2", placeholder: false },
+      { label: "Interactive Studio", href: "#studio", placeholder: false },
+      { label: "Repository", href: "https://github.com/PraveenKumarM17/Gesture", placeholder: false },
     ],
     pose: POSE_V,
   },
   {
     slug: "events",
-    index: "04",
+    index: "05",
     title: "Events Management System",
     dates: "March 2025 — July 2025",
     role: "Frontend developer",
@@ -153,7 +177,7 @@ export const profile = {
   phoneHref: "tel:+919449045855",
   whatsapp: "https://wa.me/919449045855",
   linkedin: "https://www.linkedin.com/in/ranjitha-sridhar-a5b711311/",
-  github: "https://github.com/PraveenKumarM17/Gesture",
+  github: "https://github.com/ranjitha-sridhar",
   githubPlaceholder: false,
   languages: ["English", "Kannada", "Hindi", "German"],
   interests: ["Badminton", "Drawing", "Reading"],

@@ -8,7 +8,26 @@ window.PORTFOLIO_DATA = {
   linkedin: 'https://www.linkedin.com/in/ranjitha-sridhar-a5b711311/',
   projects: [
     {
-      id: 'moodsync', number: '01', title: 'MoodSync-AI', subtitle: 'Emotion-aware music, built with intelligence.',
+      id: 'retailpulse', number: '01', title: 'RetailPulse', subtitle: '7-day demand forecasting & inventory intelligence.',
+      category: 'AI / FULL-STACK', types: ['ai', 'fullstack'], year: '2026 — Present', image: 'assets/project-retailpulse.svg',
+      alt: 'Chart showing 7-day M5 XGBoost demand forecast outperforming seasonal-naive baseline',
+      tech: ['Python', 'XGBoost', 'FastAPI', 'React.js', 'SQL', 'Pandas'],
+      synopsis: 'A full-stack retail demand forecasting, replenishment, and inter-store inventory transfer platform built over historical M5 sales data.',
+      problem: 'Multi-store retail supply chains suffer stockouts and overstocking when replenishment relies on static averages instead of SKU-store forecasts.',
+      approach: 'Trained an XGBoost 7-day demand forecasting pipeline over historical M5 data evaluated via MAE and WAPE against seasonal-naive baselines, backed by JWT-secured FastAPI APIs and a React what-if inventory dashboard.',
+      contribution: 'Engineered the end-to-end M5 feature and forecasting pipeline, inter-store transfer engine, FastAPI + JWT backend, and React operations UI.',
+      highlights: ['7-day multi-store M5 demand forecasting', 'MAE and WAPE benchmarking vs seasonal naive', 'Inter-store transfer & replenishment engine', 'FastAPI + JWT APIs with React what-if dashboard'],
+      pipeline: [
+        { title: 'Ingest', subtitle: 'M5 · Pandas', description: 'Process multi-store historical sales series and calendar features.' },
+        { title: 'Forecast', subtitle: 'XGBoost · 7-day', description: 'Generate 7-day demand predictions and benchmark MAE & WAPE.' },
+        { title: 'Optimize', subtitle: 'FastAPI · Transfers', description: 'Compute optimal inter-store stock transfers and reorder targets.' },
+        { title: 'Simulate', subtitle: 'React · JWT UI', description: 'Inspect store projections and run what-if scenarios in the live dashboard.' }
+      ],
+      repoUrl: 'https://github.com/ranjitha-sridhar/RetailPulse',
+      liveUrl: 'https://retailpulse.up.railway.app/'
+    },
+    {
+      id: 'moodsync', number: '02', title: 'MoodSync-AI V2', subtitle: 'Emotion-aware music, built with intelligence.',
       category: 'AI / FULL-STACK', types: ['ai', 'fullstack'], year: '2026 — Present', image: 'assets/project-moodsync.svg',
       alt: 'Stylized illustration of a facial landmark scanner and audio recommendation waveform',
       tech: ['React', 'FastAPI', 'TensorFlow / Keras', 'OpenCV', 'Python'],
@@ -23,11 +42,11 @@ window.PORTFOLIO_DATA = {
         { title: 'Predict', subtitle: 'TensorFlow / Keras', description: 'A trained emotion-recognition model predicts an emotion from the image.' },
         { title: 'Recommend', subtitle: 'FastAPI · React', description: 'An API responds with a music recommendation for the interface to present.' }
       ],
-      repoUrl: '', // Replace with https://github.com/PraveenKumarM17/MoodSync-AI
+      repoUrl: 'https://github.com/ranjitha-sridhar/MoodSync-AI-V2',
       liveUrl: 'https://mood-sync-ai-v2-aoofar6ji-ranjitha-s.vercel.app/'
     },
     {
-      id: 'campusar', number: '02', title: 'CampusAR', subtitle: 'A smarter way to find your way.',
+      id: 'campusar', number: '03', title: 'CampusAR', subtitle: 'A smarter way to find your way.',
       category: 'FULL-STACK / NAVIGATION', types: ['fullstack'], year: '2026', image: 'assets/project-campusar.svg',
       alt: 'Stylized illustrated map with connected location nodes and navigation route',
       tech: ['React', 'TypeScript', 'Node.js', 'PostgreSQL', 'PostGIS', 'WebSockets'],
@@ -42,11 +61,11 @@ window.PORTFOLIO_DATA = {
         { title: 'Route', subtitle: 'Node.js · graphs', description: 'Compute a connected path with a shortest-path algorithm over navigation nodes.' },
         { title: 'Guide', subtitle: 'React · AR · WS', description: 'Present directions and update navigation state using WebSockets and augmented reality cues.' }
       ],
-      repoUrl: '', // Replace with https://github.com/PraveenKumarM17/CampusAR
+      repoUrl: 'https://github.com/ranjitha-sridhar/Campus-Navigation-System',
       liveUrl: ''
     },
     {
-      id: 'asl', number: '03', title: 'Sign Language Interpreter', subtitle: 'Computer vision in service of communication.',
+      id: 'asl', number: '04', title: 'Sign Language Interpreter', subtitle: 'Computer vision in service of communication.',
       category: 'AI / COMPUTER VISION', types: ['ai'], year: '2025', image: 'assets/project-signlanguage.svg',
       alt: 'Illustration of a raised hand tracked by a computer vision recognition grid',
       tech: ['Python', 'OpenCV', 'MediaPipe', 'TensorFlow / Keras', 'CNN', 'NumPy'],
@@ -65,7 +84,7 @@ window.PORTFOLIO_DATA = {
       liveUrl: ''
     },
     {
-      id: 'events', number: '04', title: 'Events Management System', subtitle: 'Making event planning feel effortless.',
+      id: 'events', number: '05', title: 'Events Management System', subtitle: 'Making event planning feel effortless.',
       category: 'FRONTEND / FULL-STACK TEAM', types: ['fullstack'], year: '2025', image: 'assets/project-events.svg',
       alt: 'Stylized event dashboard with calendar, passes, and a data visualization',
       tech: ['React', 'JavaScript', 'HTML', 'CSS', 'API Integration'],

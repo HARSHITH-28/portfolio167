@@ -47,6 +47,10 @@ a{color:var(--acc)}a:hover{color:#E8ECF2}
 .btn:hover{transform:translateY(-2px)}
 .btn-solid:hover{background:#E8ECF2 !important;color:#070B12 !important}
 .btn-ghost:hover{border-color:var(--acc) !important;color:var(--acc) !important}
+.btn-demo{background:color-mix(in srgb,var(--acc) 16%,#0C141D) !important;color:var(--acc) !important;border:1px solid color-mix(in srgb,var(--acc) 68%,transparent) !important;box-shadow:0 8px 24px color-mix(in srgb,var(--acc) 16%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.btn-demo:hover{background:var(--acc) !important;color:#070B12 !important;border-color:var(--acc) !important;box-shadow:0 12px 28px color-mix(in srgb,var(--acc) 36%,transparent)}
+@keyframes demoPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.45;transform:scale(.82)}}
+.demo-dot{width:7px;height:7px;border-radius:999px;background:currentColor;display:inline-block;flex-shrink:0;animation:demoPulse 1.8s ease-in-out infinite}
 .tab{transition:background .35s,color .35s,padding-left .45s cubic-bezier(.2,.8,.2,1)}
 .tab:hover{padding-left:30px !important}
 .card-hover{transition:transform .5s cubic-bezier(.2,.8,.2,1),border-color .3s}
@@ -426,7 +430,7 @@ Rajarajeshwari Nagar, Bengaluru, India
 <sc-if value="{{st1}}" hint-placeholder-val="{{ false }}">
 <div class="fade" style="pointer-events: auto; max-width: 560px; padding: 24px 30px; border-radius: 18px; border: 1px solid color-mix(in srgb, var(--acc) 45%, transparent); background: rgba(12,16,26,0.82); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); text-align: center; display: flex; flex-direction: column; gap: 14px; align-items: center; box-shadow: 0 20px 60px -20px color-mix(in srgb, var(--acc) 40%, transparent)">
 <span style="font-size: 18px; line-height: 1.5; color: #E8ECF2; font-weight: 500">RetailPulse, MoodSync-AI V2, CampusAR, Real-time ASL Interpreter, and Events Management System — built end to end.</span>
-<a class="btn btn-solid" href="#work" style="display: inline-flex; align-items: center; gap: 10px; height: 44px; padding: 0 20px; border-radius: 8px; background: var(--acc); color: #070B12; text-decoration: none; font-size: 14px; font-weight: 600">See the work <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"></path></svg></a>
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px"><a class="btn btn-solid" href="#work" style="display: inline-flex; align-items: center; gap: 10px; height: 44px; padding: 0 20px; border-radius: 8px; background: var(--acc); color: #070B12; text-decoration: none; font-size: 14px; font-weight: 600">See the work <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"></path></svg></a><a class="btn btn-demo" href="https://retailpulse.up.railway.app/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 8px; height: 44px; padding: 0 16px; border-radius: 8px; text-decoration: none; font-size: 13px; font-weight: 600"><span class="demo-dot" aria-hidden="true"></span>RetailPulse Live Demo &#8599;</a><a class="btn btn-demo" href="https://mood-sync-ai-v2-aoofar6ji-ranjitha-s.vercel.app/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 8px; height: 44px; padding: 0 16px; border-radius: 8px; text-decoration: none; font-size: 13px; font-weight: 600"><span class="demo-dot" aria-hidden="true"></span>MoodSync-AI V2 Live Demo &#8599;</a></div>
 </div>
 </sc-if>
 <sc-if value="{{st2}}" hint-placeholder-val="{{ false }}">
@@ -484,7 +488,8 @@ Rajarajeshwari Nagar, Bengaluru, India
 <div style="display: flex; align-items: center; justify-content: space-between; padding: 16px 24px; border-bottom: 1px solid rgba(232,236,242,0.08)">
 <div style="display: flex; align-items: center; gap: 12px; font-size: 14px; color: #8E97A6">
 <span class="pulse" style="width: 8px; height: 8px; border-radius: 50%; background: #FF5A4E; display: inline-block"></span>
-<span style="color: #E8ECF2; font-weight: 500">MoodSync-AI &amp; ASL Vision Engine</span><span>— live inference loop</span>
+<span style="color: #E8ECF2; font-weight: 500">MoodSync-AI V2 &amp; ASL Vision Engine</span><span>— live inference loop</span>
+<a class="btn btn-demo" href="https://mood-sync-ai-v2-aoofar6ji-ranjitha-s.vercel.app/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 7px; height: 32px; padding: 0 13px; border-radius: 999px; text-decoration: none; font-size: 12px; font-weight: 600; margin-left: 6px"><span class="demo-dot" aria-hidden="true"></span>Live Demo &#8599;</a>
 </div>
 <button type="button" onClick="{{togglePlay}}" aria-label="{{playLabel}}" style="display: inline-flex; align-items: center; gap: 10px; height: 44px; padding: 0 18px; border-radius: 8px; border: 1px solid rgba(232,236,242,0.18); background: transparent; color: #E8ECF2; font-family: 'Geist', sans-serif; font-size: 14px; font-weight: 500; cursor: pointer">
 <sc-if value="{{playing}}" hint-placeholder-val="{{ true }}"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><rect x="2" y="1" width="3" height="10" fill="currentColor"></rect><rect x="7" y="1" width="3" height="10" fill="currentColor"></rect></svg></sc-if>
@@ -557,7 +562,7 @@ Rajarajeshwari Nagar, Bengaluru, India
 <span style="display: inline-flex; align-items: center; gap: 12px; font-size: 15px; font-weight: 600; color: var(--acc)"><span style="width: 24px; height: 2px; background: var(--acc)"></span>Selected work</span>
 <h2 class="display" style="margin: 0; font-size: 80px; font-weight: 800; letter-spacing: -0.05em; line-height: 0.95">Real-world systems,<br><span style="color: #5C6573">built end-to-end.</span></h2>
 </div>
-<p style="margin: 0; max-width: 360px; font-size: 16px; line-height: 1.6; color: #8E97A6">Full-stack, computer vision, spatial AR navigation, and algorithmic systems built across my academic and internship journey.</p>
+<div style="display: flex; flex-direction: column; gap: 14px; align-items: flex-start"><p style="margin: 0; max-width: 380px; font-size: 16px; line-height: 1.6; color: #8E97A6">Full-stack, computer vision, spatial AR navigation, and demand-forecasting systems built across my academic and internship journey.</p><div style="display: flex; flex-wrap: wrap; gap: 10px"><a class="btn btn-demo" href="https://retailpulse.up.railway.app/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 16px; border-radius: 999px; text-decoration: none; font-size: 13px; font-weight: 600"><span class="demo-dot" aria-hidden="true"></span>RetailPulse Live Demo &#8599;</a><a class="btn btn-demo" href="https://mood-sync-ai-v2-aoofar6ji-ranjitha-s.vercel.app/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 16px; border-radius: 999px; text-decoration: none; font-size: 13px; font-weight: 600"><span class="demo-dot" aria-hidden="true"></span>MoodSync-AI V2 Live Demo &#8599;</a></div></div>
 </div>
 
 <div style="display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 24px; align-items: start">
@@ -565,7 +570,7 @@ Rajarajeshwari Nagar, Bengaluru, India
 <sc-for list="{{projects}}" as="item" hint-placeholder-count="5">
 <button type="button" role="tab" class="tab" aria-selected="{{item.selected}}" onClick="{{item.pick}}" style="display: flex; align-items: center; gap: 18px; width: 100%; min-height: 88px; padding: 18px 20px; border: 0; border-bottom: 1px solid rgba(232,236,242,0.1); background: {{item.bg}}; color: {{item.fg}}; text-align: left; cursor: pointer; font-family: 'Geist', sans-serif">
 <span style="display: flex; flex-direction: column; gap: 4px; flex-grow: 1">
-<span class="display" style="font-size: 22px; font-weight: 700; letter-spacing: -0.02em">{{item.short}}</span>
+<span style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap"><span class="display" style="font-size: 22px; font-weight: 700; letter-spacing: -0.02em">{{item.short}}</span><span style="display: {{item.liveDisplay}}; align-items: center; gap: 5px; height: 22px; padding: 0 9px; border-radius: 999px; background: {{item.liveBg}}; color: {{item.liveFg}}; border: 1px solid {{item.liveBd}}; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase"><span class="demo-dot" aria-hidden="true" style="width: 5px; height: 5px"></span>LIVE DEMO</span></span>
 <span style="font-size: 13px; opacity: 0.72">{{item.tag}}</span>
 </span>
 <svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"></path></svg>
@@ -588,7 +593,7 @@ Rajarajeshwari Nagar, Bengaluru, India
 <path d="M70 256 C 200 245, 320 210, 420 175 S 540 120, 590 100" fill="none" stroke="rgba(232,236,242,0.45)" stroke-width="1.6" stroke-dasharray="5 6"></path>
 <path d="M70 256 C 200 250, 320 250, 420 262 S 540 272, 590 276" fill="none" class="draw" style="stroke: var(--acc); stroke-width: 2.4"></path>
 <circle cx="590" cy="276" r="6" class="pulse" style="fill: var(--acc)"></circle>
-<text x="454" y="92" style="font-family: 'Geist', sans-serif; font-size: 13px; fill: #C3CAD6">Seasonal Naive</text>
+<text x="492" y="152" style="font-family: 'Geist', sans-serif; font-size: 13px; fill: #C3CAD6">Seasonal Naive</text>
 <text x="454" y="304" style="font-family: 'Geist', sans-serif; font-size: 13px; font-weight: 600; fill: var(--acc)">XGBoost Forecast</text>
 <text x="80" y="52" style="font-family: 'Geist', sans-serif; font-size: 13px; fill: #8E97A6">7-Day M5 Forecast · MAE &amp; WAPE</text>
 <g class="chip" style="animation-delay: 0s"><rect x="110" y="80" width="112" height="34" rx="8" fill="#111826" stroke="rgba(232,236,242,0.2)"></rect><text x="166" y="102" text-anchor="middle" style="font-family: 'Geist', sans-serif; font-size: 13px; font-weight: 500; fill: #E8ECF2">XGBoost M5</text></g>
@@ -686,7 +691,10 @@ Rajarajeshwari Nagar, Bengaluru, India
 </svg>
 </sc-if>
 
-<div style="position: absolute; left: 24px; top: 20px; font-size: 13px; font-weight: 500; color: #8E97A6">{{cur.tag}}</div>
+<div style="position: absolute; left: 20px; right: 20px; top: 14px; z-index: 6; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; pointer-events: none">
+<div style="font-size: 13px; font-weight: 500; color: #8E97A6; pointer-events: auto">{{cur.tag}}</div>
+<sc-if value="{{curHasDemo}}" hint-placeholder-val="{{ true }}"><a class="btn btn-demo" href="{{curDemoHref}}" target="_blank" rel="noopener noreferrer" style="pointer-events: auto; display: inline-flex; align-items: center; gap: 8px; height: 38px; padding: 0 16px; border-radius: 999px; text-decoration: none; font-size: 13px; font-weight: 600; letter-spacing: 0.01em"><span class="demo-dot" aria-hidden="true"></span>Live Demo &#8599;</a></sc-if>
+</div>
 </div>
 
 <div style="display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 24px; align-items: end">
@@ -715,7 +723,7 @@ Rajarajeshwari Nagar, Bengaluru, India
 <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding-top: 4px">
 <span style="font-size: 14px; color: #8E97A6">Architecture, guardrails, impact and my role — on one page.</span>
 <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap">
-<sc-if value="{{curHasDemo}}" hint-placeholder-val="{{ true }}"><a class="btn btn-ghost" href="{{curDemoHref}}" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 8px; height: 50px; padding: 0 18px; border-radius: 8px; border: 1px solid color-mix(in srgb, var(--acc) 55%, transparent); background: color-mix(in srgb, var(--acc) 10%, transparent); color: var(--acc); text-decoration: none; font-size: 14px; font-weight: 600">Live Demo &#8599;</a></sc-if>
+<sc-if value="{{curHasDemo}}" hint-placeholder-val="{{ true }}"><a class="btn btn-demo" href="{{curDemoHref}}" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 8px; height: 50px; padding: 0 20px; border-radius: 8px; text-decoration: none; font-size: 14px; font-weight: 600"><span class="demo-dot" aria-hidden="true"></span>Live Demo &#8599;</a></sc-if>
 <sc-if value="{{curHasRepo}}" hint-placeholder-val="{{ true }}"><a class="btn btn-ghost" href="{{curRepoHref}}" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 8px; height: 50px; padding: 0 18px; border-radius: 8px; border: 1px solid rgba(232,236,242,0.22); color: #E8ECF2; text-decoration: none; font-size: 14px; font-weight: 600">GitHub Repo &#8599;</a></sc-if>
 <button type="button" class="btn btn-solid" onClick="{{openCase}}" style="display: inline-flex; align-items: center; gap: 10px; height: 50px; padding: 0 22px; border-radius: 8px; border: 0; background: var(--acc); color: #070B12; font-family: 'Geist', sans-serif; font-size: 15px; font-weight: 700; cursor: pointer">Read the case study <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"></path></svg></button>
 </div>
@@ -1021,7 +1029,7 @@ Rajarajeshwari Nagar, Bengaluru, India
 <div class="csnav" style="display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding-top: 24px; border-top: 1px solid rgba(232,236,242,0.08)">
 <button type="button" onClick="{{prevCase}}" style="display: inline-flex; align-items: center; gap: 8px; height: 46px; padding: 0 18px; border-radius: 8px; border: 1px solid rgba(232,236,242,0.18); background: transparent; color: #E8ECF2; font-family: 'Geist', sans-serif; font-size: 14px; font-weight: 500; cursor: pointer">&#8592; {{csPrev}}</button>
 <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap">
-<sc-if value="{{csHasDemo}}" hint-placeholder-val="{{ true }}"><a class="btn btn-ghost" href="{{csDemoHref}}" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 8px; height: 46px; padding: 0 18px; border-radius: 8px; border: 1px solid color-mix(in srgb, var(--acc) 55%, transparent); color: var(--acc); text-decoration: none; font-size: 14px; font-weight: 600">Live Demo &#8599;</a></sc-if>
+<sc-if value="{{csHasDemo}}" hint-placeholder-val="{{ true }}"><a class="btn btn-demo" href="{{csDemoHref}}" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 8px; height: 46px; padding: 0 18px; border-radius: 8px; text-decoration: none; font-size: 14px; font-weight: 600"><span class="demo-dot" aria-hidden="true"></span>Live Demo &#8599;</a></sc-if>
 <sc-if value="{{csHasRepo}}" hint-placeholder-val="{{ true }}"><a class="btn btn-ghost" href="{{csRepoHref}}" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 8px; height: 46px; padding: 0 18px; border-radius: 8px; border: 1px solid rgba(232,236,242,0.22); color: #E8ECF2; text-decoration: none; font-size: 14px; font-weight: 600">GitHub Repo &#8599;</a></sc-if>
 <a class="btn btn-solid" href="{{csMail}}" style="display: inline-flex; align-items: center; gap: 10px; height: 46px; padding: 0 20px; border-radius: 8px; background: var(--acc); color: #070B12; text-decoration: none; font-size: 14px; font-weight: 700">Talk about a project like this</a>
 </div>
@@ -3221,6 +3229,10 @@ void main(){
     const accent = this.props.accent || '#34F5C5';
     const projects = data.map((d, i) => ({
       short: d.short, tag: d.tag,
+      liveDisplay: d.demoHref ? 'inline-flex' : 'none',
+      liveBg: i === active ? '#070B12' : 'color-mix(in srgb, ' + accent + ' 15%, transparent)',
+      liveFg: accent,
+      liveBd: i === active ? '#070B12' : 'color-mix(in srgb, ' + accent + ' 45%, transparent)',
       selected: i === active ? 'true' : 'false',
       bg: i === active ? accent : 'transparent',
       fg: i === active ? '#070B12' : '#E8ECF2',

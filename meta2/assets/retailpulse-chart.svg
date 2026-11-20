@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0E1726"/><stop offset="100%" stop-color="#172338"/></linearGradient>
+    <linearGradient id="acc" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#34F5C5"/><stop offset="100%" stop-color="#38BDF8"/></linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#bg)"/>
+  <line x1="70" y1="400" x2="730" y2="400" stroke="rgba(255,255,255,0.16)" stroke-width="2"/>
+  <line x1="70" y1="90" x2="70" y2="400" stroke="rgba(255,255,255,0.16)" stroke-width="2"/>
+  <path d="M70 320 C190 300, 320 265, 450 220 S630 155, 730 135" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="3" stroke-dasharray="8 8"/>
+  <path d="M70 320 C190 285, 320 215, 450 180 S630 120, 730 98" fill="none" stroke="url(#acc)" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="730" cy="98" r="10" fill="#34F5C5"/>
+  <rect x="96" y="102" width="150" height="44" rx="12" fill="#18273F" stroke="rgba(52,245,197,0.45)"/>
+  <text x="171" y="130" text-anchor="middle" fill="#34F5C5" font-family="system-ui, sans-serif" font-size="16" font-weight="700">XGBoost M5</text>
+  <rect x="262" y="102" width="160" height="44" rx="12" fill="#18273F" stroke="rgba(56,189,248,0.45)"/>
+  <text x="342" y="130" text-anchor="middle" fill="#E8ECF2" font-family="system-ui, sans-serif" font-size="16" font-weight="600">FastAPI + JWT</text>
+  <text x="96" y="450" fill="#9FB0C9" font-family="monospace" font-size="15">7-DAY DEMAND FORECAST · MAE &amp; WAPE · STORE TRANSFER ENGINE</text>
+</svg>

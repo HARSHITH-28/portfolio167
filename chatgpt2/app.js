@@ -4,7 +4,20 @@
 
 const PROJECTS = [
   {
-    title: 'MoodSync-AI', short: 'MOODSYNC / 01', tag: 'AI / FULL-STACK',
+    title: 'RetailPulse', short: 'RETAILPULSE / 01', tag: 'AI / FULL-STACK',
+    summary: 'Multi-store retail demand forecasting, replenishment optimization, and inter-store transfer platform powered by XGBoost and historical M5 sales data.',
+    problem: 'Multi-store retail supply chains suffer stockouts and overstocking when replenishment relies on static averages instead of store-level demand forecasts.',
+    approach: 'Trained an XGBoost 7-day demand forecasting pipeline over historical M5 sales data benchmarked with MAE and WAPE against seasonal-naive baselines, exposed via JWT-authenticated FastAPI APIs and React dashboards.',
+    innovation: 'Unifies 7-day SKU demand forecasting with inter-store stock transfer recommendations and interactive what-if simulation.',
+    role: 'Full-stack & ML engineering across the M5 forecasting pipeline, FastAPI + JWT backend, and React operations UI.',
+    tech: ['Python','XGBoost','FastAPI','React.js','SQL','Pandas'],
+    art: 'assets/project-retailpulse.svg',
+    artAlt: 'Chart comparing 7-day XGBoost demand forecast against seasonal-naive baseline',
+    demo: 'https://retailpulse.up.railway.app/',
+    repo: 'https://github.com/ranjitha-sridhar/RetailPulse', artMicro: '7-DAY M5 FORECASTING'
+  },
+  {
+    title: 'MoodSync-AI V2', short: 'MOODSYNC / 02', tag: 'AI / FULL-STACK',
     summary: 'An AI-powered emotion detection and music recommendation experience that turns webcam facial expressions into personalized music suggestions.',
     problem: 'Connect facial emotion recognition with a practical, engaging music recommendation interface instead of stopping at a model prediction.',
     approach: 'Capture webcam frames in React, use OpenCV-based image processing and a TensorFlow/Keras model, and serve emotion predictions and recommendations through FastAPI REST endpoints.',
@@ -13,10 +26,11 @@ const PROJECTS = [
     tech: ['React.js','FastAPI','Python','TensorFlow / Keras','OpenCV','REST APIs'],
     art: 'assets/project-moodsync.svg',
     artAlt: 'Abstract diagram with facial-emotion detection connected to a recommendation output',
-    repo: null, artMicro: 'THE FEATURED BUILD'
+    demo: 'https://mood-sync-ai-v2-aoofar6ji-ranjitha-s.vercel.app/',
+    repo: 'https://github.com/ranjitha-sridhar/MoodSync-AI-V2', artMicro: '7-CLASS EMOTION ENGINE'
   },
   {
-    title: 'CampusAR', short: 'CAMPUS AR / 02', tag: 'FULL-STACK / SPATIAL',
+    title: 'CampusAR', short: 'CAMPUS AR / 03', tag: 'FULL-STACK / SPATIAL',
     summary: 'A campus navigation system combining indoor and outdoor routes, GPS positioning, spatial data, and augmented-reality guidance.',
     problem: 'Make it easier to navigate complex campus spaces, including the difficult handoff between outdoor GPS routing and indoor locations.',
     approach: 'Modeled campus paths as navigation graphs, generated routes using shortest-path algorithms, and built Node.js REST APIs backed by PostgreSQL/PostGIS.',
@@ -25,10 +39,11 @@ const PROJECTS = [
     tech: ['React','TypeScript','Node.js','PostgreSQL','PostGIS','WebSockets','REST APIs'],
     art: 'assets/project-campusar.svg',
     artAlt: 'Stylized campus graph with an illuminated path and AR destination marker',
-    repo: null, artMicro: 'NAVIGATION, REIMAGINED'
+    demo: '',
+    repo: 'https://github.com/ranjitha-sridhar/Campus-Navigation-System', artMicro: 'NAVIGATION, REIMAGINED'
   },
   {
-    title: 'Sign Language Interpreter', short: 'SIGN LANGUAGE / 03', tag: 'AI / ACCESSIBILITY',
+    title: 'Sign Language Interpreter', short: 'SIGN LANGUAGE / 04', tag: 'AI / ACCESSIBILITY',
     summary: 'A real-time sign-language gesture recognition system designed to translate webcam hand gestures into readable alphabet characters.',
     problem: 'Use accessible computer-vision technology to help translate signed alphabet gestures into text on a screen.',
     approach: 'Process live webcam input with OpenCV; use hand detection and landmark extraction with MediaPipe and a TensorFlow/Keras CNN-based classification pipeline described in the project resume.',
@@ -37,10 +52,11 @@ const PROJECTS = [
     tech: ['Python','OpenCV','MediaPipe','TensorFlow / Keras','CNN','NumPy'],
     art: 'assets/project-sign.svg',
     artAlt: 'Hand outline with computer vision landmarks and a predicted letter',
+    demo: '',
     repo: 'https://github.com/PraveenKumarM17/Gesture', artMicro: 'BUILDING FOR ACCESSIBILITY'
   },
   {
-    title: 'Events Management System', short: 'EVENTS / 04', tag: 'FRONTEND / PRODUCT',
+    title: 'Events Management System', short: 'EVENTS / 05', tag: 'FRONTEND / PRODUCT',
     summary: 'A responsive event-management interface for students and organizers, built with React, JavaScript, HTML and CSS.',
     problem: 'Make it easy for students and event organizers to access and interact with event information in a clear, responsive interface.',
     approach: 'Developed the frontend using React.js, HTML, CSS and JavaScript; integrated event-related APIs and collaborated with the backend team via GitHub.',
@@ -49,6 +65,7 @@ const PROJECTS = [
     tech: ['React.js','JavaScript','HTML5','CSS3','API Integration','GitHub'],
     art: 'assets/project-events.svg',
     artAlt: 'Stylized event-management calendar and application dashboard',
+    demo: '',
     repo: 'https://github.com/ssarveshr/DBMS-project-', artMicro: 'DESIGN MEETS FUNCTION'
   }
 ];
@@ -169,24 +186,30 @@ function renderProject(index){
   projectIndex=(index+PROJECTS.length)%PROJECTS.length;
   const p=PROJECTS[projectIndex];
   document.querySelectorAll('.project-index-item').forEach((b,i)=>{b.classList.toggle('active',i===projectIndex);b.setAttribute('aria-pressed',String(i===projectIndex));});
-  setText('projectTag',p.tag);setText('projectCounter',String(projectIndex+1).padStart(2,'0')+' — 04');
+  setText('projectTag',p.tag);setText('projectCounter',String(projectIndex+1).padStart(2,'0')+' — '+String(PROJECTS.length).padStart(2,'0'));
   const art=$('projectArt');art.src=p.art;art.alt=p.artAlt;
   setText('projectArtName',p.short);setText('projectArtMicro',p.artMicro);
   setText('projectTitle',p.title);setText('projectSummary',p.summary);
   setText('projectProblem',p.problem);setText('projectApproach',p.approach);setText('projectPosition',String(projectIndex+1).padStart(2,'0'));
   const tech=$('projectTech');tech.replaceChildren();p.tech.slice(0,5).forEach(name=>{let span=document.createElement('span');span.textContent=name.toUpperCase();tech.append(span);});
-  const repo=$('projectRepo');repo.href=p.repo||'https://github.com/PraveenKumarM17/Gesture';
-  repo.textContent=p.repo?'View resume-linked repository ↗':'Browse GitHub (repo link pending) ↗';
+  const demo=$('projectDemo');
+  if(demo){
+    if(p.demo){demo.href=p.demo;demo.style.display='inline-flex';}
+    else{demo.style.display='none';}
+  }
+  const repo=$('projectRepo');repo.href=p.repo||'https://github.com/ranjitha-sridhar';
+  repo.textContent=p.repo?'GitHub Repo ↗':'GitHub Profile ↗';
   repo.classList.toggle('is-unavailable',!p.repo);
 }
 function renderCase(){
   const p=PROJECTS[projectIndex];
-  setText('caseMeta','CASE STUDY / '+String(projectIndex+1).padStart(2,'0')+' OF 04');
+  setText('caseMeta','CASE STUDY / '+String(projectIndex+1).padStart(2,'0')+' OF '+String(PROJECTS.length).padStart(2,'0'));
   setText('caseTitle',p.title);setText('caseSummary',p.summary);setText('caseProblem',p.problem);setText('caseApproach',p.approach);
   setText('caseInnovation',p.innovation);setText('caseRole',p.role);
   const im=$('caseArt');im.src=p.art;im.alt=p.artAlt;
   const tech=$('caseTech');tech.replaceChildren();p.tech.forEach(name=>{const span=document.createElement('span');span.textContent=name.toUpperCase();tech.append(span);});
-  const repo=$('caseRepo');repo.href=p.repo||'https://github.com/PraveenKumarM17/Gesture';repo.textContent=p.repo?'VIEW RESUME-LINKED REPOSITORY ↗':'GITHUB PROFILE · REPO LINK PENDING ↗';repo.classList.toggle('is-unavailable',!p.repo);
+  const cdemo=$('caseDemo');if(cdemo){if(p.demo){cdemo.href=p.demo;cdemo.style.display='inline-flex';}else{cdemo.style.display='none';}}
+  const repo=$('caseRepo');repo.href=p.repo||'https://github.com/ranjitha-sridhar';repo.textContent=p.repo?'GITHUB REPO ↗':'GITHUB PROFILE ↗';repo.classList.toggle('is-unavailable',!p.repo);
 }
 function initProjects(){
   document.querySelectorAll('.project-index-item').forEach(b=>b.addEventListener('click',()=>renderProject(Number(b.dataset.project))));
@@ -225,7 +248,8 @@ function answerQuestion(raw){
   if(/campus|navigation|\bar\b|postgis|gps|route/.test(q))return 'CampusAR helps users navigate campus indoor and outdoor spaces. It uses React and TypeScript, Node.js REST APIs, PostgreSQL/PostGIS, graph-based shortest paths, GPS updates, QR-assisted indoor positioning, WebSockets, and AR direction cues.';
   if(/sign language|gesture|\basl\b|accessib|deaf|hand/.test(q))return 'The Sign Language Interpreter recognizes hand gestures from webcam input and displays predicted alphabet characters. The academic resume describes MediaPipe landmark detection and a TensorFlow/Keras CNN, plus Ranjitha’s work on dataset preparation, training, and webcam inference.';
   if(/event|management|frontend project/.test(q))return 'The Events Management System is a team project. Ranjitha worked as a frontend developer using React, HTML, CSS, and JavaScript, designed responsive pages, integrated event APIs, and collaborated with the backend team.';
-  if(/project|portfolio|built|build|work/.test(q))return 'Four featured builds: (1) MoodSync-AI — emotion-aware music recommendations; (2) CampusAR — indoor/outdoor campus navigation; (3) Sign Language Interpreter — computer-vision accessibility; and (4) Events Management System — responsive React frontend. Open “Selected work” to explore each case study.';
+  if(/retail|forecast|xgboost|inventory|m5/.test(q))return 'RetailPulse is a full-stack retail demand forecasting and inventory optimization platform using historical M5 data, XGBoost (MAE & WAPE), FastAPI + JWT, and React. Live Demo: retailpulse.up.railway.app';
+  if(/project|portfolio|built|build|work/.test(q))return 'Five featured builds including RetailPulse (retailpulse.up.railway.app) and MoodSync-AI V2 (mood-sync-ai-v2-aoofar6ji-ranjitha-s.vercel.app), plus CampusAR, Sign Language Interpreter, and Events Management System. (1) MoodSync-AI — emotion-aware music recommendations; (2) CampusAR — indoor/outdoor campus navigation; (3) Sign Language Interpreter — computer-vision accessibility; and (4) Events Management System — responsive React frontend. Open “Selected work” to explore each case study.';
   if(/samsung|intern|training|industry/.test(q))return 'Ranjitha was a Student Trainee at Samsung Innovation Campus from November 2024 to February 2025. Training focused on Python programming, algorithms, competitive programming, coding exercises and problem solving.';
   if(/cgpa|college|degree|educat|graduate|university|rnsit/.test(q))return 'Ranjitha is pursuing B.E. in Computer Science & Engineering at RNS Institute of Technology in Bengaluru (2023–2027), with a 9.49/10 CGPA on the academic resume. Earlier scores: 93.5% in Class 12 and 98% in Class 10.';
   if(/ieee|gdsc|club|lead|secretary|society|collab/.test(q))return 'Outside coursework, Ranjitha served as Secretary of the IEEE Consumer Technology Society and was a Google Developer Student Clubs (GDSC) member. The resumes also highlight teamwork, leadership, communication and time management.';

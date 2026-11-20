@@ -47,3 +47,7 @@
 }
 
 html{overflow-x:clip}
+
+.btn-demo{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;background:#b8f2ca;color:#0b171b;font:700 13px/1 var(--font-mono,ui-monospace,monospace);letter-spacing:.04em;text-transform:uppercase;text-decoration:none;border:1px solid #b8f2ca;transition:transform .2s,background .2s}
+.btn-demo:hover{transform:translateY(-2px);background:#d5fce2;color:#0b171b}
+.btn-demo .demo-dot{width:7px;height:7px;border-radius:999px;background:#0b171b;display:inline-block}

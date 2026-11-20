@@ -25,6 +25,9 @@ section{padding:96px 6vw;max-width:1200px;margin:0 auto}
 .btn{display:inline-block;padding:11px 20px;border-radius:999px;border:1px solid var(--line);font-weight:700;cursor:pointer;background:none;color:var(--tx);font-family:inherit;font-size:15px;transition:.2s}
 .btn:hover{border-color:var(--ac)}
 .btn.p{background:linear-gradient(120deg,var(--ac),var(--ac2));color:#16101F;border:0}
+.btn.live{background:color-mix(in srgb,var(--ac2) 15%,#16101F);border-color:color-mix(in srgb,var(--ac2) 65%,transparent);color:var(--ac2)}
+.btn.live:hover{background:var(--ac2);color:#16101F;border-color:var(--ac2)}
+.demo-dot{display:inline-block;width:7px;height:7px;border-radius:999px;background:currentColor;margin-right:7px;vertical-align:middle}
 .row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
 .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px}
 .chip{display:inline-block;padding:5px 13px;margin:4px 6px 4px 0;border-radius:999px;background:#1E1A38;border:1px solid var(--line);font-size:14px}
@@ -174,7 +177,7 @@ footer{border-top:1px solid var(--line);padding:26px 6vw;display:flex;flex-wrap:
 <section id="work">
  <span class="kick">Selected work</span>
  <h2>Projects built to run, not to sit in a repo.</h2>
- <p class="lead">Four projects across AI, computer vision, full-stack and web development.</p>
+ <p class="lead">Five projects across AI, forecasting, computer vision, full-stack and web development.</p>
  <div class="tabs" id="tabs"></div>
  <div class="card work" id="wk"></div>
  <h3 style="margin-top:60px;font-size:26px">Along the way</h3>
@@ -202,7 +205,7 @@ footer{border-top:1px solid var(--line);padding:26px 6vw;display:flex;flex-wrap:
   <div class="card"><h3>Design</h3><p class="lead">Shape the system</p><p class="lead">Layered APIs, clean data models and a model or algorithm that fits the job.</p></div>
   <div class="card"><h3>Build &amp; test</h3><p class="lead">Prove it works</p><p class="lead">Ship the frontend and backend, test them together, and iterate on accuracy and speed.</p></div>
  </div>
- <b>My four projects</b>
+ <b>My five projects</b>
  <div class="bar"><span style="width:50%;background:var(--ac)"></span><span style="width:50%;background:var(--ac2)"></span></div>
  <div class="row" style="justify-content:space-between;color:var(--mu)"><span><b style="color:var(--ac)">50%</b> — AI &amp; computer vision</span><span><b style="color:var(--ac2)">50%</b> — Full-stack &amp; web</span></div>
 </section>
@@ -243,20 +246,27 @@ footer{border-top:1px solid var(--line);padding:26px 6vw;display:flex;flex-wrap:
 <script>
 const $=s=>document.querySelector(s),E=(t,h,c)=>{const e=document.createElement(t);e.innerHTML=h;if(c)e.className=c;return e};
 const P=[
-{tag:'AI · Web app',title:'MoodSync-AI',short:'Emotion to music',when:'May 2026 – present',metric:'2',ml:'services — React frontend and FastAPI backend deployed separately',
+{tag:'AI · Forecasting & Full-stack',title:'RetailPulse',short:'7-day demand forecasting & inventory optimization',when:'Nov 2026 – present',metric:'M5 + XGB',ml:'7-day multi-store demand forecast with MAE & WAPE evaluation',
+ problem:'Multi-store retail chains face stockouts and overstocking when planning relies on static averages instead of store-level demand forecasts.',
+ approach:'Trained an XGBoost 7-day forecasting pipeline on historical M5 sales data evaluated via MAE and WAPE against seasonal-naive baselines, exposed over FastAPI + JWT endpoints.',
+ inn:'Unifies demand forecasting, inter-store inventory transfers, and what-if replenishment simulation in a React dashboard.',
+ steps:[['Ingest','M5 historical sales across stores'],['Baseline','Compare seasonal-naive MAE & WAPE'],['Forecast','XGBoost 7-day multi-store demand'],['Transfer','Rebalance stock via inter-store engine'],['Simulate','FastAPI + JWT dashboard & what-if UI']],
+ gd:['Evaluated rigorously with MAE & WAPE against seasonal-naive baselines','JWT-authenticated FastAPI endpoints and automated test suite'],
+ role:'Engineered the forecasting pipeline, inventory optimization logic, FastAPI backend, and React dashboard.',stack:['Python','FastAPI','React.js','XGBoost','SQL','Pandas','JWT'],demo:'https://retailpulse.up.railway.app/',repo:'https://github.com/ranjitha-sridhar/RetailPulse'},
+{tag:'AI · Web app',title:'MoodSync-AI V2',short:'Emotion to music',when:'May 2026 – present',metric:'2',ml:'services — React frontend and FastAPI backend deployed separately',
  problem:'Picking music that fits how you feel takes effort, and most players ignore mood entirely.',
  approach:'React captures webcam frames and sends them to FastAPI, where OpenCV preprocessing and a trained TensorFlow/Keras model predict the emotion, then a recommender returns tracks.',
  inn:'Facial expression analysis drives personalised music recommendations in a single flow.',
  steps:[['Capture','React grabs webcam frames'],['Send','HTTP request to the FastAPI service'],['Detect','OpenCV image processing'],['Classify','Keras emotion model predicts mood'],['Recommend','Tracks returned to the UI']],
  gd:['REST APIs separate detection, prediction and recommendation','Frontend and backend deploy as independent services'],
- role:'Built the FastAPI endpoints, integrated the trained model with OpenCV processing, and developed the React frontend.',stack:['Python','FastAPI','React.js','TensorFlow/Keras','OpenCV']},
+ role:'Built the FastAPI endpoints, integrated the trained model with OpenCV processing, and developed the React frontend.',stack:['Python','FastAPI','React.js','TensorFlow/Keras','OpenCV'],demo:'https://mood-sync-ai-v2-aoofar6ji-ranjitha-s.vercel.app/',repo:'https://github.com/ranjitha-sridhar/MoodSync-AI-V2'},
 {tag:'Full-stack · AR',title:'CampusAR',short:'Indoor + outdoor navigation',when:'2026',metric:'In + out',ml:'navigation across buildings, entrances and indoor nodes',
  problem:'Finding your way around a large campus, especially indoors, is hard with ordinary maps.',
  approach:'A graph of the campus feeds shortest-path routing. GPS positions outdoors, QR codes relocalise indoors, and AR arrows guide the walk.',
  inn:'One system covers outdoor GPS and indoor QR-based relocalisation with AR directions.',
  steps:[['Locate','GPS outdoors, QR codes indoors'],['Route','Shortest path over the campus graph'],['Serve','Node.js REST APIs with PostgreSQL/PostGIS'],['Stream','WebSocket live position updates'],['Guide','AR directional guidance']],
  gd:['Layered backend: API, application, domain and data-access','Spatial data managed in PostGIS'],
- role:'Developed the full-stack navigation system, routing logic and real-time features.',stack:['React','TypeScript','Node.js','PostgreSQL','PostGIS','REST APIs','WebSocket']},
+ role:'Developed the full-stack navigation system, routing logic and real-time features.',stack:['React','TypeScript','Node.js','PostgreSQL','PostGIS','REST APIs','WebSocket'],repo:'https://github.com/ranjitha-sridhar/Campus-Navigation-System'},
 {tag:'Computer vision',title:'Real-time Sign Language Interpreter',short:'ASL to text',when:'2025 · team of 4',metric:'Live',ml:'webcam recognition of ASL alphabet gestures',
  problem:'Communication gaps between sign language users and people who don’t sign.',
  approach:'MediaPipe finds hand landmarks in each frame, features go to a CNN built with TensorFlow/Keras, and the predicted letter appears on screen in real time.',
@@ -276,7 +286,7 @@ $('#nav').innerHTML=nav.map(n=>{const[a,b]=n.split(':');return`<a href="#${b}">$
 const tk=['Python','C','C++','Java','JavaScript','FastAPI','React.js','OpenCV','TensorFlow','MediaPipe','PostgreSQL','Data Structures'];
 $('#tick1').innerHTML=Array(2).fill('BUILD · TEST · SHIP · LEARN · ').join('').repeat(4);
 $('#tick2').innerHTML=Array(2).fill(tk.join('   ·   ')+'   ·   ').join('');
-$('#stats').innerHTML=[['9.49','CGPA out of 10 at RNS Institute of Technology'],['4','projects across AI, computer vision and full-stack'],['4','languages spoken — English, Kannada, Hindi, German'],['78','out of 100 in NPTEL Demystifying Networking']].map(s=>`<div class="card"><b data-n="${s[0]}">0</b>${s[1]}</div>`).join('');
+$('#stats').innerHTML=[['9.49','CGPA out of 10 at RNS Institute of Technology'],['5','projects across AI, forecasting, vision and full-stack'],['4','languages spoken — English, Kannada, Hindi, German'],['78','out of 100 in NPTEL Demystifying Networking']].map(s=>`<div class="card"><b data-n="${s[0]}">0</b>${s[1]}</div>`).join('');
 const TK=[['Languages','Python · C · C++ · Java · JavaScript · C#'],['Web & backend','HTML5 · CSS3 · React.js · FastAPI · ASP.NET Core Web API · REST APIs'],['Databases','MySQL · SQL · PostgreSQL'],['AI / ML & data','OpenCV · TensorFlow/Keras · Pandas · NumPy · Matplotlib · EDA'],['Tools','Git · GitHub · VS Code · Google Colab'],['Engineering','OOP · Data Structures & Algorithms · DBMS · API development · Microservices & event-driven fundamentals']];
 $('#tk').innerHTML=TK.map(([h,t])=>`<div class="card"><b>${h}</b><div style="margin-top:8px">${t.split(' · ').map(x=>`<span class="chip">${x}</span>`).join('')}</div></div>`).join('');
 $('#early').innerHTML=[['Training · Samsung','Samsung Innovation Campus','Student trainee, Nov 2024 – Feb 2025: Python, competitive programming, algorithms and data structures on LeetCode and CodeChef.'],['Certification','Demystifying Networking','NPTEL course by IIT Madras covering TCP/IP, routing and switching. Scored 78/100.'],['Leadership','IEEE Consumer Technology Society','Serving as Secretary.'],['Community','Google Developer Student Clubs','Active member.']].map(c=>`<div class="card"><small>${c[0]}</small><h3 style="font-size:19px;margin-top:6px">${c[1]}</h3><p>${c[2]}</p></div>`).join('');
@@ -285,10 +295,10 @@ $('#tl').innerHTML=[['2023 — 2027','RNS Institute of Technology','B.E. in Comp
 let cur=0;
 $('#tabs').innerHTML=P.map((p,i)=>`<button class="btn" data-i="${i}">${p.title.split(' ').slice(0,2).join(' ')}</button>`).join('');
 function show(i){cur=i;const p=P[i];document.querySelectorAll('#tabs button').forEach((b,j)=>b.classList.toggle('on',j==i));
-$('#wk').innerHTML=`<div><span class="kick">${p.tag}</span><h3>${p.title}</h3><div class="big">${p.metric}</div><p>${p.ml}</p><p style="margin-top:10px"><small>${p.when}</small></p></div><div><h4>Problem</h4><p>${p.problem}</p><h4>Approach</h4><p>${p.approach}</p><h4>What’s new</h4><p>${p.inn}</p><div style="margin-top:20px"><button class="btn p" data-cs="${i}">Read the case study</button></div></div>`}
+$('#wk').innerHTML=`<div><span class="kick">${p.tag}</span><h3>${p.title}</h3><div class="big">${p.metric}</div><p>${p.ml}</p><p style="margin-top:10px"><small>${p.when}</small></p></div><div><h4>Problem</h4><p>${p.problem}</p><h4>Approach</h4><p>${p.approach}</p><h4>What’s new</h4><p>${p.inn}</p><div class="row" style="margin-top:20px;gap:10px">${p.demo?`<a class="btn live" href="${p.demo}" target="_blank" rel="noopener noreferrer"><span class="demo-dot" aria-hidden="true"></span>Live Demo &#8599;</a>`:""}${p.repo?`<a class="btn" href="${p.repo}" target="_blank" rel="noopener noreferrer">GitHub Repo &#8599;</a>`:""}<button class="btn p" data-cs="${i}">Read the case study</button></div></div>`}
 $('#tabs').onclick=e=>{const b=e.target.closest('button');if(b)show(+b.dataset.i)};
 $('#wk').onclick=e=>{const b=e.target.closest('[data-cs]');if(b)openCS(+b.dataset.cs)};
-function openCS(i){cur=i;const p=P[i],n=P.length;$('#csb').innerHTML=`<button class="btn" id="x">Close ✕</button><p class="kick" style="margin-top:24px">Case study · ${p.tag}</p><h2>${p.title}</h2><p class="lead">${p.approach}</p><div class="row"><div class="card"><div class="big">${p.metric}</div>${p.ml}</div></div><h3 style="margin-top:30px">The problem</h3><p class="lead">${p.problem}</p><h3 style="margin-top:30px">How it works</h3><ol>${p.steps.map(s=>`<li><b style="color:var(--tx)">${s[0]}</b> — ${s[1]}</li>`).join('')}</ol><h3 style="margin-top:30px">What’s new</h3><p class="lead">${p.inn}</p><h3 style="margin-top:30px">Guardrails &amp; quality</h3><ul class="lead">${p.gd.map(g=>`<li>${g}</li>`).join('')}</ul><h3 style="margin-top:30px">My role</h3><p class="lead">${p.role}</p><h3 style="margin-top:30px">Stack</h3><div>${p.stack.map(s=>`<span class="chip">${s}</span>`).join('')}</div><div class="row" style="margin-top:34px;justify-content:space-between"><button class="btn" data-go="${(i+n-1)%n}">← ${P[(i+n-1)%n].title.split(' ')[0]}</button>${p.repo?`<a class="btn" href="${p.repo}" target="_blank" rel="noopener noreferrer">GitHub Repo ↗</a>`:''}${p.repo?`<a class="btn" href="${p.repo}" target="_blank" rel="noopener noreferrer">GitHub Repo ↗</a>`:''}${p.repo?`<a class="btn" href="${p.repo}" target="_blank" rel="noopener noreferrer">GitHub Repo ↗</a>`:''}<a class="btn p" href="mailto:ranjithasgowda245@gmail.com?subject=About%20${encodeURIComponent(p.title)}">Talk about a project like this</a><button class="btn" data-go="${(i+1)%n}">${P[(i+1)%n].title.split(' ')[0]} →</button></div>`;
+function openCS(i){cur=i;const p=P[i],n=P.length;$('#csb').innerHTML=`<button class="btn" id="x">Close ✕</button><p class="kick" style="margin-top:24px">Case study · ${p.tag}</p><h2>${p.title}</h2><p class="lead">${p.approach}</p><div class="row"><div class="card"><div class="big">${p.metric}</div>${p.ml}</div></div><h3 style="margin-top:30px">The problem</h3><p class="lead">${p.problem}</p><h3 style="margin-top:30px">How it works</h3><ol>${p.steps.map(s=>`<li><b style="color:var(--tx)">${s[0]}</b> — ${s[1]}</li>`).join('')}</ol><h3 style="margin-top:30px">What’s new</h3><p class="lead">${p.inn}</p><h3 style="margin-top:30px">Guardrails &amp; quality</h3><ul class="lead">${p.gd.map(g=>`<li>${g}</li>`).join('')}</ul><h3 style="margin-top:30px">My role</h3><p class="lead">${p.role}</p><h3 style="margin-top:30px">Stack</h3><div>${p.stack.map(s=>`<span class="chip">${s}</span>`).join('')}</div><div class="row" style="margin-top:34px;justify-content:space-between"><button class="btn" data-go="${(i+n-1)%n}">← ${P[(i+n-1)%n].title.split(' ')[0]}</button>${p.demo?`<a class="btn live" href="${p.demo}" target="_blank" rel="noopener noreferrer"><span class="demo-dot" aria-hidden="true"></span>Live Demo &#8599;</a>`:""}${p.repo?`<a class="btn" href="${p.repo}" target="_blank" rel="noopener noreferrer">GitHub Repo &#8599;</a>`:""}<a class="btn p" href="mailto:ranjithasgowda245@gmail.com?subject=About%20${encodeURIComponent(p.title)}">Talk about a project like this</a><button class="btn" data-go="${(i+1)%n}">${P[(i+1)%n].title.split(' ')[0]} →</button></div>`;
 $('#cs').classList.add('on');$('#cs').scrollTop=0;document.body.style.overflow='hidden'}
 function closeCS(){$('#cs').classList.remove('on');document.body.style.overflow=''}
 $('#cs').onclick=e=>{if(e.target.id=='x'||e.target.id=='cs')closeCS();const g=e.target.closest('[data-go]');if(g)openCS(+g.dataset.go)};
@@ -299,7 +309,7 @@ const S=P[0].steps;$('#flow').innerHTML=S.map(s=>`<div><b>${s[0]}</b><small>${s[
 let timer;$('#pbtn').onclick=()=>{clearInterval(timer);let k=0;const f=[...document.querySelectorAll('#flow div')];
 const step=()=>{if(k>=S.length){clearInterval(timer);f.forEach(d=>d.classList.remove('on'));$('#play').textContent='Done: the emotion is read and the music is ready to play.';return}f.forEach((d,j)=>d.classList.toggle('on',j==k));$('#play').textContent=S[k][0]+': '+S[k][1]+'.';k++};step();timer=setInterval(step,1400)};
 // chat
-const A=[['What have you built?','I’ve built four projects: MoodSync-AI (emotion-based music recommendations), CampusAR (indoor and outdoor campus navigation with AR), a real-time ASL sign language interpreter, and an Events Management System.'],
+const A=[['What have you built?','I’ve built five flagship projects including RetailPulse (Live Demo: retailpulse.up.railway.app), MoodSync-AI V2 (Live Demo: mood-sync-ai-v2-aoofar6ji-ranjitha-s.vercel.app), MoodSync-AI (emotion-based music recommendations), CampusAR (indoor and outdoor campus navigation with AR), a real-time ASL sign language interpreter, and an Events Management System.'],
 ['What’s your tech stack?','Python, C, C++, Java and JavaScript, with React.js, FastAPI and ASP.NET Core on the web side. For AI I use OpenCV, TensorFlow/Keras, Pandas and NumPy, and for data MySQL and PostgreSQL.'],
 ['Where do you study?','I’m pursuing a B.E. in Computer Science & Engineering at RNS Institute of Technology, Bengaluru (2023 – 2027), with a CGPA of 9.49 / 10.'],
 ['What are you looking for?','Opportunities in software development, especially backend systems, cloud-native applications and AI-driven products, where I can keep growing and ship real work.'],

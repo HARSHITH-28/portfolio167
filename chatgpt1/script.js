@@ -61,8 +61,9 @@
           <p class="project-synopsis">${escapeHTML(project.synopsis)}</p>
           <div class="tech-tags">${project.tech.slice(0, 5).map(tag => `<span>${escapeHTML(tag)}</span>`).join('')}</div>
           <div class="project-actions">
-            <button class="project-detail-button" type="button" data-open-project="${escapeHTML(project.id)}" aria-label="Read case study for ${escapeHTML(project.title)}">Explore case study <span class="circled-arrow" aria-hidden="true">↗</span></button>
-            ${project.repoUrl ? `<a class="project-link-status" href="${escapeHTML(project.repoUrl)}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">VIEW GITHUB REPO ↗</a>` : `<span class="project-link-status">CASE STUDY READY</span>`}
+            ${safeURL(project.liveUrl) ? `<a class="project-demo-btn" href="${escapeHTML(safeURL(project.liveUrl))}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()"><span class="demo-dot" aria-hidden="true"></span>Live Demo &#8599;</a>` : ''}
+            <button class="project-detail-button" type="button" data-open-project="${escapeHTML(project.id)}" aria-label="Read case study for ${escapeHTML(project.title)}">Explore case study <span class="circled-arrow" aria-hidden="true">&#8599;</span></button>
+            ${safeURL(project.repoUrl) ? `<a class="project-link-status" href="${escapeHTML(safeURL(project.repoUrl))}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">VIEW GITHUB REPO &#8599;</a>` : `<span class="project-link-status">CASE STUDY READY</span>`}
           </div>
         </div>
       </article>
@@ -119,7 +120,7 @@
         </div>
         <div class="dialog-action-row">
           ${projectLink(project.repoUrl, 'Repository')}
-          ${projectLink(project.liveUrl, 'Live demo')}
+          ${projectLink(project.liveUrl, 'Live Demo')}
           ${(!project.repoUrl && !project.liveUrl) ? '<small>Repository and live links can be configured in <code>data.js</code>.</small>' : ''}
         </div>
       </div>`;
